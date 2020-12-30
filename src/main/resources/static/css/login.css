@@ -133,7 +133,7 @@ section{
 
 
 #or1{
-    font-size: 18px;
+    font-size: 17px;
 }
 
 #logo1{
@@ -160,9 +160,23 @@ section{
 }
 
 .modal.signup{
-    height: 680px;
+
+    height: 730px;
 }
 
 .ui.form.sign1.field{
     font-size: 20px;
 }
+
+.ui.error.message{
+    text-align: center;
+    font-weight: bold;
+}
+
+
+#error-icon:after{
+    display: block;
+    background-image: url("static/img/alarm.png");
+    position: absolute;
+}
+

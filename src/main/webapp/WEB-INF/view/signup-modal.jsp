@@ -23,39 +23,37 @@
     </div>
 
     <br>
-    <div id="or1">
-        <b> <h4 style="text-align: center">OR</h4></b>
-    </div>
+    <div class="ui horizontal divider" id="or1">or</div>
     <br>
     <form class="ui form sign1"  enctype="multipart/form-data" >
         <div class="field">
             <label style="font-size: 16px">Email</label>
-            <input  name="email" placeholder="Email" />
+            <input  name="email" placeholder="Email"  required/>
         </div>
         <div class="field">
             <label style="font-size: 16px">Username</label>
-            <input type="text" name="username" placeholder="Username" />
+            <input type="text" name="username" placeholder="Username" required/>
         </div>
         <div class="field">
             <label style="font-size: 16px">Password</label>
-            <input type="text" name="password" placeholder="Password" />
+            <input type="text" name="password" placeholder="Password" required/>
         </div>
         <div class="field">
             <label style="font-size: 16px">Retype Password</label>
-            <input type="text" name="retype-password" placeholder="Retype Password">
+            <input type="text" name="password1" placeholder="Retype Password" required>
         </div>
-        <div class="field">
+        <div class="inline field">
             <div class="ui checkbox">
-                <input type="checkbox" tabindex="0" class="hidden">
-                <label>Show Password</label>
+                <input type="checkbox" name="terms" required>
+                <label>I agree to the terms and conditions</label>
             </div>
         </div>
-        <button class="ui orange button" id="login-btn-form1" style="font-size: 17px">Signup</button>
+        <button class="ui orange submit button" id="login-btn-form1" type="submit" style="font-size: 17px">Signup</button>
     </form>
 
 
     <div class="actions">
-        <div class="ui error message"></div>
+        <div class="ui error message signup" style="display: none"></div>
         <div class="ui cancel button">Cancel</div>
     </div>
 
@@ -67,4 +65,49 @@
             .modal('show')
         ;
     }
+</script>
+
+<script>
+    $('.ui.form.sign1').validate({
+        rules: {
+            email: {
+                required: true,
+                email: true
+            },
+            password:   {
+                required: true,
+                rangelength:[8,16]
+            }
+        },  //end rules
+        messages: {
+            email: {
+                required: 'Required field',
+                email: 'This is not a valid email address'
+            },
+            password: {
+                required: 'Please type a password',
+                rangelength: 'Password must be between 8 and 16 characters long.'
+            }
+        },//end messages
+        errorPlacement: function(error, element) {
+            if( element.is(':radio') || element.is(':checkbox')) {
+                error.appendTo(element.parent());
+            } else {
+                error.insertAfter(element);
+            }
+        },//end errorPlacement
+        showErrors: function(errorMap, errorList) {
+            if (submitted) {
+                let summary = "You have the following errors: <br/>";
+                $.each(errorList, function() { summary += " * " + this.message + "<br/>"; });
+                $(".ui.modal.signup").html(summary);
+                submitted = false;
+            }
+
+            this.defaultShowErrors();
+        },
+        invalidHandler: function(form, validator) {
+            submitted = true;
+        }
+    });
 </script>

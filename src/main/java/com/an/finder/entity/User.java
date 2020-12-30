@@ -52,7 +52,8 @@ public class User {
     @Size(min=2,max=20,message = "username size must be from 2 to 20")
     private String lastname;
 
-    private int age;
+
+    private String age;
 
     private String gender;
 
@@ -135,13 +136,6 @@ public class User {
         this.lastname = lastname;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
 
     public String getGender() {
         return gender;
@@ -229,5 +223,30 @@ public class User {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", roles=" + roles +
+                ", fristname='" + fristname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", age='" + age + '\'' +
+                ", gender='" + gender + '\'' +
+                ", about='" + about + '\'' +
+                ", citylive='" + citylive + '\'' +
+                ", interest='" + interest + '\'' +
+                ", work='" + work + '\'' +
+                ", school='" + school + '\'' +
+                ", location_Id='" + location_Id + '\'' +
+                ", gender_filter='" + gender_filter + '\'' +
+                ", max_distance_filter='" + max_distance_filter + '\'' +
+                ", age_range_filter='" + age_range_filter + '\'' +
+                ", status=" + status +
+                '}';
     }
 }

@@ -7,8 +7,9 @@ import com.an.finder.util.ErrorMessage;
 import com.an.finder.util.ValidationResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+/*import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;*/
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -20,52 +21,55 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@RestController
+@Controller
 public class UserRestController {
 
     @Autowired
     UserService userService;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+/*    @Autowired
+    private PasswordEncoder passwordEncoder;*/
 
 
+    @PostMapping(value = "modal-login")
+    public @ResponseBody
+    ValidationResponse loginViaAjax(Model model,
+                                    @ModelAttribute(value = "user") @Valid User user,
+                                    BindingResult result, HttpServletRequest request) {
+        ValidationResponse res = new ValidationResponse();
 
-    @PostMapping(value = "ModalLogin")
-    public ValidationResponse loginViaAjax(Model model,
-                                           @ModelAttribute(value = "user") @Valid User user,
-                                           BindingResult result, HttpServletRequest request){
-        ValidationResponse res=new ValidationResponse();
-        if(result.hasErrors()){
-            res.setStatus("FAIL");
-            List<FieldError> allError=result.getFieldErrors();
-            final List<ErrorMessage> errorMessages=new ArrayList<ErrorMessage>();
-            for(FieldError objectError : allError){
-                errorMessages.add(new ErrorMessage(objectError.getField(),objectError.getDefaultMessage()));
-            }
-            res.setErrorMessageList(errorMessages);
-        }
+            User theUser = userService.findUserByEmail(user.getEmail());
+            final List<ErrorMessage> errorMessageList = new ArrayList<>();
+            try {
+                if (theUser.getEmail().matches(user.getEmail())) {
+                    //User is exist, compare the passwords are equals?
+                    if ((user.getPassword().matches(theUser.getPassword()))) {
+                        // uploadUserAttributesToSession(theUser,request);
+                        res.setStatus("SUCCESS");
+                    } else {
+                        res.setStatus("FAIL");
+                        errorMessageList.add((new ErrorMessage("password", "Incorrect password! Please retype.")));
 
-        else {
-            Optional<User> theUser=userService.findUserByEmail(user.getEmail());
-            final List<ErrorMessage> errorMessageList=new ArrayList<>();
-
-            if(theUser.isPresent()){
-                //User is exist, compare the passwords are equals?
-                if(passwordEncoder.matches(user.getPassword(),theUser.get().getPassword())){
-                   // uploadUserAttributesToSession(theUser,request);
-                    res.setStatus("SUCCESS");
+                    }
                 }
-                else {
-                    res.setStatus("FAIL");
-                    errorMessageList.add((new ErrorMessage("password","Invalid password!")));
-
-                }
-            }else {
+            } catch (NullPointerException ex) {
                 res.setStatus("FAIL");
-                errorMessageList.add(new ErrorMessage("FORM FAIL", "Incorrect Email or Password!"));
+                errorMessageList.add(new ErrorMessage("email", "The email you entered doesn't match any of the accounts!"));
+
             }
-        }
+
+/*        }else{
+            res.setStatus("FAIL");
+            errorMessageList.add(new ErrorMessage("FORM FAIL", "Incorrect Email or Password!"));
+        }*/
+
+
+            //Everything is O.K. and all odds controlled
+            //if there any error add it to errorlist  and send it.
+            res.setErrorMessageList(errorMessageList);
+
+        System.out.println(res.status);
+        System.out.println(res);
         return res;
     }
 

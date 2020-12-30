@@ -20,7 +20,7 @@ public class UserService {
     }
 
     @Transactional
-    public Optional<User> findUserByEmail(String email) {
+    public User findUserByEmail(String email) {
         return userDao.findUserByEmail(email);
     }
 /*    @Transactional

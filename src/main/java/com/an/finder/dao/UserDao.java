@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import java.util.Optional;
 
 
@@ -16,31 +17,36 @@ public class UserDao {
     @Autowired
     EntityManager entityManager;
 
-    public void saveOrUpdate(User user){
-        Session session=entityManager.unwrap(Session.class);
+    public void saveOrUpdate(User user) {
+        Session session = entityManager.unwrap(Session.class);
         session.saveOrUpdate(user);
     }
 
-    public User findUserById(int id){
-        Session session=entityManager.unwrap(Session.class);
+    public User findUserById(int id) {
+        Session session = entityManager.unwrap(Session.class);
 
-        Query<User> query=session.createQuery("from User u where u.id=:id");
-        query.setParameter("id",id);
+        Query<User> query = session.createQuery("from User u where u.id=:id");
+        query.setParameter("id", id);
 
-        User user=query.getSingleResult();
+        User user = query.getSingleResult();
 
         return user;
     }
 
-    public Optional<User> findUserByEmail(String email){
-        Session session=entityManager.unwrap(Session.class);
+    public User findUserByEmail(String email) {
+        Session session = entityManager.unwrap(Session.class);
 
-        Query<User> query=session.createQuery("from User u where u.email=:email");
-        query.setParameter("email",email);
+        Query<User> query = session.createQuery("from User u where u.email=:email");
+        query.setParameter("email", email);
 
-        User user=query.getSingleResult();
-        Optional<User> opt_user = Optional.ofNullable(user);
-
-        return opt_user;
+        User user=new User();
+        try {
+       user = query.getSingleResult();
+        }
+        catch(NoResultException nre){
+//Ignore this because as per your logic this is ok!
+            }
+            System.out.println(user);
+            return user;
+        }
     }
-}
