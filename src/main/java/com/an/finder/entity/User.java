@@ -34,7 +34,6 @@ public class User {
     @Size(min=2,max=30,message = "username size must be from 2 to 20")
     private String username;
 
-    @JsonIgnore
     @NotNull
     @Size(min = 1,message = "password is require")
     private String password;
@@ -110,6 +109,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
     }
 
     public Set<Role> getRoles() {

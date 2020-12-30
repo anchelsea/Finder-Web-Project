@@ -28,19 +28,19 @@
     <form class="ui form sign1"  enctype="multipart/form-data" >
         <div class="field">
             <label style="font-size: 16px">Email</label>
-            <input  name="email" placeholder="Email"  required/>
+            <input  name="email" placeholder="Email" id="Email"  required/>
         </div>
         <div class="field">
             <label style="font-size: 16px">Username</label>
-            <input type="text" name="username" placeholder="Username" required/>
+            <input type="text" name="username" id="Username" placeholder="Username" required/>
         </div>
         <div class="field">
             <label style="font-size: 16px">Password</label>
-            <input type="text" name="password" placeholder="Password" required/>
+            <input type="text" name="password" id="Password" placeholder="Password" required/>
         </div>
         <div class="field">
             <label style="font-size: 16px">Retype Password</label>
-            <input type="text" name="password1" placeholder="Retype Password" required>
+            <input type="text" name="rePassword" id="RePassword" placeholder="Retype Password" required/>
         </div>
         <div class="inline field">
             <div class="ui checkbox">
@@ -53,7 +53,7 @@
 
 
     <div class="actions">
-        <div class="ui error message signup" style="display: none"></div>
+        <div class="ui error message signup" id="generalErrorMessage" style="display: none"></div>
         <div class="ui cancel button">Cancel</div>
     </div>
 
@@ -107,7 +107,10 @@
             this.defaultShowErrors();
         },
         invalidHandler: function(form, validator) {
-            submitted = true;
+            submitted = false;
         }
     });
 </script>
+
+
+

@@ -34,9 +34,11 @@ public class UserRestController {
     @PostMapping(value = "modal-login")
     public @ResponseBody
     ValidationResponse loginViaAjax(Model model,
-                                    @ModelAttribute(value = "user") @Valid User user,
+                                    @RequestBody @Valid User user,
                                     BindingResult result, HttpServletRequest request) {
         ValidationResponse res = new ValidationResponse();
+
+
 
             User theUser = userService.findUserByEmail(user.getEmail());
             final List<ErrorMessage> errorMessageList = new ArrayList<>();
@@ -69,7 +71,7 @@ public class UserRestController {
             res.setErrorMessageList(errorMessageList);
 
         System.out.println(res.status);
-        System.out.println(res);
+
         return res;
     }
 
