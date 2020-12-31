@@ -30,10 +30,14 @@
 
 <%--Home section--%>
 <section id="home">
-    <jsp:include page="signin-modal.jsp"></jsp:include>
-    <jsp:include page="signup-modal.jsp"></jsp:include>
+    <div hidden>
+        <span class="success">Thank's for submitting the form</span>
+    </div>
+
+
+
     <div class="home-container">
-        <button class="ui inverted primary button test1" id="create-account" onclick="signupModal()">CREATE ACCOUNT</button>
+        <button class="ui inverted primary button test1" id="create-account" onclick="signupModal()" >CREATE ACCOUNT</button>
     </div>
     <div class="home-container">
         <button class="ui purple button test" id="login-btn" onclick="singinModal()">LOGIN</button>
@@ -75,6 +79,9 @@
 
 
 <script src="js/login.js"></script>
+<jsp:include page="signin-modal.jsp"></jsp:include>
+<jsp:include page="signup-modal.jsp"></jsp:include>
+
 </body>
 
 <footer id="main-footer">

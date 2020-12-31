@@ -1,4 +1,4 @@
-package com.an.finder.controller;
+package com.an.finder.restcontroller;
 
 import com.an.finder.entity.Role;
 import com.an.finder.entity.RoleName;
@@ -18,67 +18,66 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 
 @Controller
-public class LoginController {
+public class SignUpRestController {
 
     @Autowired
     UserService userService;
-
-/*    @GetMapping("/modal-signup")
-    public ModelAndView signup(){
-        ModelAndView modelAndView=new ModelAndView();
-        User user=new User();
-        modelAndView.addObject("user",user);
-        modelAndView.setViewName("signup-modal");
-
-        return modelAndView;
-    }*/
 
 
     @PostMapping(value = "modal-signup")
     public @ResponseBody
     ValidationResponse signUpViaAjax(Model model,
-                              @ModelAttribute(value = "user") @Valid User user,
+                                     @RequestBody @Valid User user,
                               BindingResult result, HttpServletRequest request,
-                         @RequestParam("rePassword") String rePassword )
+                         @RequestParam(value = "rePassword",required = false) String rePassword )
      {
         ValidationResponse res = new ValidationResponse();
 
         final List<ErrorMessage> errorMessageList=new ArrayList<>();
-         System.out.println(user.getEmail());
-         System.out.println(user.getEmail());
-         System.out.println(user.getEmail());
-         System.out.println(user.getUsername());
+
          User theUser = userService.findUserByEmail(user.getEmail());
-         System.out.println(theUser.getEmail());
         try{
-  /*          if(!user.getPassword().equals(rePassword)){
+/*            if(!user.getPassword().equals(user.get)){
                 res.setStatus("FAIL");
                 errorMessageList.add((new ErrorMessage("rePassword", "Incorrect password! Please retype.")));
-
             }*/
-            if (theUser.getEmail()==null & theUser.getUsername()==null) {
+            if (theUser.getEmail()==null ) {
                 //User is exist, compare the passwords are equals?
-                System.out.println(user.getUsername());
-/*                User user1 = new User();
-                user1.setUsername(user.getUsername());
-                user1.setPassword(user.getPassword());
-                user1.setEmail(user.getEmail());*/
-                userService.saveOrUpdate(user);
+
+                try {
+                    if(theUser.getUsername()==null){
+                        user.setStatus(true);
+                        userService.saveOrUpdate(user);
+                        res.setStatus("SUCCESS");
+                    }
+                    else {
+                        res.setStatus("FAIL");
+                        errorMessageList.add(new ErrorMessage("username", "The username has exist in another account!"));
+                    }
+                }catch (Exception ex){
+                    res.setStatus("FAIL");
+                    errorMessageList.add(new ErrorMessage("username", "The username has exist in another account!"));
+                }
+
+            }
+            else {
+                res.setStatus("FAIL");
+                errorMessageList.add(new ErrorMessage("email", "The email has exist in another account!"));
             }
 
         }catch (Exception ex){
             res.setStatus("FAIL");
-            errorMessageList.add(new ErrorMessage("email", "The email/username has exist in another account!"));
+            errorMessageList.add(new ErrorMessage("email", "The email has exist in another account!"));
         }
          res.setErrorMessageList(errorMessageList);
 
          System.out.println(res.status);
-         System.out.println(res);
         return res;
     }
 

@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-public class UserRestController {
+public class LoginRestController {
 
     @Autowired
     UserService userService;

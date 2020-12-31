@@ -1,4 +1,4 @@
-import axios from "axios";
+
 
 $('.ui.modal.signin')
     .modal('attach events', '.test.button', 'show')

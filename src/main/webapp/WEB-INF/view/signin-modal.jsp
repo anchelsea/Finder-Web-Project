@@ -33,12 +33,12 @@
         </div>
         <div class="field" style="font-size: 16px">
             <label>Password</label>
-            <input type="text" id="Password" name="password" placeholder="Password" required>
+            <input type="password" id="Password" name="password" placeholder="Password" required>
         </div>
         <div class="field" style="font-size: 16px">
             <div class="ui checkbox">
                 <input type="checkbox" tabindex="0" class="hidden">
-                <label>Show password</label>
+                <label>Save password</label>
             </div>
         </div>
         <button class="ui orange button" id="login-btn-form"  style="font-size: 17px">Login</button>
@@ -55,6 +55,7 @@
 
 
 <script type="text/javascript">
+    console.log("ccccccccccc")
     function singinModal() {
         $('.ui.modal.signin')
             .modal('show')
