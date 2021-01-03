@@ -4,9 +4,23 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
 }
+
+/*#homepage-btn img{
+    display: inherit;
+    background-image: url("../img/homepage1.png");
+}*/
+
+/*#homepage-btn{
+    border-bottom: 3px solid #fd5068;
+}*/
 .container {
     display: flex;
 }
+
+.container button:focus {
+    outline: none;
+}
+
 .side {
     min-width: 320px;
     background-color: white;
@@ -14,6 +28,7 @@ body {
     min-height: 100vh;
     border-right: 1px solid #e1e1e1;
 }
+
 .content {
     width: 100%;
     display: flex;
@@ -22,10 +37,11 @@ body {
     flex-direction: column;
 }
 
-.space{
-    width:320px;
-    height:25px ;
+.space {
+    width: 320px;
+    height: 25px;
 }
+
 .side .header {
     /*margin-top: 40px;*/
     border: none;
@@ -54,7 +70,7 @@ body {
 }
 
 
-.side .side-btn .avatar1{
+.side .side-btn .avatar1 {
     background-color: white;
     box-shadow: 0 1px 8px 0 rgba(0, 20, 20, 0.2);
     width: 100%;
@@ -67,11 +83,11 @@ body {
 }
 
 .side .side-btn .title {
- margin-left: 18px;
+    margin-left: 18px;
     font-size: 15px;
 }
 
-.side .side-btn .avatar1 img{
+.side .side-btn .avatar1 img {
     width: 60px;
     height: 60px;
     border-radius: 12px;
@@ -80,14 +96,11 @@ body {
     background-color: white;
 }
 
-.side .side-btn .avatar1:hover{
+.side .side-btn .avatar1:hover {
     background-color: #E4E6EB;
     box-shadow: 0 0 15px 0 rgba(43, 78, 78, 0.1);
     border-right: 5px solid #007eed;
 }
-
-
-
 
 
 /*CARD*/
@@ -111,16 +124,16 @@ body {
     left: 25px;
 }
 
-.content .card .user .profile .info-icon{
-margin-left: 165px;
+.content .card .user .profile .info-icon {
+    margin-left: 165px;
     border: none;
     background-color: transparent;
 }
 
-.content .card .user .profile .info-img:hover{
-    width: 120%;
-    height: 120%;
+.content .card .user .profile .info-detail img:hover {
+    transform: scale(1.25);
 }
+
 
 .content .card .user .name {
     color: #fff;
@@ -140,6 +153,7 @@ margin-left: 165px;
     align-items: center;
     padding: 0 0 20px 0;
 }
+
 
 .content .card .local i {
     margin: 5px 0;

@@ -24,4 +24,14 @@ public class HomeController {
     public String message(){
         return "message";
     }
+
+    @GetMapping("/match")
+    public String match(){
+        return "match";
+    }
+
+    @GetMapping("/profile")
+    public String profile(){
+        return "profile";
+    }
 }

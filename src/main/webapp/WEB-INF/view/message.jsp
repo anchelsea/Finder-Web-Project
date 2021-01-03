@@ -8,7 +8,11 @@
     <link rel="icon" href="img/like.png">
     <link rel="stylesheet" href="css/semantic.css">
     <link rel="stylesheet" href="css/message.css">
-    <title>Finder | Message</title>
+
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/semantic.js"></script>
+    <script src="js/lib/Semantic-UI-Alert.js"></script>
+    <title>Message | Finder</title>
 </head>
 <body>
 
@@ -16,11 +20,11 @@
 
 <div class="container">
 
-    <div class="side">
+    <div class="side" >
         <div class="space"></div>
         <div class="header">
             <div class="avatar">
-                <img src="img/minyoung.jpg" alt=""/>
+                <img src="img/message1.png" alt=""/>
             </div>
             <div class="title"> Messenger</div>
 
@@ -94,6 +98,7 @@
             <button class="music-input"><img src="img/music.png" alt=""></button>
             <input type="text" placeholder="Type a message" class="text-input">
             <button class="smile-input"><img src="img/smile.png" alt=""></button>
+            <button class="send-input">SEND</button>
         </div>
     </div>
 
@@ -114,8 +119,12 @@
                         <span class="age">22</span>
                     </div>
                     <div class="local">
-                        <i class="local-icon"></i>
+                        <i class="local-icon" ></i>
                         <span> 20 kilometer away</span>
+                    </div>
+                    <div class="sex-container">
+                        <i class="sex-icon"></i>
+                        <span class="sex-name">Woman</span>
                     </div>
                     <div class="school-container">
                         <i class="school-icon"></i>
@@ -132,8 +141,24 @@
             </div>
         </div>
 
+        <div class="unmatch-container" >
+            <button class="unmatch-btn">UNMATCH</button>
+            <button class="report-btn">REPORT</button>
+        </div>
     </div>
 </div>
 
+
+<script type="text/javascript">
+    $(changeHomePageImg);
+    function changeHomePageImg() {
+
+        let imageUrl = "img/homepage1.png";
+        /*$("#homepage_img").css("background-image", "url(" + imageUrl + ")");*/
+        document.getElementById("message_img").style.backgroundColor="#ffe0e4";
+        document.getElementById("message-btn").style.borderBottom="4px solid #fd5068";
+
+    }
+</script>
 </body>
 </html>

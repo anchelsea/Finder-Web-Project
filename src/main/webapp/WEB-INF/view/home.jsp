@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="css/home.css">
     <link rel="icon" href="img/like.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/semantic.js"></script>
+    <script src="js/lib/Semantic-UI-Alert.js"></script>
     <title>Finder | Dating, Make Friends & Meet New People</title>
 </head>
 <body>
@@ -58,12 +62,18 @@
                         src="img/minyoung.jpg"
                         alt=""
                 />
-                <div class="profile">       
+                <div class="profile">
                     <div class="name">Rafaela <span>20</span></div>
                     <div class="local">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span> 20 kilometer away</span>
-                        <button class="info-icon" title="More info"><img class="info-img" src="img/info.png" alt=""></button>
+                        <div class="local-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span> 20 kilometer away</span>
+                        </div>
+                        <div class="info-detail">
+                            <button class="info-icon" title="More info"><img class="info-img" src="img/info.png" alt="">
+                            </button>
+                        </div>
+
                     </div>
 
                 </div>
@@ -82,6 +92,18 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(changeHomePageImg);
+    function changeHomePageImg() {
+
+        let imageUrl = "img/homepage1.png";
+        /*$("#homepage_img").css("background-image", "url(" + imageUrl + ")");*/
+        document.getElementById("homepage_img").style.backgroundColor="#ffe0e4";
+        document.getElementById("homepage-btn").style.borderBottom="4px solid #fd5068";
+
+    }
+</script>
 </body>
 </html>
 

@@ -2,22 +2,25 @@ body {
     background-color: #f5f7fa;
     font-family: 'Roboto', sans-serif;
     margin: 0;
+    max-height: 100vh;
+
 }
 
 
 .container {
     display: flex;
     position: relative;
+
 }
 
 .side {
     width: 375px;
     min-width: 320px;
-    height: 200px;
     background-color: #fff;
-    height: 100%;
     min-height: 100vh;
     border-right: 1px solid #e1e1e1;
+    height: 100%;
+
 
 }
 
@@ -30,7 +33,7 @@ body {
 .side .header {
     background: linear-gradient(262deg, #ff7854, #fd267d);
     width: 100%;
-    height: 60px;
+    height: 67px;
     box-shadow: 0 1px 8px 0 rgba(0, 20, 20, 0.2);
     display: flex;
     align-items: center;
@@ -41,8 +44,10 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 40px;
-    border: 2px solid #fff;
-    box-shadow: 0 1px 8px 0 rgba(0, 20, 20, 0.2);
+    margin-top: 5px;
+    margin-left: 18px;
+/*    border: 2px solid #fff;
+    box-shadow: 0 1px 8px 0 rgba(0, 20, 20, 0.2);*/
 }
 
 .side .header .title {
@@ -124,7 +129,7 @@ body {
 
 .mess .content-mess {
     width: 100%;
-    height: 730px;
+    height: 760px;
     border-bottom: 2px solid #e1e1e1;
 }
 
@@ -144,7 +149,7 @@ body {
     height: 80%;
 }
 
-.ui .card{
+.ui .card {
     width: 100%;
     height: 90%;
 }
@@ -182,73 +187,127 @@ body {
     border-radius: 50%;
 }
 
+.mess .input-mess {
+    display: flex;
+}
+
+.mess .input-mess button {
+    padding-top: 2px;
+    background-color: transparent;
+    border: none;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.mess .input-mess .text-input {
+    width: 690px;
+    height: 40px;
+    margin-top: 5px;
+    margin-left: 2px;
+    border: none;
+}
+
+.mess .input-mess .send-input {
+    width: 79px;
+    height: 33px;
+    margin-top: 8px;
+    border-radius: 12px;
+    background-color: #e1e1e1;
+    color: white;
+    font-size: 19px;
+    font-weight: bold;
+
+}
+
+.mess .input-mess button:focus {
+    outline: none;
+}
+
+
+.mess .input-mess input:focus {
+    outline: none;
+}
+
 /*Card*/
-.profile .card img{
+.profile .card img {
     width: 100%;
     height: 600px;
 }
 
-.profile .card .content{
+.profile .card .content {
     padding-left: 25px;
     border-bottom: 2px solid #e1e1e1;;
     padding-bottom: 10px;
 }
 
 
-
-.profile .card .content .name-profile{
+.profile .card .content .name-profile {
     display: flex;
 }
 
-.profile .card .content .name-profile .name{
+.profile .card .content .name-profile .name {
     padding-top: 3px;
     font-size: 29px;
 }
 
-.profile .card .content .name-profile .age{
+.profile .card .content .name-profile .age {
     font-size: 22px;
-    margin-left:    17px;
+    margin-left: 17px;
     margin-top: 14px;
 }
 
-.profile .card .content .local{
+.profile .card .content .local {
     display: flex;
     align-items: center;
     padding: 0 0 5px 0;
 }
 
-.profile .card .content .local{
+.profile .card .content .local {
     display: flex;
     align-items: center;
     padding: 0 0 8px 0;
 }
 
-.profile .card .content .local span{
+.profile .card .content .local span {
     font-size: 19px;
     padding: 0 10px;
 }
 
-.profile .card .content .school-container{
+.profile .card .content .school-container {
     display: flex;
     align-items: center;
 }
 
-.profile .card .content .school-container span{
+.profile .card .content .school-container span {
     font-size: 19px;
     padding: 0 10px;
 }
 
-.profile .card .content .live-container{
+.profile .card .content .live-container {
     display: flex;
     align-items: center;
-   padding-top: 5px;
+    padding-top: 5px;
 }
-.profile .card .content .live-container span{
+
+.profile .card .content .live-container span {
     font-size: 19px;
     padding: 0 10px;
 }
 
-.profile .card .description{
+
+.profile .card .content .sex-container {
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
+}
+
+.profile .card .content .sex-container span {
+    font-size: 19px;
+    padding: 0 10px;
+}
+
+
+.profile .card .description {
     padding-bottom: 10px;
     display: flex;
     align-items: center;
@@ -258,4 +317,59 @@ body {
     font-size: 19px;
     border-bottom: 2px solid #e1e1e1;
 
+}
+
+
+.profile .unmatch-container {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    margin-top: 10px;
+}
+
+.profile .unmatch-container button {
+    width: 50%;
+    height: 70px;
+    font-weight: bold;
+    color: black;
+    background-color: #e1e1e1;
+    border: none;
+}
+
+.profile .unmatch-container .unmatch-btn {
+    border-right: 1px solid #6c6c6c;
+}
+
+.profile .unmatch-container button:hover {
+
+    background: linear-gradient(262deg, #ff7854, #fd267d);
+    box-shadow: 0 1px 8px 0 rgba(0, 20, 20, 0.2);
+}
+
+.profile .unmatch-container button:focus {
+    outline: none;
+}
+
+.card .local i{
+    height: 25px;
+    width: 25px;
+    background-image: url("../img/location.png");
+}
+
+.card .school-container i{
+    height: 25px;
+    width: 25px;
+    background-image: url("../img/school.png");
+}
+
+.card .live-container i{
+    height: 25px;
+    width: 25px;
+    background-image: url("../img/house.png");
+}
+
+.card .sex-container i{
+    height: 25px;
+    width: 25px;
+    background-image: url("../img/sex.png");
 }

@@ -1,3 +1,8 @@
+
+#header button:focus{
+    outline: none;
+}
+
 #header {
     width: 100%;
     height: 58px;
@@ -5,6 +10,8 @@
     padding: 3px;
     color:#3d7de5 ;
 }
+
+
 
 
 #finder-btn{
@@ -86,7 +93,7 @@ border-radius: 50%;
 #homepage-btn:hover{
     background-color: #E4E6EB;
     border-radius: 6px;
-    border-bottom: 3px solid #fd5068;
+    border-bottom: 4px solid #fd5068;
     padding-bottom: 2px;
 
 }
@@ -94,21 +101,21 @@ border-radius: 50%;
 #match-btn:hover{
     background-color: #E4E6EB;
     border: none;
-    border-bottom: 3px solid #fd5068;
+    border-bottom: 4px solid #fd5068;
     padding-bottom: 2px;
 }
 
 #message-btn:hover{
     background-color: #E4E6EB;
     border: none;
-    border-bottom: 3px solid #fd5068;
+    border-bottom: 4px solid #fd5068;
     padding-bottom: 2px;
 }
 
 #discover-btn:hover{
     background-color: #E4E6EB;
     border: none;
-    border-bottom: 3px solid #fd5068;
+    border-bottom: 4px solid #fd5068;
     padding-bottom: 2px;
 }
 
