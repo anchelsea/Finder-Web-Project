@@ -3,7 +3,7 @@ body {
     background-color: #f5f7fa;
     font-family: 'Roboto', sans-serif;
     margin: 0;
-    overflow-y: hidden ;
+    overflow-y: hidden;
 }
 
 /*#homepage-btn img{
@@ -28,6 +28,7 @@ body {
     height: 100%;
     min-height: 100vh;
     border-right: 1px solid #e1e1e1;
+    overflow: hidden;
 }
 
 .content {
@@ -36,6 +37,8 @@ body {
     padding: 20px 0;
     align-items: center;
     flex-direction: column;
+
+
 }
 
 .space {
@@ -73,7 +76,6 @@ body {
 }
 
 
-
 .side .side-btn .avatar1 {
     background-color: white;
     box-shadow: 0 1px 8px 0 rgba(0, 20, 20, 0.2);
@@ -87,7 +89,7 @@ body {
 
 }
 
-.side .side-btn .avatar1 .title{
+.side .side-btn .avatar1 .title {
     align-items: center;
     font-weight: bold;
 }
@@ -222,7 +224,7 @@ body {
     box-sizing: border-box;
 }
 
-.buttons .edit-info-btn{
+.buttons .edit-info-btn {
     font-weight: bold;
     font-size: 20px;
     color: #FFF;
@@ -233,10 +235,253 @@ body {
     height: 40px;
 }
 
-.buttons .edit-info-btn:hover{
+.buttons .edit-info-btn:hover {
     background: linear-gradient(262deg, #fd267d, #ff7854);
     transform: scale(1.15);
 }
+
+
+/*EDIT PROFILE*/
+.container .content1 {
+    width: 100%;
+    display: flex;
+    padding: 20px 0;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.container .content1 .card-edit {
+    width: 400px;
+    height: 800px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.25);
+    /*overflow-y: visible;*/
+    position: absolute;
+    overflow: auto;
+}::-webkit-scrollbar {
+     width: 0px;
+     background: transparent; /* make scrollbar transparent */
+ }
+
+.card-edit .image-edit {
+    width: 400px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.23);
+    display: block;
+}
+
+.card-edit .image-edit .image-edit-container li{
+    height: 155px;
+    width: 130px;
+    display: block;
+    margin: 7px 7px 7px 7px;
+}
+
+.card-edit .image-edit .image-edit-container  .image{
+
+}
+
+.card-edit .image-edit .image-edit-container .image-container1{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.card-edit .image-edit .image-edit-container .image-container1 .image-1 .btn-add1{
+    margin-top: 150px;
+    margin-right: 400px;
+}
+
+.card-edit .image-edit .image-edit-container .image-container2{
+    display: flex;
+    flex-direction: row;
+}
+
+.card-edit .image-edit .image-edit-container .image-container3{
+    display: flex;
+    flex-direction: row;
+}
+
+.card-edit .image-edit .image-edit-container  button{
+    margin-top: -27px;
+    margin-bottom: -30px;
+    margin-left: 100px;
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 25px;
+    background-color: #fd5068;
+    outline: none;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    color: white;
+}
+
+.card-edit .image-edit .image-edit-container  button:hover{
+     background: #ff7854;
+ }
+
+.card-edit .image-edit .image-edit-container .image img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.23);
+}
+
+
+.buttons .save-info-btn {
+    font-weight: bold;
+    font-size: 20px;
+    color: #FFF;
+    background: linear-gradient(262deg, #ff7854, #fd267d);
+    border-radius: 20px;
+    border: none;
+    width: 100px;
+    height: 40px;
+    margin-left: 150px;
+}
+
+.buttons .save-info-btn:hover {
+    background: linear-gradient(262deg, #fd267d, #ff7854);
+}
+
+.content1 .add-media button {
+    background: linear-gradient(262deg, #ff7854, #fd267d);
+    margin-left: 75px;
+    margin-top: 10px;
+    height: 38px;
+    width: 250px;
+    border-radius: 20px;
+    border: none;
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+}
+
+.content1 .add-media button:hover {
+    background: linear-gradient(262deg, #fd267d, #ff7854);
+}
+
+.content1 .card-edit label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.content1 .card-edit ul {
+    list-style-type: none;
+    display: block;
+}
+
+.content1 .about-edit {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.content1 .job-edit {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.content1 .school-edit {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.content1 .living-edit {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.content1 .gender-edit {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.content .card-edit .height-card {
+    height: 150vh;
+}
+
+.input-about {
+    line-height: 60px;
+    outline: none;
+    border: none;
+    padding-left: 24px;
+    font-size: 16px;
+}
+
+.input-job {
+    line-height: 40px;
+    border: none;
+    outline: none;
+    padding-left: 24px;
+    font-size: 16px;
+}
+.input-school {
+    line-height: 40px;
+    border: none;
+    outline: none;
+    padding-left: 24px;
+    font-size: 16px;
+}
+.input-living {
+    line-height: 40px;
+    border: none;
+    outline: none;
+    padding-left: 24px;
+    font-size: 16px;
+}
+.input-gender {
+    line-height: 40px;
+    border: none;
+    outline: none;
+    padding-left: 24px;
+    font-size: 16px;
+}
+/*
+ .card .user {
+    width: 380px;
+    height: 565px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.5);
+}
+*/
+.content1 .text-about{
+    margin-left: 15px;
+}
+
+.content1 .text-job{
+    margin-left: 15px;
+}
+
+.content1 .text-school{
+    margin-left: 15px;
+}
+
+.content1 .text-living{
+    margin-left: 15px;
+}
+
+.content1 .text-gender{
+    margin-left: 15px;
+}
+
+
 
 
 

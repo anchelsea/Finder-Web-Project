@@ -25,6 +25,11 @@ public class HomeController {
         return "message";
     }
 
+    @GetMapping("/discover")
+    public String discover(){
+        return "discover";
+    }
+
     @GetMapping("/match")
     public String match(){
         return "match";
@@ -32,6 +37,11 @@ public class HomeController {
 
     @GetMapping("/profile")
     public String profile(){
-        return "profile";
+        return "/profile/profile";
+    }
+
+    @GetMapping("/edit")
+    public String edit_profile(){
+        return "/profile/edit-profile";
     }
 }

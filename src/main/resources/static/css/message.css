@@ -3,13 +3,14 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     max-height: 100vh;
-
+    overflow-y: hidden;
 }
 
 
 .container {
     display: flex;
-    position: relative;
+/*    position: absolute;*/
+
 
 }
 
@@ -142,12 +143,13 @@ body {
     width: 513px;
     height: 100%;
     border-right: 1px solid #e1e1e1;
+    overflow: visible;
 }
-
-.profile .container {
-    width: 513px;
-    height: 80%;
-}
+/*
+.profile .profile1{
+    position: absolute;
+    overflow: auto;
+}*/
 
 .ui .card {
     width: 100%;

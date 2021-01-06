@@ -1,0 +1,279 @@
+
+body {
+    background-color: #f5f7fa;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    overflow-y: hidden;
+}
+
+/*#homepage-btn img{
+    display: inherit;
+    background-image: url("../img/homepage1.png");
+}*/
+
+/*#homepage-btn{
+    border-bottom: 3px solid #fd5068;
+}*/
+.container {
+    display: flex;
+}
+
+.container button:focus {
+    outline: none;
+}
+
+.side {
+    min-width: 500px;
+    background-color: white;
+    height: 100%;
+    min-height: 70vh;
+    border-right: 1px solid #e1e1e1;
+    overflow: hidden;
+    margin-left: 875px;
+    margin-top: 50px;
+    box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.13);
+}
+
+
+.side .header {
+    /*margin-top: 40px;*/
+    border: none;
+    background: linear-gradient(262deg, #ff7854, #fd267d);
+    width: 100%;
+    height: 60px;
+    box-shadow: 0 1px 8px 0 rgba(0, 20, 20, 0.2);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/*.side .hr{
+    margin-top: 30px;
+}*/
+
+.side .header .avatar img {
+    width: 40px;
+    height: 40px;
+    margin-left: 95px;
+}
+
+.side .header .title {
+    padding: 0 10px;
+    color: #fff;
+    font-size: 23px;
+    margin-left: 18px;
+}
+
+.arrow {
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #fd5068;
+}
+
+.side .side-btn span:hover {
+    color: #fd5068;
+}
+
+.side .side-btn span {
+    cursor: grab;
+}
+
+.side .side-btn .avatar1 {
+    background-color: white;
+    box-shadow: 0 1px 8px 0 rgba(0, 20, 20, 0.2);
+    width: 100%;
+    height: 70px;
+    padding: 30px 20px;
+    margin-top: 40px;
+    border: none;
+    align-items: center;
+    display: flex;
+
+
+}
+
+.side .side-btn .slide-distance {
+    width: 90%;
+}
+
+.side .side-btn .slide-agerange {
+    width: 90%;
+}
+
+.side .side-btn .info-discover-distance {
+    margin-top: -12px;
+}
+
+.side .side-btn .info-agerange {
+    margin-top: -12px;
+}
+
+.side .side-btn #age-range-id {
+    flex-direction: column;
+}
+
+.side .side-btn #distance-range-id {
+    flex-direction: column;
+}
+
+.side .side-btn .slide-distance {
+    margin-top: 10px;
+}
+
+.side .side-btn .slide-agerange {
+    margin-top: 10px;
+}
+
+.side .side-btn .slide-distance input {
+    width: 100%;
+
+}
+
+.side .side-btn .slide-agerange input {
+    width: 100%;
+}
+
+.side .side-btn .slider {
+    color: #fd5068;
+
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.side .side-btn .avatar1 .title {
+    align-items: center;
+    font-weight: bold;
+}
+
+.side .side-btn .title {
+    margin-left: 18px;
+    font-size: 15px;
+}
+
+.side .side-btn {
+    font-size: 17px;
+}
+
+
+/*.side .side-btn .avatar1:hover {
+    background-color: #E4E6EB;
+    box-shadow: 0 0 15px 0 rgba(43, 78, 78, 0.1);
+
+}*/
+
+.location-span {
+    margin-left: 200px;
+}
+
+.distance-span {
+    margin-left: 295px;
+}
+
+.looking-span {
+    margin-left: 295px;
+}
+
+.agerange-lable {
+    margin-right: 330px;
+
+}
+
+.distance-lable {
+    margin-right: 22px;
+}
+
+/*.agerange-span{
+    margin-left: 295px;
+}*/
+
+.side .info-agerange.age-value-lable {
+    margin-left: 295px;
+}
+
+.side .btn-done {
+    margin-left: 190px;
+    margin-top: 70px;
+
+}
+
+.side .btn-done button {
+    height: 30px;
+    width: 130px;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    outline: none;
+    background: linear-gradient(262deg, #fd267d, #ff7854);
+}
+
+.side .btn-done button:hover {
+
+    background: linear-gradient(262deg, #ff7854, #fd267d);
+}
+
+.modal {
+
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    max-width: 20%;
+    background-color: rgba(227, 227, 227, 0.4);
+
+}
+
+.location{
+    background-color: rgba(227, 227, 227, 0.4);;
+}
+
+.title-current-location {
+    height: 40px;
+    width: 100%;
+    padding-top: 12px;
+    padding-left: 5px;
+    font-weight: bold;
+}
+
+.content-location {
+    display: flex;
+    height: 74px;
+    width: 100%;
+    background: rgba(160, 206, 229, 0.66);
+}
+
+.content-location .img-location {
+    margin-top: 14px;
+    margin-left: 15px;
+}
+
+.content-location .info-location-h3 {
+    margin-top: 10px;
+    margin-bottom: 3px;
+    margin-left: 20px;
+    text-align: center;
+}
+
+.content-location .location-text {
+    text-align: center;
+    margin-left: 10px;
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+.content-location .img-check {
+    margin-top: 14px;
+    margin-right: 2px;
+}
+
+.actions {
+    width: 100%;
+    margin-top: 170px;
+
+}
+

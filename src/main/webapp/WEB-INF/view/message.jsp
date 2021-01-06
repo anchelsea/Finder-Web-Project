@@ -104,47 +104,50 @@
 
     <%--Profile--%>
     <div class="profile">
-        <div class="profile-container">
-            <div class="space"></div>
-            <div class="card">
-                <div>
-                    <div class="image-profile">
-                        <img src="img/pimchanok.jpg">
+        <div class="profile1">
+            <div class="profile-container">
+                <div class="space"></div>
+                <div class="card">
+                    <div>
+                        <div class="image-profile">
+                            <img src="img/pimchanok.jpg">
+                        </div>
                     </div>
-                </div>
 
-                <div class="content">
-                    <div class="name-profile">
-                        <h1 class="name">Pimnachok</h1>
-                        <span class="age">22</span>
+                    <div class="content">
+                        <div class="name-profile">
+                            <h1 class="name">Pimnachok</h1>
+                            <span class="age">22</span>
+                        </div>
+                        <div class="local">
+                            <i class="local-icon" ></i>
+                            <span> 20 kilometer away</span>
+                        </div>
+                        <div class="sex-container">
+                            <i class="sex-icon"></i>
+                            <span class="sex-name">Woman</span>
+                        </div>
+                        <div class="school-container">
+                            <i class="school-icon"></i>
+                            <span class="school-name">PTIT</span>
+                        </div>
+                        <div class="live-container">
+                            <i class="live-icon"></i>
+                            <span class="live-name">Ho Chi Minh City</span>
+                        </div>
                     </div>
-                    <div class="local">
-                        <i class="local-icon" ></i>
-                        <span> 20 kilometer away</span>
-                    </div>
-                    <div class="sex-container">
-                        <i class="sex-icon"></i>
-                        <span class="sex-name">Woman</span>
-                    </div>
-                    <div class="school-container">
-                        <i class="school-icon"></i>
-                        <span class="school-name">PTIT</span>
-                    </div>
-                    <div class="live-container">
-                        <i class="live-icon"></i>
-                        <span class="live-name">Ho Chi Minh City</span>
+                    <div class="description">
+                        <p class="descrip-detail">Hello every one! No ONS please!</p>
                     </div>
                 </div>
-                <div class="description">
-                    <p class="descrip-detail">Hello every one! No ONS please!</p>
-                </div>
+            </div>
+
+            <div class="unmatch-container" >
+                <button class="unmatch-btn">UNMATCH</button>
+                <button class="report-btn">REPORT</button>
             </div>
         </div>
 
-        <div class="unmatch-container" >
-            <button class="unmatch-btn">UNMATCH</button>
-            <button class="report-btn">REPORT</button>
-        </div>
     </div>
 </div>
 

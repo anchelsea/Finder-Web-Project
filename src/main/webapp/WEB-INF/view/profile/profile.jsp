@@ -16,10 +16,12 @@
 </head>
 <body>
 
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="../header.jsp"></jsp:include>
 <div class="space">
 
 </div>
+
+
 <div class="container">
 
     <div class="side">
