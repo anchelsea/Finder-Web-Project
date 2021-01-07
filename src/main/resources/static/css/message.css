@@ -175,7 +175,14 @@ body {
 
 .mess .mess-header .avatar1 .close-btn {
     border: none;
+    background-color: transparent;
     margin-left: 450px;
+    outline: none;
+
+}
+
+.mess .mess-header .avatar1 .close-btn img{
+    background-color: transparent;
 
 }
 
@@ -185,7 +192,7 @@ body {
 }
 
 .mess .mess-header .avatar1 .close-btn:hover {
-    background-color: #E4E6EB;
+    background-color: rgba(227, 227, 227, 0.84);
     border-radius: 50%;
 }
 

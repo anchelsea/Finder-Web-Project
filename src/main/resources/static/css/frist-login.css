@@ -59,3 +59,9 @@ margin-top: 40px;
 #upload-file-id div{
     width: 600px;
 }
+
+.modal #imagePreview{
+    margin: 20px auto;
+    width: 75%;
+
+}

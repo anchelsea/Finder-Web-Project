@@ -26,7 +26,7 @@
 
     <div class="side">
         <div>
-            <button class="header">
+            <button class="header" id="edit-profile-btn1">
                 <div class="avatar">
                     <img src="img/minyoung.jpg" alt=""/>
                 </div>
@@ -200,6 +200,10 @@
         document.getElementById("title-profile").style.backgroundColor="#ffe0e4";
 
     }
+
+    $('#edit-profile-btn1').click(function() {
+        window.location='http://localhost:8888/profile';
+    });
 </script>
 </body>
 </html>

@@ -1,24 +1,17 @@
 package com.an.finder.restcontroller;
 
-import com.an.finder.entity.Role;
-import com.an.finder.entity.RoleName;
 import com.an.finder.entity.User;
 import com.an.finder.service.UserService;
 import com.an.finder.util.ErrorMessage;
-import com.an.finder.util.SimpleException;
 import com.an.finder.util.ValidationResponse;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,6 +46,7 @@ public class SignUpRestController {
                 try {
                     if(theUser.getUsername()==null){
                         user.setStatus(true);
+
                         userService.saveOrUpdate(user);
                         res.setStatus("SUCCESS");
                     }

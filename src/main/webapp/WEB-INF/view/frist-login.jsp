@@ -241,7 +241,7 @@
         Preview Image
     </div>
 
-    <div id="imagePreview"></div>
+    <div id="imagePreview" style="align-items: center"></div>
     <div class="actions">
         <div class="ui black deny button">
             Cancel

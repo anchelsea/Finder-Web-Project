@@ -1,16 +1,17 @@
 package com.an.finder.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Email;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.HashSet;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "users", uniqueConstraints = {
+@Table(name = "user", uniqueConstraints = {
         @UniqueConstraint(columnNames = {
                 "username"
         }),
@@ -39,11 +40,9 @@ public class User {
     private String password;
 
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles = new HashSet<>();
+    @JsonIgnore
+    @OneToMany(mappedBy = "user",fetch = FetchType.EAGER )
+    private List<Authority> authorities;
 
     @Size(min=2,max=20,message = "username size must be from 2 to 20")
     private String fristname;
@@ -52,7 +51,9 @@ public class User {
     private String lastname;
 
 
-    private String age;
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private Date birthday;
 
     private String gender;
 
@@ -61,7 +62,14 @@ public class User {
 
     private String citylive;
 
-    private String interest;
+    @ManyToMany(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
+            CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinTable(
+            name = "user_interest",
+            joinColumns = {@JoinColumn(name = "user_id")},
+            inverseJoinColumns = {@JoinColumn(name = "interest_id")}
+    )
+    private List<Interest> interest;
 
     private String work;
 
@@ -75,9 +83,43 @@ public class User {
 
     private String age_range_filter;
 
+    private boolean frist_login;
+
     private boolean status;
 
     public User(){};
+
+    public List<Authority> getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(List<Authority> authorities) {
+        this.authorities = authorities;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public List<Interest> getInterest() {
+        return interest;
+    }
+
+    public void setInterest(List<Interest> interest) {
+        this.interest = interest;
+    }
+
+    public boolean isFrist_login() {
+        return frist_login;
+    }
+
+    public void setFrist_login(boolean frist_login) {
+        this.frist_login = frist_login;
+    }
 
     public Long getId() {
         return id;
@@ -111,21 +153,6 @@ public class User {
         this.password = password;
     }
 
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
-    }
-
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
 
     public String getFristname() {
         return fristname;
@@ -166,14 +193,6 @@ public class User {
 
     public void setCitylive(String citylive) {
         this.citylive = citylive;
-    }
-
-    public String getInterest() {
-        return interest;
-    }
-
-    public void setInterest(String interest) {
-        this.interest = interest;
     }
 
     public String getWork() {
@@ -232,28 +251,5 @@ public class User {
         this.status = status;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", email='" + email + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", roles=" + roles +
-                ", fristname='" + fristname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", age='" + age + '\'' +
-                ", gender='" + gender + '\'' +
-                ", about='" + about + '\'' +
-                ", citylive='" + citylive + '\'' +
-                ", interest='" + interest + '\'' +
-                ", work='" + work + '\'' +
-                ", school='" + school + '\'' +
-                ", location_Id='" + location_Id + '\'' +
-                ", gender_filter='" + gender_filter + '\'' +
-                ", max_distance_filter='" + max_distance_filter + '\'' +
-                ", age_range_filter='" + age_range_filter + '\'' +
-                ", status=" + status +
-                '}';
-    }
+
 }

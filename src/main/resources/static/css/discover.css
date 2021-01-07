@@ -1,6 +1,6 @@
 
 body {
-    background-color: #f5f7fa;
+    background-color: #d2d2d2;
     font-family: 'Roboto', sans-serif;
     margin: 0;
     overflow-y: hidden;
@@ -15,6 +15,7 @@ body {
     border-bottom: 3px solid #fd5068;
 }*/
 .container {
+    background-color: #f5f7fa;
     display: flex;
 }
 
