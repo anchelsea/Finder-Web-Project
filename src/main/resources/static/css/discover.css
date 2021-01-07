@@ -170,7 +170,8 @@ body {
 }
 
 .distance-span {
-    margin-left: 295px;
+    margin-left: 293px;
+    padding-right: 3px;
 }
 
 .looking-span {
@@ -228,7 +229,8 @@ body {
 
 }
 
-.location{
+
+.location {
     background-color: rgba(227, 227, 227, 0.4);;
 }
 
@@ -275,5 +277,52 @@ body {
     width: 100%;
     margin-top: 170px;
 
+}
+
+.gender .content-gender {
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    width: 100%;
+    border-bottom: 2px solid rgba(217, 217, 217, 0.53);
+    font-size: 18px;
+}
+
+
+.gender .content-gender .gender-name {
+    margin-top: 20px;
+    margin-left: 25px;
+}
+
+.gender .content-gender .gender-name:hover {
+   cursor: grab;
+    color: #fd267d;
+}
+
+
+.gender .content-gender .img-check1 {
+    margin-left: 250px;
+    margin-top: 15px;
+}
+
+
+.gender .content-gender #image-check-men {
+    margin-left: 275px;
+}
+
+.gender .content-gender #image-check-everyone {
+    margin-left: 238px;
+}
+
+.gender .lable-note{
+    margin-top: 30px;
+    font-size: 17px;
+    padding-left: 20px;
+    color: #ff7854;
+}
+
+
+.gender .actions{
+    margin-top: 40px;
 }
 

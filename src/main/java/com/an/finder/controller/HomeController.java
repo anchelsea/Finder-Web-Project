@@ -44,4 +44,9 @@ public class HomeController {
     public String edit_profile(){
         return "/profile/edit-profile";
     }
+
+    @GetMapping("/fristlogin")
+    public String fristLogin(){
+        return "/frist-login";
+    }
 }

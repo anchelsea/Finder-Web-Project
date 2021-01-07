@@ -42,6 +42,49 @@
         </div>
     </div>
 </div>
+
+
+<div class="ui modal gender" >
+
+    <div class="header" style="text-align: center">
+        Gender
+    </div>
+
+    <div class="content-gender" id="content-gender-man" onclick="changeInfoGenderMan()">
+        <div class="gender-name">
+                <span class="gender-span">Man</span>
+        </div>
+        <div class="img-check1" id="image-check-men" style="visibility: hidden">
+            <img src="img/check1.png" alt="">
+        </div>
+    </div>
+    <div class="content-gender" id="content-gender-woman" onclick="changeInfoGenderWoman()">
+        <div class="gender-name" >
+            <span class="gender-span">Women</span>
+        </div>
+        <div class="img-check1" id="image-check-women" style="visibility: visible">
+            <img src="img/check1.png" alt="">
+        </div>
+    </div>
+    <div class="content-gender" id="content-gender-everyone" onclick="changeInfoEveryone()">
+        <div class="gender-name" >
+            <span class="gender-span">Everyone</span>
+        </div>
+        <div class="img-check1" id="image-check-everyone" style="visibility: hidden">
+            <img src="img/check1.png" alt="">
+        </div>
+    </div>
+    <div class="lable-note" id="lable-note-gender">You will see only Women in discovery.</div>
+    <div class="actions">
+        <div class="ui black deny button">
+            Cancel
+        </div>
+        <div class="ui positive right labeled icon button">
+            Done
+            <i class="checkmark icon"></i>
+        </div>
+    </div>
+</div>
 <body>
 
 <jsp:include page="header.jsp"></jsp:include>\
@@ -75,7 +118,7 @@
                 <div class="info-discover-distance">
                     <lable class="distance-lable">Max distance</lable>
                     <span class="distance-span" id="distance-value">2km.</span>
-                    <lable class="km-lable">Km.</lable>
+                    <lable class="km-lable">  Km.</lable>
                 </div>
                 <div class="slide-distance">
                     <input type="range" min="2" max="100" value="0" class="slider" id="myDistanceRange">
@@ -85,7 +128,7 @@
 
         </div>
         <div class="side-btn">
-            <div class="avatar1">
+            <div class="avatar1" onclick="showModalChoiceGender()">
                 <lable class="looking-lable">Looking For</lable>
                 <span class="looking-span">Women</span>
                 <label class="arrow"> > </label>
@@ -101,7 +144,7 @@
 
 
                 <div class="slide-agerange">
-                    <input type="range" min="18" max="55" value="50" class="slider" id="myAgeRange">
+                    <input type="range" min="18" max="55" value="22" class="slider" id="myAgeRange">
                 </div>
             </div>
 
@@ -123,6 +166,7 @@
     $(changeHomePageImg);
     $(changeSliderValue);
     $(changeSliderValue1);
+ /*   $(changeInfoGender());*/
 
     function changeHomePageImg() {
 
@@ -152,12 +196,39 @@
         }
     }
 
-    function showModalChoiceSex() {
-
+    function showModalChoiceGender() {
+        $('.ui.modal.gender').modal('show');
     }
 
     function showModalChoiceLocation() {
         $('.ui.modal.location').modal('show');
+    }
+
+    function changeInfoEveryone() {
+        document.getElementById("lable-note-gender").innerHTML = "You will see only Everyone in discovery";
+        document.getElementById("image-check-everyone").style.visibility="visible";
+
+
+        document.getElementById("image-check-men").style.visibility="hidden";
+        document.getElementById("image-check-women").style.visibility="hidden";
+    }
+
+    function changeInfoGenderWoman() {
+        document.getElementById("lable-note-gender").innerHTML = "You will see only Women in discovery";
+        document.getElementById("image-check-women").style.visibility="visible";
+
+
+        document.getElementById("image-check-men").style.visibility="hidden";
+        document.getElementById("image-check-everyone").style.visibility="hidden";
+    }
+
+    function changeInfoGenderMan() {
+        document.getElementById("lable-note-gender").innerHTML = "You will see only Man in discovery";
+        document.getElementById("image-check-men").style.visibility="visible";
+
+
+        document.getElementById("image-check-women").style.visibility="hidden";
+        document.getElementById("image-check-everyone").style.visibility="hidden";
     }
 
 </script>
