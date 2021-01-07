@@ -24,7 +24,7 @@
 
     <div class="side">
         <div>
-            <button class="header">
+            <button class="header" id="profile-btn-side">
                 <div class="avatar">
                     <img src="img/minyoung.jpg" alt=""/>
                 </div>
@@ -32,21 +32,21 @@
             </button>
         </div>
         <div class="side-btn">
-            <button class="avatar1">
+            <button class="avatar1" id="match-btn-side">
                 <div><img src="img/match2.png" alt=""/></div>
                 <div class="title">Matches</div>
             </button>
 
         </div>
         <div class="side-btn">
-            <button class="avatar1">
+            <button class="avatar1" id="message-btn-side">
                 <div><img src="img/message2.png" alt=""/></div>
                 <div class="title">Message</div>
             </button>
         </div>
 
         <div class="side-btn">
-            <button class="avatar1">
+            <button class="avatar1" id="discover-btn-side">
                 <div><img src="img/discover2.png" alt=""/></div>
                 <div class="title">Discover Setting</div>
             </button>
@@ -103,6 +103,26 @@
         document.getElementById("homepage-btn").style.borderBottom="4px solid #fd5068";
 
     }
+
+    $('#homepage-btn').click(function() {
+        window.location='http://localhost:8888/home';
+    });
+
+    $('#match-btn-side').click(function() {
+        window.location='http://localhost:8888/match';
+    });
+
+    $('#message-btn-side').click(function() {
+        window.location='http://localhost:8888/message';
+    });
+
+    $('#discover-btn-side').click(function() {
+        window.location='http://localhost:8888/discover';
+    });
+
+    $('#profile-btn-side').click(function() {
+        window.location='http://localhost:8888/profile';
+    });
 </script>
 </body>
 </html>

@@ -85,7 +85,7 @@
             <div class="avatar1">
                 <div><img src="img/pimchanok.jpg" class="avatar-header-mess" alt=""/></div>
                 <div class="title">You matched with Pimnachok on 11/12/2020</div>
-                <div class="close-btn"><img src="img/close.png" title="Close Message" alt=""></div>
+                <button class="close-btn" id="close-message-btn"><img src="img/close.png" title="Close Message" alt=""></button>
             </div>
         </div>
         <div class="content-mess">
@@ -154,6 +154,11 @@
 
 <script type="text/javascript">
     $(changeHomePageImg);
+
+    $('#close-message-btn').click(function() {
+        window.location='http://localhost:8888/home';
+    });
+
     function changeHomePageImg() {
 
         let imageUrl = "img/homepage1.png";
@@ -162,6 +167,8 @@
         document.getElementById("message-btn").style.borderBottom="4px solid #fd5068";
 
     }
+
+
 </script>
 </body>
 </html>

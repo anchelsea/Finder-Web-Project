@@ -34,7 +34,7 @@
             </button>
         </div>
         <div class="side-btn">
-            <button class="avatar1">
+            <button class="avatar1" id="logout-btn">
                 <div class="title" id="logout-title">LOGOUT</div>
             </button>
 
@@ -79,7 +79,7 @@
             </div>
         </div>
         <div class="buttons">
-            <div class="edit-info">
+            <div class="edit-info" id="edit-profile-btn">
                 <button class="edit-info-btn">Edit Info</button>
             </div>
         </div>
@@ -93,8 +93,15 @@
         /*$("#homepage_img").css("background-image", "url(" + imageUrl + ")");*/
         document.getElementById("profile-btn").style.backgroundColor="#ffe0e4";
         document.getElementById("title-profile").style.backgroundColor="#ffe0e4";
-
     }
+
+    $('#logout-btn').click(function() {
+        window.location='http://localhost:8888/';
+    });
+
+    $('#edit-profile-btn').click(function() {
+        window.location='http://localhost:8888/edit';
+    });
 </script>
 </body>
 </html>

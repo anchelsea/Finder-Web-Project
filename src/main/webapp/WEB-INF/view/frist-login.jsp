@@ -105,12 +105,10 @@
 
                 <!-- Image preview -->
                 <div>
-                    <button onclick="showPreviewImage()">Image Preview</button>
+                    <button onclick="showPreviewImage()" style="margin-top: 20px" class="preview-btn">Image Preview</button>
                 </div>
 
             </div>
-
-
 
 
         </div>

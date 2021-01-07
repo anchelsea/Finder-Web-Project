@@ -152,7 +152,7 @@
         </div>
 
         <div class="btn-done">
-            <button class="done">
+            <button class="done" id="done-discover-btn">
              DONE
             </button>
         </div>
@@ -167,6 +167,10 @@
     $(changeSliderValue);
     $(changeSliderValue1);
  /*   $(changeInfoGender());*/
+
+    $('#done-discover-btn').click(function() {
+        window.location='http://localhost:8888/home';
+    });
 
     function changeHomePageImg() {
 

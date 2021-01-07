@@ -87,7 +87,7 @@
             <div class="avatar1">
                 <div><img src="img/pimchanok.jpg" class="avatar-header-mess" alt=""/></div>
                 <div class="title">You matched with Pimnachok on 11/12/2020</div>
-                <div class="close-btn"><img src="img/close.png" title="Close Message" alt=""></div>
+                <div class="close-btn" id="close-match-btn"><img src="img/close.png" title="Close Message" alt=""></div>
             </div>
         </div>
         <div class="content-mess">
@@ -160,8 +160,12 @@
         /*$("#homepage_img").css("background-image", "url(" + imageUrl + ")");*/
         document.getElementById("match_img").style.backgroundColor = "#ffe0e4";
         document.getElementById("match-btn").style.borderBottom = "4px solid #fd5068";
-
     }
+
+    $('#close-match-btn').click(function() {
+        window.location='http://localhost:8888/home';
+    });
+
 </script>
 </body>
 </html>

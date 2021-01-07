@@ -237,7 +237,7 @@ body {
 
 .buttons .edit-info-btn:hover {
     background: linear-gradient(262deg, #fd267d, #ff7854);
-    transform: scale(1.15);
+    transform: scale(1.05);
 }
 
 
