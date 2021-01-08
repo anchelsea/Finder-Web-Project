@@ -26,7 +26,7 @@
         <div>
             <button class="header" id="profile-btn-side">
                 <div class="avatar">
-                    <img src="img/minyoung.jpg" alt=""/>
+                    <img src="${user.photos[0].link}" alt=""/>
                 </div>
                 <div class="title">My profile</div>
             </button>
@@ -59,7 +59,7 @@
             <div class="user">
                 <img
                         class="user"
-                        src="img/minyoung.jpg"
+                        src="${user.photos[0].link}"
                         alt=""
                 />
                 <div class="profile">

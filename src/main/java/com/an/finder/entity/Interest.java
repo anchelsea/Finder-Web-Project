@@ -43,12 +43,5 @@ public class Interest {
         this.users = users;
     }
 
-    @Override
-    public String toString() {
-        return "Interest{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", users=" + users +
-                '}';
-    }
+
 }

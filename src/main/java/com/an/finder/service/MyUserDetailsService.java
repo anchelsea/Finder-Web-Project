@@ -1,4 +1,4 @@
-package com.an.finder.service;
+/*package com.an.finder.service;
 
 
 import com.an.finder.entity.User;
@@ -18,11 +18,11 @@ public class MyUserDetailsService implements UserDetailsService {
 
     @Override
     @Transactional
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userService.findUserByUsername(username);
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        User user = userService.findUserByUsername(email);
 
         if(user == null){
-            throw new UsernameNotFoundException("not found: " + username);
+            throw new UsernameNotFoundException("not found: " + email);
         }
 
         return new MyUserDetails(user);
@@ -30,4 +30,4 @@ public class MyUserDetailsService implements UserDetailsService {
     }
 
 
-}
+}*/

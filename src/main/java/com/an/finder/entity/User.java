@@ -52,12 +52,12 @@ public class User {
 
 
     @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
 
     private String gender;
 
-    @OneToMany(mappedBy = "user",cascade = {CascadeType.ALL})
+    @OneToMany(mappedBy = "user")
     private List<Photo> photos;
 
     @Size(max = 500,message = "About is max size = 500 character")
@@ -263,6 +263,7 @@ public class User {
     public void setStatus(boolean status) {
         this.status = status;
     }
+
 
 
 }

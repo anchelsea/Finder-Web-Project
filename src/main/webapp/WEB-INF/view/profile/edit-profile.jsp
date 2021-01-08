@@ -28,7 +28,7 @@
         <div>
             <button class="header" id="edit-profile-btn1">
                 <div class="avatar">
-                    <img src="img/minyoung.jpg" alt=""/>
+                    <img src="${user.photos[0].link}" alt=""/>
                 </div>
                 <div class="title">My profile</div>
             </button>
@@ -61,7 +61,7 @@
                         <div class="image-container1" >
                             <li class="image">
                                 <div class="">
-                                    <img src="img/minyoung.jpg" alt="">
+                                    <img src="${user.photos[0].link}" alt="">
 
                                 </div>
                                 <div>
@@ -70,7 +70,7 @@
                             </li>
                             <li class="image">
                                 <div class="">
-                                    <img src="img/minyoung.jpg" alt="">
+                                    <img src="" alt="">
                                 </div>
                                 <div>
                                     <button class="">+</button>
@@ -78,7 +78,7 @@
                             </li>
                             <li class="image">
                                 <div class="">
-                                    <img src="img/minyoung.jpg" alt="">
+                                    <img src="" alt="">
                                 </div>
                                 <div>
                                     <button class="">+</button>
@@ -90,7 +90,7 @@
                         <div class="image-container2" >
                             <li class="image">
                                 <div class="">
-                                    <img src="img/minyoung.jpg" alt="">
+                                    <img src="" alt="">
                                 </div>
                                 <div>
                                     <button class="">+</button>
@@ -98,7 +98,7 @@
                             </li>
                             <li class="image">
                                 <div class="">
-                                    <img src="img/minyoung.jpg" alt="">
+                                    <img src="" alt="">
                                 </div>
                                 <div>
                                     <button class="">+</button>
@@ -106,7 +106,7 @@
                             </li>
                             <li class="image">
                                 <div class="">
-                                    <img src="img/minyoung.jpg" alt="">
+                                    <img src="" alt="">
                                 </div>
                                 <div>
                                     <button class="">+</button>
@@ -117,7 +117,7 @@
                         <div class="image-container3" >
                             <li class="image">
                                 <div class="">
-                                    <img src="img/minyoung.jpg" alt="">
+                                    <img src="" alt="">
                                 </div>
                                 <div>
                                     <button class="">+</button>
@@ -125,7 +125,7 @@
                             </li>
                             <li class="image">
                                 <div class="">
-                                    <img src="img/minyoung.jpg" alt="">
+                                    <img src="" alt="">
                                 </div>
                                 <div>
                                     <button class="">+</button>
@@ -133,7 +133,7 @@
                             </li>
                             <li class="image">
                                 <div class="">
-                                    <img src="img/minyoung.jpg" alt="">
+                                    <img src="" alt="">
                                 </div>
                                 <div>
                                     <button class="">+</button>

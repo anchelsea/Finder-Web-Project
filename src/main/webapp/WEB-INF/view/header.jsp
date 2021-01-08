@@ -12,9 +12,9 @@
 
         <button class="profile_btn" title="Profile" id="profile-btn">
             <div class="avatar">
-                <img src="img/minyoung.jpg" alt="" />
+                <img src="${user.photos[0].link}" alt="" />
             </div>
-            <div class="title" id="title-profile">Min Young</div>
+            <div class="title" id="title-profile">${user.fristname} ${user.lastname}</div>
         </button>
 
         <button class="setting_btn" title="Setting"  id="setting-btn"> <img src="img/setting.png" id="setting_img"/> </button>

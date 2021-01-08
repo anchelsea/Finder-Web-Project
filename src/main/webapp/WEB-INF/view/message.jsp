@@ -24,7 +24,7 @@
         <div class="space"></div>
         <div class="header">
             <div class="avatar">
-                <img src="img/message1.png" alt=""/>
+                <img src="${user.photos[0].link}" alt=""/>
             </div>
             <div class="title"> Messenger</div>
 

@@ -28,8 +28,8 @@
     <br>
     <form class="ui form login">
         <div class="field" style="font-size: 16px">
-            <label>Username</label>
-            <input type="text" id="Username" name="username" placeholder="Username" required>
+            <label>Username/Email</label>
+            <input type="text" id="Email" name="email" placeholder="Username/Email" required>
         </div>
         <div class="field" style="font-size: 16px">
             <label>Password</label>
@@ -66,9 +66,9 @@
 
             $('.ui.form.login').validate({
                 rules: {
-                    username: {
+                    email: {
                         required: true,
-
+                        email: true
                     },
                     password:   {
                         required: true,
@@ -76,9 +76,9 @@
                     }
                 },  //end rules
                 messages: {
-                    username: {
+                    email: {
                         required: 'Required field',
-
+                        email: 'This is not a valid email address'
                     },
                     password: {
                         required: 'Please type a password',
@@ -113,18 +113,18 @@
 
     }
     let PasswordField = $('#Password');
-    let UsernameField = $('#Username');
+    let EmailField = $('#Email');
     let GeneralErrorField = $('#generalErrorMessage');
     let IconErrorField = $('#error-icon');
 
     $('.ui.form.login').form({
         fields: {
-            usrename     : 'empty',
+            email     : 'empty',
             password   : 'empty'
         },
         onSuccess: function(event, fields) {
             event.preventDefault();
-            let username = UsernameField.val();
+            let email = EmailField.val();
             let password = PasswordField.val();
 
 
@@ -133,7 +133,7 @@
                 url: "modal-login",
                 dataType: 'json',
                 contentType: 'application/json',
-                data: JSON.stringify({username:username,password:password}),
+                data: JSON.stringify({email:email,password:password}),
                 success: function (response) {
                     console.log(response)
                     if (response.status == 'FAIL') {
@@ -159,10 +159,10 @@
 
                 //show error messages that comming from backend and change border to red.
                 for (let i = 0; i < errorVal.length; i++) {
-                    if (errorVal[i].fieldName === 'username') {
+                    if (errorVal[i].fieldName === 'email') {
 
                         clearForm();
-                        UsernameField.attr("placeholder", "Username").css("border", " 2px solid red");
+                        EmailField.attr("placeholder", "Email").css("border", " 2px solid red");
                         GeneralErrorField.css("display", "block").html(errorVal[i].message);
                     } else if (errorVal[i].fieldName === 'password') {
                         PasswordField.val('');
@@ -183,10 +183,10 @@
             function clearError() {
 
                 //clear all and return it as default.
-                $('#Username').focus(function () {
+                $('#Email').focus(function () {
                     clearForm();
-                    UsernameField.css("border", "2px solid lightgrey");
-                    UsernameField.attr("placeholder", "Username");
+                    EmailField.css("border", "2px solid lightgrey");
+                    EmailField.attr("placeholder", "Email address");
                 });
                 $('#Password').focus(function () {
                     PasswordField.val('');
@@ -197,7 +197,7 @@
             //clear fields and hide error tag.
             function clearForm() {
 
-                UsernameField.val('');
+                EmailField.val('');
                 PasswordField.val('');
                 GeneralErrorField.css("display", "none");
             }

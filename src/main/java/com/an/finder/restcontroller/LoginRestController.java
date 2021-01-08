@@ -6,6 +6,7 @@ import com.an.finder.service.UserService;
 import com.an.finder.util.ErrorMessage;
 import com.an.finder.util.ValidationResponse;
 
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 /*import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;*/
@@ -16,6 +17,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,23 +33,27 @@ public class LoginRestController {
     private PasswordEncoder passwordEncoder;*/
 
 
+
+
     @PostMapping(value = "modal-login")
     public @ResponseBody
     ValidationResponse loginViaAjax(Model model,
                                     @RequestBody @Valid User user,
-                                    BindingResult result, HttpServletRequest request) {
+                                    BindingResult result, HttpServletRequest request, HttpSession session) {
         ValidationResponse res = new ValidationResponse();
 
 
 
-            User theUser = userService.findUserByUsername(user.getUsername());
+            User theUser = userService.findUserByEmail(user.getEmail());
             final List<ErrorMessage> errorMessageList = new ArrayList<>();
             try {
-                if (theUser.getUsername().matches(user.getUsername())) {
+                if (theUser.getEmail().matches(user.getEmail())) {
                     //User is exist, compare the passwords are equals?
+
                     if ((user.getPassword().matches(theUser.getPassword()))) {
+                        session.setAttribute("user",theUser);
                         // uploadUserAttributesToSession(theUser,request);
-                        if(!user.isFrist_login()){
+                        if(!theUser.isFrist_login()){
                             res.setStatus("FIRST");
                         }
                         else {

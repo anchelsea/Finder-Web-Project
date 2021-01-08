@@ -25,17 +25,17 @@
 <body>
 
 <div class="frist-login-container">
-    <form class="ui form segment" >
+    <form:form class="ui form segment" action="${pageContext.request.contextPath}/fristlogin" method="POST" enctype="multipart/form-data" modelAttribute="user">
         <h2>Tell Us About Yourself</h2>
         <div class="two fields">
 
             <div class="field">
-                <label>Frist Name</label>
-                <input placeholder="First Name" name="firstname" type="text">
+                <label>First Name</label>
+                <form:input placeholder="First Name" name="fristname" path="fristname" type="text"></form:input>
             </div>
             <div class="field">
                 <label>Last Name</label>
-                <input placeholder="Last name" name="lastname" type="text">
+                <form:input placeholder="Last name" name="lastname" path="lastname" type="text"></form:input>
             </div>
         </div>
 
@@ -43,7 +43,7 @@
             <div class="field">
                 <label>Gender</label>
                 <div class="ui selection dropdown">
-                    <input type="hidden" name="gender">
+                    <form:input type="hidden" name="gender" path="gender"></form:input>
                     <div class="default text">Gender</div>
                     <i class="dropdown icon"></i>
                     <div class="menu">
@@ -54,39 +54,21 @@
                 </div>
             </div>
             <div class="field">
-                <label>Age</label>
-                <input type="number" name="age">
+                <label>BirthDay</label>
+                <div class="ui left icon input">
+                    <i class="calendar alternate icon"></i>
+                    <form:input path="birthday" type="date" name="birthday" ></form:input>
+                </div>
             </div>
         </div>
 
         <div class="field">
             <label>Interested In</label>
-            <select name="interest" multiple="" class="ui dropdown">
-                <option value="">Select Values</option>
-                <option value="1" selected="">Art</option>
-                <option value="2">Horror Movies</option>
-                <option value="3">Walking</option>
-                <option value="4">Baking</option>
-                <option value="5">Running</option>
-                <option value="6">Working Out</option>
-                <option value="7">Blogging</option>
-                <option value="8">Hip Hop</option>
-                <option value="9">Vlogging</option>
-                <option value="10">Sport</option>
-                <option value="11">Instagram</option>
-                <option value="12">Music</option>
-                <option value="13">Facebook</option>
-                <option value="14">Clubbing</option>
-                <option value="15">Tea</option>
-                <option value="16">Fishsing</option>
-                <option value="17">Dog lover</option>
-                <option value="18">Movies</option>
-                <option value="19">Karaoke</option>
-                <option value="20">Golf</option>
-                <option value="21">Volunteering</option>
-                <option value="22">Athlete</option>
-                <option value="23">Reading</option>
-                <option value="24">Writer</option>
+            <select name="interest_tag" multiple="" class="ui dropdown" path="interest">
+                <option value="">Select Your Interests</option>
+                <c:forEach var="i" items="${interest}">
+                    <option value="${i.name}" >${i.name}</option>
+                </c:forEach>
             </select>
         </div>
 
@@ -96,7 +78,7 @@
         <div class="ui middle aligned center aligned grid container" id="upload-file-id">
             <div class="ui fluid segment">
 
-                <input type="file" (change)="fileEvent($event)" class="inputfile" id="embedpollfileinput" onchange="return fileValidation()"/>
+                <input multiple name="photo"  type="file" (change)="fileEvent($event)" class="inputfile" id="embedpollfileinput" onchange="return fileValidation()"/>
 
               <%--  <label for="embedpollfileinput" class="ui huge green right floated button">
                     <i class="ui upload icon"></i>
@@ -119,10 +101,10 @@
                 <label>I agree to allow turn on my location </label>
             </div>
         </div>
-        <div class="ui black deny button">Cancel</div>
         <div class="ui reset button">Reset</div>
         <div class="ui blue submit button">Continue</div>
-    </form>
+        <div class="ui error message"></div>
+    </form:form>
 </div>
 </div>
 
@@ -143,12 +125,12 @@
                     }
                 ]
             },
-            name: {
-                identifier: 'name',
+            fristname: {
+                identifier: 'fristname',
                 rules: [
                     {
                         type: 'empty',
-                        prompt: 'Please enter your name'
+                        prompt: 'Please enter your firstname'
                     }
                 ]
             },
@@ -170,8 +152,8 @@
                     }
                 ]
             },
-            interest: {
-                identifier: 'interest',
+            interest_tag: {
+                identifier: 'interest_tag',
                 rules: [
                     {
                         type: 'maxCount[5]',
@@ -232,6 +214,10 @@
     function showPreviewImage() {
         $('.ui.modal.preview').modal('show');
     }
+
+    $('#cancel-frist-login').click(function() {
+        window.location='http://localhost:8888/';
+    });
 </script>
 </body>
 

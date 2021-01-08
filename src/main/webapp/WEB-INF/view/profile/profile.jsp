@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -28,13 +30,13 @@
         <div>
             <button class="header">
                 <div class="avatar">
-                    <img src="img/minyoung.jpg" alt=""/>
+                    <img src="${user.photos[0].link}" alt=""/>
                 </div>
                 <div class="title">My profile</div>
             </button>
         </div>
         <div class="side-btn">
-            <button class="avatar1" id="logout-btn">
+            <button class="avatar1" id="logout-btn" >
                 <div class="title" id="logout-title">LOGOUT</div>
             </button>
 
@@ -58,11 +60,11 @@
             <div class="user">
                 <img
                         class="user"
-                        src="img/minyoung.jpg"
+                        src="${user.photos[0].link}"
                         alt=""
                 />
                 <div class="profile">
-                    <div class="name">Rafaela <span>20</span></div>
+                    <div class="name">${user.fristname} ${user.lastname} <span>20</span></div>
                     <div class="local">
                         <div class="local-detail">
                             <i class="fas fa-map-marker-alt"></i>
@@ -96,12 +98,15 @@
     }
 
     $('#logout-btn').click(function() {
-        window.location='http://localhost:8888/';
+
+        window.location='http://localhost:8888/logout';
     });
 
     $('#edit-profile-btn').click(function() {
         window.location='http://localhost:8888/edit';
     });
+
+
 </script>
 </body>
 </html>
