@@ -1,5 +1,6 @@
 package com.an.finder.restcontroller;
 
+import com.an.finder.entity.Authority;
 import com.an.finder.entity.User;
 import com.an.finder.service.UserService;
 import com.an.finder.util.ErrorMessage;
@@ -36,10 +37,7 @@ public class SignUpRestController {
 
          User theUser = userService.findUserByEmail(user.getEmail());
         try{
-/*            if(!user.getPassword().equals(user.get)){
-                res.setStatus("FAIL");
-                errorMessageList.add((new ErrorMessage("rePassword", "Incorrect password! Please retype.")));
-            }*/
+
             if (theUser.getEmail()==null ) {
                 //User is exist, compare the passwords are equals?
 
@@ -48,6 +46,9 @@ public class SignUpRestController {
                         user.setStatus(true);
 
                         userService.saveOrUpdate(user);
+                        Authority authority=new Authority("ROLE_USER");
+                        authority.setUser(user);
+                        userService.addAuthority(authority);
                         res.setStatus("SUCCESS");
                     }
                     else {

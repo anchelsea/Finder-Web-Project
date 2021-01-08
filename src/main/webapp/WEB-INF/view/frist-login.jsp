@@ -31,7 +31,7 @@
 
             <div class="field">
                 <label>Frist Name</label>
-                <input placeholder="First Name" name="name" type="text">
+                <input placeholder="First Name" name="firstname" type="text">
             </div>
             <div class="field">
                 <label>Last Name</label>

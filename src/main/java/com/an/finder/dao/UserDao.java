@@ -1,5 +1,6 @@
 package com.an.finder.dao;
 
+import com.an.finder.entity.Authority;
 import com.an.finder.entity.User;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -21,6 +22,7 @@ public class UserDao {
         Session session = entityManager.unwrap(Session.class);
         session.saveOrUpdate(user);
     }
+
 
     public User findUserById(int id) {
         Session session = entityManager.unwrap(Session.class);
@@ -51,5 +53,20 @@ public class UserDao {
         }
 
 
+        public  void addAuthority(Authority authority){
+        Session session=entityManager.unwrap(Session.class);
+        session.saveOrUpdate(authority);
+        }
+
+        public User findUserByUsername(String username){
+        Session session=entityManager.unwrap(Session.class);
+
+        Query<User> query=session.createQuery("from User u where u.username=:username");
+        query.setParameter("username",username);
+
+        User user=query.getSingleResult();
+
+        return user;
+        }
 
     }

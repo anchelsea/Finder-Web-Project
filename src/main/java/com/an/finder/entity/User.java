@@ -57,6 +57,9 @@ public class User {
 
     private String gender;
 
+    @OneToMany(mappedBy = "user",cascade = {CascadeType.ALL})
+    private List<Photo> photos;
+
     @Size(max = 500,message = "About is max size = 500 character")
     private String about;
 
@@ -88,6 +91,8 @@ public class User {
     private boolean status;
 
     public User(){};
+
+
 
     public List<Authority> getAuthorities() {
         return authorities;
@@ -241,6 +246,14 @@ public class User {
 
     public void setAge_range_filter(String age_range_filter) {
         this.age_range_filter = age_range_filter;
+    }
+
+    public List<Photo> getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(List<Photo> photos) {
+        this.photos = photos;
     }
 
     public boolean isStatus() {

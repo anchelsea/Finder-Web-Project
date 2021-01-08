@@ -62,6 +62,12 @@ margin-top: 40px;
 
 .modal #imagePreview{
     margin: 20px auto;
+    padding-left: 100px;
     width: 75%;
 
+}
+
+.modal #imagePreview img{
+ width: 80%;
+height: 75%;
 }

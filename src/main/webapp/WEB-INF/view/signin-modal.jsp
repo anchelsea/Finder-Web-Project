@@ -28,8 +28,8 @@
     <br>
     <form class="ui form login">
         <div class="field" style="font-size: 16px">
-            <label>Username/Email</label>
-            <input type="text" id="Email" name="email" placeholder="Username/Email" required>
+            <label>Username</label>
+            <input type="text" id="Username" name="username" placeholder="Username" required>
         </div>
         <div class="field" style="font-size: 16px">
             <label>Password</label>
@@ -58,7 +58,6 @@
 
 
 <script type="text/javascript">
-    console.log("ccccccccccc")
     function singinModal() {
         $('.ui.modal.signin')
             .modal('show')
@@ -67,9 +66,9 @@
 
             $('.ui.form.login').validate({
                 rules: {
-                    email: {
+                    username: {
                         required: true,
-                        email: true
+
                     },
                     password:   {
                         required: true,
@@ -77,9 +76,9 @@
                     }
                 },  //end rules
                 messages: {
-                    email: {
+                    username: {
                         required: 'Required field',
-                        email: 'This is not a valid email address'
+
                     },
                     password: {
                         required: 'Please type a password',
@@ -114,18 +113,18 @@
 
     }
     let PasswordField = $('#Password');
-    let EmailField = $('#Email');
+    let UsernameField = $('#Username');
     let GeneralErrorField = $('#generalErrorMessage');
     let IconErrorField = $('#error-icon');
 
     $('.ui.form.login').form({
         fields: {
-            email     : 'empty',
+            usrename     : 'empty',
             password   : 'empty'
         },
         onSuccess: function(event, fields) {
             event.preventDefault();
-            let email = EmailField.val();
+            let username = UsernameField.val();
             let password = PasswordField.val();
 
 
@@ -134,12 +133,17 @@
                 url: "modal-login",
                 dataType: 'json',
                 contentType: 'application/json',
-                data: JSON.stringify({email:email,password:password}),
+                data: JSON.stringify({username:username,password:password}),
                 success: function (response) {
                     console.log(response)
                     if (response.status == 'FAIL') {
                         showFormError(response.errorMessageList);
-                    } else {
+                    }
+                    else  if(response.status=='FIRST'){
+                        $('.ui.modal.signin').modal('hide');
+                        window.location.replace('http://localhost:8888/fristlogin');
+                    }
+                    else {
                         //everything is O.K. user logged in successfully.
                         $('.ui.modal.signin').modal('hide');
                         window.location.replace('http://localhost:8888/home');
@@ -155,10 +159,10 @@
 
                 //show error messages that comming from backend and change border to red.
                 for (let i = 0; i < errorVal.length; i++) {
-                    if (errorVal[i].fieldName === 'email') {
+                    if (errorVal[i].fieldName === 'username') {
 
                         clearForm();
-                        EmailField.attr("placeholder", "Email").css("border", " 2px solid red");
+                        UsernameField.attr("placeholder", "Username").css("border", " 2px solid red");
                         GeneralErrorField.css("display", "block").html(errorVal[i].message);
                     } else if (errorVal[i].fieldName === 'password') {
                         PasswordField.val('');
@@ -179,10 +183,10 @@
             function clearError() {
 
                 //clear all and return it as default.
-                $('#Email').focus(function () {
+                $('#Username').focus(function () {
                     clearForm();
-                    EmailField.css("border", "2px solid lightgrey");
-                    EmailField.attr("placeholder", "Email address");
+                    UsernameField.css("border", "2px solid lightgrey");
+                    UsernameField.attr("placeholder", "Username");
                 });
                 $('#Password').focus(function () {
                     PasswordField.val('');
@@ -193,7 +197,7 @@
             //clear fields and hide error tag.
             function clearForm() {
 
-                EmailField.val('');
+                UsernameField.val('');
                 PasswordField.val('');
                 GeneralErrorField.css("display", "none");
             }

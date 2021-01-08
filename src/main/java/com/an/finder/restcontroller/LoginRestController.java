@@ -40,14 +40,20 @@ public class LoginRestController {
 
 
 
-            User theUser = userService.findUserByEmail(user.getEmail());
+            User theUser = userService.findUserByUsername(user.getUsername());
             final List<ErrorMessage> errorMessageList = new ArrayList<>();
             try {
-                if (theUser.getEmail().matches(user.getEmail())) {
+                if (theUser.getUsername().matches(user.getUsername())) {
                     //User is exist, compare the passwords are equals?
                     if ((user.getPassword().matches(theUser.getPassword()))) {
                         // uploadUserAttributesToSession(theUser,request);
-                        res.setStatus("SUCCESS");
+                        if(!user.isFrist_login()){
+                            res.setStatus("FIRST");
+                        }
+                        else {
+                            res.setStatus("SUCCESS");
+                        }
+
                     } else {
                         res.setStatus("FAIL");
                         errorMessageList.add((new ErrorMessage("password", "Incorrect password! Please retype.")));

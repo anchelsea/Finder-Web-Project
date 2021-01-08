@@ -1,6 +1,7 @@
 package com.an.finder.service;
 
 import com.an.finder.dao.UserDao;
+import com.an.finder.entity.Authority;
 import com.an.finder.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,16 @@ public class UserService {
     @Transactional
     public User findUserByEmail(String email) {
         return userDao.findUserByEmail(email);
+    }
+
+    @Transactional
+    public void addAuthority(Authority authority){
+        userDao.addAuthority(authority);
+    }
+
+    @Transactional
+    public User findUserByUsername(String username){
+        return userDao.findUserByUsername(username);
     }
 /*    @Transactional
     public <*/
