@@ -124,8 +124,6 @@
                     <input type="range" min="2" max="100" value="0" class="slider" id="myDistanceRange">
                 </div>
             </div>
-
-
         </div>
         <div class="side-btn">
             <div class="avatar1" onclick="showModalChoiceGender()">
@@ -147,8 +145,6 @@
                     <input type="range" min="18" max="55" value="22" class="slider" id="myAgeRange">
                 </div>
             </div>
-
-
         </div>
 
         <div class="btn-done">

@@ -80,7 +80,7 @@
 
                 <input multiple name="photo"  type="file" (change)="fileEvent($event)" class="inputfile" id="embedpollfileinput" onchange="return fileValidation()"/>
 
-              <%--  <label for="embedpollfileinput" class="ui huge green right floated button">
+         <%--       <label for="embedpollfileinput" class="ui huge green right floated button">
                     <i class="ui upload icon"></i>
                     Upload image
                 </label>--%>

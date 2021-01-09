@@ -43,9 +43,9 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping("/admin")
-    public String admin() {
-        return "admin";
+    @GetMapping("/test")
+    public String test() {
+        return "test";
     }
 
 

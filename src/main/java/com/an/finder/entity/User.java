@@ -92,6 +92,9 @@ public class User {
 
     public User(){};
 
+    public int getPhotoLength(){
+        return photos.size();
+    }
 
 
     public List<Authority> getAuthorities() {

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/home.css">
     <link rel="icon" href="img/like.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"/>
 
     <script src="js/lib/jquery.js"></script>
     <script src="js/lib/semantic.js"></script>
@@ -123,6 +124,8 @@
     $('#profile-btn-side').click(function() {
         window.location='http://localhost:8888/profile';
     });
+
+
 </script>
 </body>
 </html>
