@@ -54,12 +54,13 @@ public class EditProfileController {
 
         model.addAttribute("user",user);
         model.addAttribute("interest",interestService.findAll());
+        System.out.println(user.getNowYear());
         return "profile/edit-profile";
     }
 
     @PostMapping("/edit")
     public String edit(HttpServletRequest request, Model model, @ModelAttribute User user,
-                       @RequestParam("photo") MultipartFile[] photoFiles,
+                       @RequestParam("photo") MultipartFile photoFiles,
                        @RequestParam("interest_tag") String interest_tag,
                        HttpSession session){
 
@@ -73,31 +74,25 @@ public class EditProfileController {
         currentUser.setWork(user.getWork());
         currentUser.setSchool(user.getSchool());
         currentUser.setGender(user.getGender());
+        currentUser.setCitylive(user.getCitylive());
 
         try {
-/*            System.out.println(photoFiles.length);
-            for (int i = 1; i < photoFiles.length; i++) {
-                fileService.saveImage(photoFiles[i]);
-                System.out.println(photoFiles[i]);
-                String photoPath = "/Upload/image/" + photoFiles[i].getOriginalFilename();
+            if(!photoFiles.isEmpty()){
+                fileService.saveImage(photoFiles);
+                String photoPath = "/Upload/image/" + photoFiles.getOriginalFilename();
                 Photo photo = new Photo();
-
                 photo.setLink(photoPath);
                 photo.setUser(currentUser);
-
-
                 photoService.add(photo);
-                System.out.println(photo.getLink());
-                System.out.println(photo);
-            }*/
+            }
 
-            System.out.println("user" +currentUser);
 
-            List<Interest> interests = interestService.find(interest_tag);
-            System.out.println(interests);
-            currentUser.setInterest(interests);
+            if(!interest_tag.isEmpty()){
+                List<Interest> interests = interestService.find(interest_tag);
+                currentUser.setInterest(interests);
+            }
+
             userService.saveOrUpdate(currentUser);
-            System.out.println("Bbbb");
             System.out.println(currentUser);
 
 
@@ -114,7 +109,7 @@ public class EditProfileController {
                 messages.add(e.getMessage());
             }
         }
-        return "redirect:/home";
+        return "redirect:/profile";
 
 
 

@@ -34,11 +34,11 @@ body {
 
 .content {
     width: 100%;
+    height: 100vh;
     display: flex;
     padding: 20px 0;
     align-items: center;
     flex-direction: column;
-
 
 }
 
@@ -109,17 +109,36 @@ body {
 
 
 /*CARD*/
-.container .card {
+/*.container .card {
     position: relative;
     height: 450px;
-}
+}*/
 
-.content .card .user {
+.container .card {
     width: 380px;
-    height: 565px;
+    height: 600px;
     object-fit: cover;
     border-radius: 10px;
-    box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.5);
+    box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.25);
+    /*overflow-y: visible;*/
+    position: absolute;
+    overflow: auto;
+    background: #f5f7fa !important;
+}::-webkit-scrollbar {
+     width: 0px !important;
+     background: transparent; /* make scrollbar transparent */
+ }
+
+.content .card .user {
+    width: 100%;
+    height: 100%;
+
+}
+
+.content .card .user .user1 {
+    width: 100%;
+    height: 70%;
+
 }
 
 .content .card .user .profile {
@@ -141,12 +160,14 @@ body {
 
 
 .content .card .user .name {
-    color: #fff;
+    color: rgba(29, 29, 29, 0.6);
     background-color: transparent;
     font-size: 32px;
     font-weight: 700;
     letter-spacing: 0.5px;
-    text-shadow: 1px 1px 5px #444;
+   /* text-shadow: 1px 1px 5px #444;*/
+    text-shadow: 1px 1px 1px #444;
+    margin-top: 90px;
 }
 
 .content .card .user .name span {
@@ -162,19 +183,23 @@ body {
 
 .content .card .local i {
     margin: 5px 0;
-    color: #fff;
+    color: rgba(29, 29, 29, 0.6);
 }
 
 .content .card .local span {
-    color: #fff;
+    color: rgba(29, 29, 29, 0.6);
     padding: 0 10px;
-    text-shadow: 1px 1px 5px #444;
+    text-shadow: 1px 1px 1px #444;
 }
 
 .content .buttons {
     margin-top: 130px;
     display: flex;
     align-items: center;
+    position: fixed;
+    margin-top: 25px;
+    margin-left: 130px;
+
 }
 
 .content .buttons .no i {
@@ -232,6 +257,7 @@ body {
     background: linear-gradient(262deg, #ff7854, #fd267d);
     border-radius: 20px;
     border: none;
+    margin-top: -110px;
     width: 100px;
     height: 40px;
 }
@@ -362,10 +388,11 @@ body {
     background: linear-gradient(262deg, #fd267d, #ff7854);
 }
 
-.content1 .add-media button {
+.content1 #add-media  {
     background: linear-gradient(262deg, #ff7854, #fd267d);
     margin-left: 75px;
     margin-top: 10px;
+    padding-top: 10px;
     height: 38px;
     width: 250px;
     border-radius: 20px;
@@ -373,9 +400,10 @@ body {
     font-weight: bold;
     font-size: 15px;
     color: white;
+    text-align: center;
 }
 
-.content1 .add-media button:hover {
+.content1 #add-media {
     background: linear-gradient(262deg, #fd267d, #ff7854);
 }
 
@@ -399,6 +427,7 @@ body {
 .content1 .about-edit .max-text{
 margin-top: -18px;
     margin-left: 365px;
+    font-weight: bold !important;
 }
 
 .content1 .job-edit {
@@ -573,3 +602,116 @@ padding: 10px 10px 18px 10px;
     padding-left: 15px;
     font-size: 14px;
 }
+
+.card .school .school-container i{
+    height: 34px;
+    width: 34px;
+    background-image: url("../img/school1.png");
+}
+
+
+.card .gender .sex-container i{
+    height: 25px;
+    width: 25px;
+    margin-top: -25px;
+    margin-right: -4px;
+    background-image: url("../img/sex.png");
+}
+
+.card .work .work-container i{
+    height: 25px;
+    width: 25px;
+    background-image: url("../img/work.png");
+}
+
+.card  .local-detail  i{
+    height: 25px;
+    width: 25px;
+    background-image: url("../img/house.png");
+}
+
+.gender .sex-container{
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
+    margin-left: 2px;
+}
+
+.gender .sex-container .sex-name{
+    margin-top: -20px;
+  margin-left: 10px;
+}
+
+.school .school-container{
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
+}
+
+.school .school-container .school-name{
+    margin-left: 2px;
+}
+
+.work .work-container{
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
+    margin-left: 6px;
+    border-bottom: 1px solid #bababc;
+}
+
+.work .work-container .work-name{
+    margin-left: 5px;
+}
+
+.local .local-detail {
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
+    margin-left: 4px;
+}
+
+.content .card .gender span {
+    color: rgba(29, 29, 29, 0.6);
+    padding: 0 10px;
+    text-shadow: 1px 1px 1px #444;
+}
+
+.content .card .school span {
+    color: rgba(29, 29, 29, 0.6);
+    padding: 0 10px;
+    text-shadow: 1px 1px 1px #444;
+}
+
+.content .card .work     span {
+    color: rgba(29, 29, 29, 0.6);
+    padding: 0 10px;
+    text-shadow: 1px 1px 1px #444;
+}
+
+.content .about{
+    margin: 10px 10px 10px 10px ;
+    font-size: 17px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #bababc;
+}
+
+.interest-show{
+    display: flex;
+    flex-direction: row;
+}
+
+.interest-show div{
+    border: 2px solid red;
+    border-radius: 20px;
+    padding: 2px 2px;
+    margin: 3px 3px 3px 3px;
+    width: auto;
+    height: auto;
+    text-align: center  ;
+    font-size: 16px;
+    font-weight: 500;
+
+}
+
+

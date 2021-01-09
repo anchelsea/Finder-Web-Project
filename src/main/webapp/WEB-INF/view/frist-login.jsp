@@ -57,7 +57,7 @@
                 <label>BirthDay</label>
                 <div class="ui left icon input">
                     <i class="calendar alternate icon"></i>
-                    <form:input path="birthday" type="date" name="birthday" ></form:input>
+                    <form:input path="birthday" type="date" name="birthday" required="required"></form:input>
                 </div>
             </div>
         </div>

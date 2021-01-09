@@ -1,5 +1,9 @@
+<%@ page import="com.an.finder.entity.Interest" %>
+<%@ page import="com.an.finder.entity.User" %>
+<%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -55,41 +59,123 @@
 
 
     </div>
+    <jsp:useBean id="date" class="java.util.Date"
+    />
+
+
     <div class="content">
         <div class="card">
             <div class="user">
                 <img
-                        class="user"
+                        class="user1"
                         src="${user.photos[0].link}"
                         alt=""
                 />
                 <div class="profile">
-                    <div class="name">${user.fristname} ${user.lastname} <span>20</span></div>
+
+                    <div class="name">${user.fristname} ${user.lastname} <span>${user.nowYear-user.yearBirthday}</span></div>
                     <div class="local">
                         <div class="local-detail">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span> 20 kilometer away</span>
+                            <i class="live-icon" ></i>
+                            <span>${user.citylive}</span>
                         </div>
-                        <div class="info-detail">
+<%--                        <div class="info-detail">
                             <button class="info-icon" title="More info"><img class="info-img" src="img/info.png" alt="">
                             </button>
+                        </div>--%>
+                    </div>
+                    <div class="gender">
+                        <div class="sex-container">
+                            <i class="sex-icon" ></i>
+                            <span class="sex-name">${user.gender}</span>
                         </div>
+                    </div>
+                    <div class="school">
+                        <div class="school-container">
+                            <i class="school-icon"></i>
+                            <span class="school-name">${user.school}</span>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <div class="work-container">
+                            <i class="work-icon"></i>
+                            <span class="work-name">${user.work}</span>
+                        </div>
+                    </div>
+
+
+                    <div class="about">
+                        <div class="about-container">
+                            <span class="about-name">${user.about}</span>
+                        </div>
+                    </div>
+
+                    <div class="interest-show" id="list-interest">
+
+                            <c:choose>
+                                <c:when test="${user.interestLength == 1}">
+                                    <div>${user.interest[0]}</div>
+                                </c:when>
+                            <c:when test="${user.interestLength == 2}">
+                                <div>${user.interest[0]}</div>
+                                <div>${user.interest[1]}</div>
+                            </c:when>
+                            <c:when test="${user.interestLength == 3}">
+                                <div>${user.interest[0]}</div>
+                                <div>${user.interest[1]}</div>
+                                <div>${user.interest[2]}</div>
+                            </c:when>
+                            <c:when test="${user.interestLength == 4}">
+                                <div>${user.interest[0]}</div>
+                                <div>${user.interest[1]}</div>
+                                <div>${user.interest[2]}</div>
+                                <div>${user.interest[3]}</div>
+                            </c:when>
+                            <c:when test="${user.interestLength == 5}">
+                                <div>${user.interest[0]}</div>
+                                <div>${user.interest[1]}</div>
+                                <div>${user.interest[2]}</div>
+                                <div>${user.interest[3]}</div>
+                                <div>${user.interest[4]}</div>
+                            </c:when>
+                                <c:otherwise>
+                                    <div></div>
+                                </c:otherwise>
+                            </c:choose>
 
                     </div>
 
                 </div>
             </div>
-        </div>
-        <div class="buttons">
-            <div class="edit-info" id="edit-profile-btn">
-                <button class="edit-info-btn">Edit Info</button>
+            <div class="buttons">
+                <div class="edit-info" id="edit-profile-btn">
+                    <button class="edit-info-btn">Edit Info</button>
+                </div>
             </div>
         </div>
+
     </div>
 </div>
 
 <script type="text/javascript">
     $(changeHomePageImg);
+/*    let interests = [];
+
+
+-interest').dropdown('set selected',interests);
+
+    document.getElementById("demo").innerHTML = interests[0];
+    $(document).ready(function(){
+
+        let multipleCancelButton = new Choices('#dropdown-interest', {
+            removeItemButton: true,
+            maxItemCount:5,
+            searchResultLimit:10,
+            renderChoiceLimit:26
+        });
+
+    });*/
+
     function changeHomePageImg() {
 
         /*$("#homepage_img").css("background-image", "url(" + imageUrl + ")");*/

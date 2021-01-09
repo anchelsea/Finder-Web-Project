@@ -6,6 +6,7 @@ import javax.validation.constraints.Email;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -96,6 +97,9 @@ public class User {
         return photos.size();
     }
 
+    public int getInterestLength(){
+        return interest.size();
+    }
 
     public List<Authority> getAuthorities() {
         return authorities;
@@ -114,7 +118,6 @@ public class User {
     }
 
     public List<Interest> getInterest() {
-
         return interest;
     }
 
@@ -261,12 +264,28 @@ public class User {
         this.photos = photos;
     }
 
+
     public boolean isStatus() {
         return status;
     }
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public int getYearBirthday(){
+        Date date = this.getBirthday();
+        java.sql.Date dat = java.sql.Date.valueOf(String.valueOf(date));
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(dat);
+
+        int year = cal.get(Calendar.YEAR);
+        return year;
+    }
+
+    public int getNowYear(){
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        return year;
     }
 
     @Override

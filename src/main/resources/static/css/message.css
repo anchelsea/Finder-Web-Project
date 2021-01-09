@@ -371,14 +371,16 @@ body {
     background-image: url("../img/school.png");
 }
 
-.card .live-container i{
-    height: 25px;
-    width: 25px;
-    background-image: url("../img/house.png");
-}
+
 
 .card .sex-container i{
     height: 25px;
     width: 25px;
     background-image: url("../img/sex.png");
+}
+
+.card .live-container i{
+    height: 25px;
+    width: 25px;
+    background-image: url("../img/house.png");
 }

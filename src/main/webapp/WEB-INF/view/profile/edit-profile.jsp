@@ -31,7 +31,7 @@
     <script src="js/lib/Semantic-UI-Alert.js"></script>
     <title>My Profile | Dating, Make Friends & Meet New People</title>
 </head>
-<body>
+<body style="background: #f5f7fa">
 
 <jsp:include page="../header.jsp"></jsp:include>
 <div class="space">
@@ -99,7 +99,9 @@
                                 <div class="image-edit1">
                                     <c:choose>
                                         <c:when test="${user.photoLength < 2}">
-                                            <img src="" alt="" onerror="this.style.display='none'">
+                                            <div id="imagePreview">
+                                                <img src="" alt="" onerror="this.style.display='none'">
+                                            </div>
                                         </c:when>
 
                                         <c:otherwise>
@@ -249,9 +251,9 @@
                 <form:form action="${pageContext.request.contextPath}/edit" method="POST" enctype="multipart/form-data"
                            modelAttribute="user">
                     <div class="add-media">
-                        <input multiple name="photo" id="embedpollfileinput" type="file" (change)="fileEvent($event)"
+                        <input <%--multiple--%> name="photo" id="embedpollfileinput" type="file" (change)="fileEvent($event)"
                                class="inputfile" onchange="return fileValidation()" style="display: none"/>
-                        <button id="add-media">ADD MEDIA</button>
+                        <div id="add-media">ADD MEDIA</div>
                     </div>
 
                     <div class="about-edit">
@@ -415,6 +417,7 @@
         let multipleCancelButton = new Choices('#dropdown-interest', {
             removeItemButton: true,
             maxItemCount:5,
+            minItemCount:1,
             searchResultLimit:10,
             renderChoiceLimit:26
         });
