@@ -114,6 +114,7 @@ public class User {
     }
 
     public List<Interest> getInterest() {
+
         return interest;
     }
 
@@ -255,6 +256,7 @@ public class User {
         return photos;
     }
 
+
     public void setPhotos(List<Photo> photos) {
         this.photos = photos;
     }
@@ -267,6 +269,30 @@ public class User {
         this.status = status;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", authorities=" + authorities +
+                ", fristname='" + fristname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", birthday=" + birthday +
+                ", gender='" + gender + '\'' +
+                ", photos=" + photos +
+                ", about='" + about + '\'' +
+                ", citylive='" + citylive + '\'' +
+                ", interest=" + interest +
+                ", work='" + work + '\'' +
+                ", school='" + school + '\'' +
+                ", location_Id='" + location_Id + '\'' +
+                ", gender_filter='" + gender_filter + '\'' +
+                ", max_distance_filter='" + max_distance_filter + '\'' +
+                ", age_range_filter='" + age_range_filter + '\'' +
+                ", frist_login=" + frist_login +
+                ", status=" + status +
+                '}';
+    }
 }

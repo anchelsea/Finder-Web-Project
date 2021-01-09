@@ -43,5 +43,8 @@ public class Interest {
         this.users = users;
     }
 
-
+    @Override
+    public String toString() {
+        return name;
+    }
 }

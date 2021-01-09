@@ -18,6 +18,7 @@ body {
     display: flex;
 }
 
+
 .container button:focus {
     outline: none;
 }
@@ -252,8 +253,11 @@ body {
 }
 
 
-.container .content1 .card-edit {
-    width: 400px;
+.container
+
+
+.content1 .card-edit {
+    width: 405px;
     height: 800px;
     object-fit: cover;
     border-radius: 10px;
@@ -261,8 +265,9 @@ body {
     /*overflow-y: visible;*/
     position: absolute;
     overflow: auto;
+    background: #f5f7fa !important;
 }::-webkit-scrollbar {
-     width: 0px;
+     width: 0px !important;
      background: transparent; /* make scrollbar transparent */
  }
 
@@ -317,7 +322,7 @@ body {
     height: 28px;
     width: 28px;
     border-radius: 25px;
-    background-color: #fd5068;
+    background-color: #fd5068 ;
     outline: none;
     font-weight: bold;
     font-size: 18px;
@@ -350,6 +355,7 @@ body {
     width: 100px;
     height: 40px;
     margin-left: 150px;
+    margin-top: 20px;
 }
 
 .buttons .save-info-btn:hover {
@@ -522,3 +528,48 @@ padding: 10px 10px 18px 10px;
     height: 100%;
 }
 
+.mt-100 {
+    margin-top: 50px;
+}
+
+
+#css-dropdown
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 300px;
+    height: 42px;
+    margin: 100px auto 0 auto;
+}
+
+.interest #label-interest{
+    padding-top: 40px;
+    padding-bottom: 30px;
+    padding-left: 17px;
+    font-size: 16px;
+
+}
+
+.interest #select-interest{
+    padding-top: 5px;
+}
+
+#choices-multiple-remove-button{
+    font-size: 16px;
+}
+
+.add-media{
+    margin-top: 25px;
+}
+
+.field #gender-label{
+    padding-left: 17px;
+    padding-right: 17px;
+}
+
+#label-interest1{
+    padding-left: 15px;
+    font-size: 14px;
+}
