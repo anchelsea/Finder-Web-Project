@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Tinder swipe cards</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<%--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">--%>
 
     <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
 
@@ -269,7 +269,7 @@
         });
     });
 
-/*    function createButtonListener(love) {
+    function createButtonListener(love) {
         return function (event) {
             var cards = document.querySelectorAll('.tinder--card:not(.removed)');
             var moveOutWidth = document.body.clientWidth * 1.5;
@@ -296,7 +296,7 @@
     var loveListener = createButtonListener(true);
 
     nope.addEventListener('click', nopeListener);
-    love.addEventListener('click', loveListener);*/
+    love.addEventListener('click', loveListener);
 </script>
 
 

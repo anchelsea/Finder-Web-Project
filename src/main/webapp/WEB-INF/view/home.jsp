@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/home.css">
     <link rel="icon" href="img/like.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"/>
+
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -23,10 +23,62 @@
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
 
+<%--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"/>--%>
+
+
     <script src="js/lib/jquery.js"></script>
     <script src="js/lib/semantic.js"></script>
     <script src="js/lib/Semantic-UI-Alert.js"></script>
+
     <title>Finder | Dating, Make Friends & Meet New People</title>
+    <style>
+        .moving.user {
+            transition: none;
+            cursor: grabbing;
+        }
+
+
+        .loaded.content1 {
+            opacity: 1;
+        }
+
+        .tinder_love .fa-heart{
+
+            color: #11e298;;
+            opacity: 0.7;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+
+        .tinder_nope .fa-times{
+            color: #fd2e79;
+            opacity: 0.7;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+
+        .tinder--status {
+            position: absolute;
+            top: 50%;
+            margin-top: -30px;
+            z-index: 2;
+            width: 100%;
+            text-align: center;
+            pointer-events: none;
+        }
+
+        .tinder--status i {
+            font-size: 100px;
+            opacity: 0;
+            -webkit-transform: scale(0.3);
+            transform: scale(0.3);
+            transition: all 0.2s ease-in-out;
+            position: absolute;
+            width: 100px;
+            margin-left: -50px;
+        }
+    </style>
 </head>
 <body>
 
@@ -34,9 +86,9 @@
 <div class="space">
 
 </div>
-<div class="container">
+<div class="container1">
 
-    <div class="side">
+    <div class="side1">
         <div>
             <button class="header" id="profile-btn-side">
                 <div class="avatar">
@@ -68,9 +120,13 @@
 
 
     </div>
-    <div class="content">
-        <div class="card">
-            <div class="user">
+    <div class="content1">
+        <div class="tinder--status">
+            <i class="fa fa-times"></i>
+            <i class="fa fa-heart"></i>
+        </div>
+        <div class="card1">
+            <div class="user" >
                 <div id="1" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <c:forEach items="${user.photos}">
@@ -286,20 +342,16 @@
                         </c:choose>
 
                     </div>
-                    <a class="carousel-control-prev" href="#1" role="button" data-slide="prev">
+                    <a class="carousel-control-prev" href="#1" role="button" data-slide="prev" >
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
                     </a>
-                    <a class="carousel-control-next" href="#1" role="button" data-slide="next">
+                    <a class="carousel-control-next" href="#1" role="button" data-slide="next" >
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
-                <%--               <img
-                                       class="user"
-                                       src="${user.photos[0].link}"
-                                       alt=""
-                               />--%>
+
                 <div class="profile">
                     <div class="name">${user.fristname} ${user.lastname} <span>${user.nowYear-user.yearBirthday}</span>
                     </div>
@@ -322,23 +374,27 @@
                 </div>
             </div>
         </div>
-        <div class="buttons">
-            <div class="no">
+
+
+
+        <div class="buttons" id="btn-like-nope">
+            <button class="no" id="nope" style="border: none">
                 <i class="fas fa-times"></i>
-            </div>
-            <div class="star">
+            </button>
+            <button class="star" style="border: none">
                 <i class="fas fa-star fa"></i>
-            </div>
-            <div class="heart">
+            </button>
+            <button class="heart" id="like" style="border: none">
                 <i class="fas fa-heart"></i>
-            </div>
+            </button>
         </div>
     </div>
 </div>
 
+<script src="https://hammerjs.github.io/dist/hammer.min.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(changeHomePageImg);
-    $(swipe());
+    $(swipe);
 
     function changeHomePageImg() {
 
@@ -372,13 +428,13 @@
 
     function swipe() {
 
-        var tinderContainer = document.querySelector('.tinder');
-        var allCards = document.querySelectorAll('.tinder--card');
-        var nope = document.getElementById('nope');
-        var love = document.getElementById('love');
+        let tinderContainer = document.querySelector('.content1');
+        let allCards = document.querySelectorAll('.user');
+        let nope = document.getElementById('nope');
+        let love = document.getElementById('like');
 
         function initCards(card, index) {
-            var newCards = document.querySelectorAll('.tinder--card:not(.removed)');
+            let newCards = document.querySelectorAll('.user:not(.removed)');
 
             newCards.forEach(function (card, index) {
                 card.style.zIndex = allCards.length - index;
@@ -392,7 +448,7 @@
         initCards();
 
         allCards.forEach(function (el) {
-            var hammertime = new Hammer(el);
+            let hammertime = new Hammer(el);
 
             hammertime.on('pan', function (event) {
                 el.classList.add('moving');
@@ -405,40 +461,70 @@
                 tinderContainer.classList.toggle('tinder_love', event.deltaX > 0);
                 tinderContainer.classList.toggle('tinder_nope', event.deltaX < 0);
 
-                var xMulti = event.deltaX * 0.03;
-                var yMulti = event.deltaY / 80;
+                var xMulti = event.deltaX * 0.3;
+                var yMulti = event.deltaY / 65;
                 var rotate = xMulti * yMulti;
 
                 event.target.style.transform = 'translate(' + event.deltaX + 'px, ' + event.deltaY + 'px) rotate(' + rotate + 'deg)';
             });
 
-            hammertime.on('panend', function (event) {
-                el.classList.remove('moving');
-                tinderContainer.classList.remove('tinder_love');
-                tinderContainer.classList.remove('tinder_nope');
+                        hammertime.on('panend', function (event) {
+                            el.classList.remove('moving');
+                            tinderContainer.classList.remove('tinder_love');
+                            tinderContainer.classList.remove('tinder_nope');
 
-                var moveOutWidth = document.body.clientWidth;
-                var keep = Math.abs(event.deltaX) < 80 || Math.abs(event.velocityX) < 0.5;
+                            var moveOutWidth = document.body.clientWidth;
+                            var keep = Math.abs(event.deltaX) < 80 || Math.abs(event.velocityX) < 0.5;
 
-                event.target.classList.toggle('removed', !keep);
+                            event.target.classList.toggle('removed', !keep);
 
-                if (keep) {
-                    event.target.style.transform = '';
-                } else {
-                    var endX = Math.max(Math.abs(event.velocityX) * moveOutWidth, moveOutWidth);
-                    var toX = event.deltaX > 0 ? endX : -endX;
-                    var endY = Math.abs(event.velocityY) * moveOutWidth;
-                    var toY = event.deltaY > 0 ? endY : -endY;
-                    var xMulti = event.deltaX * 0.03;
-                    var yMulti = event.deltaY / 80;
-                    var rotate = xMulti * yMulti;
+                            if (keep) {
+                                event.target.style.transform = '';
+                            } else {
+                                var endX = Math.max(Math.abs(event.velocityX) * moveOutWidth, moveOutWidth);
+                                var toX = event.deltaX > 0 ? endX : -endX;
+                                var endY = Math.abs(event.velocityY) * moveOutWidth;
+                                var toY = event.deltaY > 0 ? endY : -endY;
+                                var xMulti = event.deltaX * 0.1;
+                                var yMulti = event.deltaY / 80;
+                                var rotate = xMulti * yMulti;
 
-                    event.target.style.transform = 'translate(' + toX + 'px, ' + (toY + event.deltaY) + 'px) rotate(' + rotate + 'deg)';
-                    initCards();
-                }
-            });
+                                event.target.style.transform = 'translate(' + toX + 'px, ' + (toY + event.deltaY) + 'px) rotate(' + rotate + 'deg)';
+                                initCards();
+                            }
+                        });
         });
+
+        function createButtonListener(love) {
+            return function (event) {
+                var cards = document.querySelectorAll('.user:not(.removed)');
+                var moveOutWidth = document.body.clientWidth * 1.5;
+
+                if (!cards.length) return false;
+
+                var card = cards[0];
+
+                card.classList.add('removed');
+
+                if (love) {
+                    card.style.transform = 'translate(' + moveOutWidth + 'px, -100px) rotate(-30deg)';
+                } else {
+                    card.style.transform = 'translate(-' + moveOutWidth + 'px, -100px) rotate(30deg)';
+                }
+
+                initCards();
+
+                event.preventDefault();
+            };
+        }
+
+        let nopeListener = createButtonListener(false);
+        let loveListener = createButtonListener(true);
+
+        nope.addEventListener('click', nopeListener);
+        love.addEventListener('click', loveListener);
     }
+
 
 </script>
 </body>

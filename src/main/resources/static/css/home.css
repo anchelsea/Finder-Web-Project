@@ -13,30 +13,28 @@ body {
 /*#homepage-btn{
     border-bottom: 3px solid #fd5068;
 }*/
-.container {
+.container1 {
     display: flex;
 }
 
-.container button:focus {
+.container1 button:focus {
     outline: none;
 }
 
-.side {
+.container1 .side1 {
     min-width: 320px;
     background-color: white;
     height: 100%;
     min-height: 100vh;
     border-right: 1px solid #e1e1e1;
-    margin-left: -397px !important;
 }
 
-.content {
+.content1 {
     width: 100%;
     display: flex;
     padding: 20px 0;
     align-items: center;
     flex-direction: column;
-    margin-left: 397px;
 }
 
 .space {
@@ -44,7 +42,7 @@ body {
     height: 25px;
 }
 
-.side .header {
+.container1 .side1 .header {
     /*margin-top: 40px;*/
     border: none;
     background: linear-gradient(262deg, #ff7854, #fd267d);
@@ -56,7 +54,7 @@ body {
     padding: 0 20px;
 }
 
-.side .header .avatar img {
+.side1 .header .avatar img {
     width: 40px;
     height: 40px;
     border-radius: 40px;
@@ -64,7 +62,7 @@ body {
     box-shadow: 0 1px 8px 0 rgba(0, 20, 20, 0.2);
 }
 
-.side .header .title {
+.side1 .header .title {
     padding: 0 10px;
     color: #fff;
     font-size: 23px;
@@ -72,7 +70,7 @@ body {
 }
 
 
-.side .side-btn .avatar1 {
+.side1 .side-btn .avatar1 {
     background-color: white;
     box-shadow: 0 1px 8px 0 rgba(0, 20, 20, 0.2);
     width: 100%;
@@ -84,12 +82,12 @@ body {
     display: flex;
 }
 
-.side .side-btn .title {
+.side1 .side-btn .title {
     margin-left: 18px;
     font-size: 15px;
 }
 
-.side .side-btn .avatar1 img {
+.side1 .side-btn .avatar1 img {
     width: 60px;
     height: 60px;
     border-radius: 12px;
@@ -98,7 +96,7 @@ body {
     background-color: white;
 }
 
-.side .side-btn .avatar1:hover {
+.side1 .side-btn .avatar1:hover {
     background-color: #E4E6EB;
     box-shadow: 0 0 15px 0 rgba(43, 78, 78, 0.1);
     border-right: 5px solid #007eed;
@@ -106,22 +104,56 @@ body {
 
 
 /*CARD*/
-.container .card {
+.container1 .card1 {
+    margin-bottom: 250px;
     position: relative;
-    height: 450px;
+    height: 500px;
+    width: 100%;
+    flex-grow: 1;
+    padding-top: 40px;
+    display: flex;
+    z-index: 1;
+    justify-content: center;
+    align-items: flex-end;
+
 
 }
 
-.content .card .user {
+.content1 .card1 .user {
     width: 380px;
-    height: 565px;
+    height: 600px;
     object-fit: cover;
     border-radius: 10px;
     box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.5);
 
+    display: inline-block;
+    max-width: 400px;
+    background: #FFFFFF;
+    padding-bottom: 40px;
+    overflow: hidden;
+    will-change: transform;
+    transition: all 0.3s ease-in-out;
+    cursor: grab;
+    perspective: 1000px;
+
+
+ /*   display: inline-block;
+    width: 90vw;
+    max-width: 400px;
+    height: 70vh;
+    background: #FFFFFF;
+    padding-bottom: 40px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: absolute;
+    will-change: transform;
+    transition: all 0.3s ease-in-out;
+    cursor: grab;
+*/
+
 }
 
-.content .card .user .carousel-inner {
+.content1 .card1 .user .carousel-inner {
 
     border-radius: 10px;
     box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.5);
@@ -129,39 +161,42 @@ body {
 }
 
 
-.content .card .user .carousel-inner img {
 
+.user #1 img {
     border-radius: 10px;
     box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.5);
-
+    max-width: 100%;
+    touch-action: auto;
+    pointer-events: none !important;
 }
 
-.content .card .user .profile {
+.content1 .card1 .user .profile {
     /* margin-top: 100px;*/
     margin-top: -140px;
     margin-left: -10px;
     bottom: 0px;
     left: 25px;
     position: relative;
+    pointer-events: none;
 }
 
-.content .card .user .profile .info-icon {
+.content1 .card1 .user .profile .info-icon {
     margin-left: 165px;
     border: none;
     background-color: transparent;
 }
 
-.content .card .user .profile .info-detail  {
+.content1 .card1 .user .profile .info-detail  {
     margin-top: -70px;
     margin-left: 150px;
 }
 
-.content .card .user .profile .info-detail img:hover {
+.content1 .card1 .user .profile .info-detail img:hover {
     transform: scale(1.25);
 }
 
 
-.content .card .user .name {
+.content1 .card1 .user .name {
     color: #fff;
     background-color: transparent;
     font-size: 32px;
@@ -169,19 +204,21 @@ body {
     letter-spacing: 0.5px;
     text-shadow: 1px 1px 5px #444;
     margin-top: -60px;
+    pointer-events: none;
 }
 
-.content .card .user .name span {
+.content1 .card1 .user .name span {
     font-size: 26px;
+    pointer-events: none;
 }
 
-.content .card .local1 {
+.content1 .card1 .local1 {
     display: flex;
     align-items: center;
     padding: 0 0 20px 0;
 }
 
-.content .card .local1 .local-detail{
+.content1 .card1 .local1 .local-detail{
     display: flex;
     align-items: center;
     padding-bottom: 5px;
@@ -189,7 +226,7 @@ body {
 
 }
 
-.content .card .gender .sex-container{
+.content1 .card1 .gender .sex-container{
     display: flex;
     align-items: center;
     padding-bottom: 5px;
@@ -198,56 +235,60 @@ body {
 }
 
 
-.content .card .gender {
+.content1 .card1 .gender {
     display: flex;
     align-items: center;
     padding: 0 0 20px 0;
     margin-top: -15px;
 }
 
-.content .card .gender span {
+.content1 .card1 .gender span {
     color: #fff;
     padding: 0 10px;
     text-shadow: 1px 1px 5px #444;
 }
 
 
-.content .card .local1 .local-detail i {
+.content1 .card1 .local1 .local-detail i {
     margin: 5px 0;
     color: #fff;
 }
 
-.content .card .local1 span {
+.content1 .card1 .local1 span {
     color: #fff;
     padding: 0 10px;
     text-shadow: 1px 1px 5px #444;
 
 }
 
-.content .buttons {
-    margin-top: 130px;
+.content1 #btn-like-nope {
+ margin-top: -100px;
+    margin-bottom: 120px;
+}
+
+.content1 .buttons {
     display: flex;
     align-items: center;
 }
 
-.content .buttons .no i {
+.content1 .buttons .no i {
     color: #fd2e79;
     font-size: 33px;
 }
 
-.content .buttons .star i {
+.content1 .buttons .star i {
     color: #2bb1ff;
     font-size: 22px;
 }
 
-.content .buttons .heart i {
+.content1 .buttons .heart i {
     color: #11e298;
     font-size: 32px;
 }
 
-.content .buttons .no,
-.content .buttons .star,
-.content .buttons .heart {
+ .buttons .no,
+ .buttons .star,
+ .buttons .heart {
     background-color: #fff;
     width: 70px;
     height: 70px;
@@ -260,18 +301,26 @@ body {
     transition: 0.2s transform;
 }
 
-.content .buttons .no:hover,
-.content .buttons .star:hover,
-.content .buttons .heart:hover {
-    transform: scale(1.1);
+ .buttons .no:hover,
+ .buttons .star:hover,
+ .buttons .heart:hover {
+    transform: scale(1.2);
 }
 
-.content .buttons .star {
+.content1 .buttons .star {
     width: 60px;
     height: 60px;
 }
 
 
+
+
+
+*, *:before, *:after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
 * {
     margin: 0px;
     padding: 0px;
