@@ -1,6 +1,6 @@
 
 body {
-    background-color: #f5f7fa;
+    background-color: #f5f7fa !important;
     font-family: 'Roboto', sans-serif;
     margin: 0;
 }
@@ -27,6 +27,7 @@ body {
     height: 100%;
     min-height: 100vh;
     border-right: 1px solid #e1e1e1;
+    margin-left: -397px !important;
 }
 
 .content {
@@ -35,6 +36,7 @@ body {
     padding: 20px 0;
     align-items: center;
     flex-direction: column;
+    margin-left: 397px;
 }
 
 .space {
@@ -107,6 +109,7 @@ body {
 .container .card {
     position: relative;
     height: 450px;
+
 }
 
 .content .card .user {
@@ -115,19 +118,42 @@ body {
     object-fit: cover;
     border-radius: 10px;
     box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.5);
+
+}
+
+.content .card .user .carousel-inner {
+
+    border-radius: 10px;
+    box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.5);
+
+}
+
+
+.content .card .user .carousel-inner img {
+
+    border-radius: 10px;
+    box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.5);
+
 }
 
 .content .card .user .profile {
-    margin-top: -80px;
-    margin-left: 10px;
+    /* margin-top: 100px;*/
+    margin-top: -140px;
+    margin-left: -10px;
     bottom: 0px;
     left: 25px;
+    position: relative;
 }
 
 .content .card .user .profile .info-icon {
     margin-left: 165px;
     border: none;
     background-color: transparent;
+}
+
+.content .card .user .profile .info-detail  {
+    margin-top: -70px;
+    margin-left: 150px;
 }
 
 .content .card .user .profile .info-detail img:hover {
@@ -142,28 +168,60 @@ body {
     font-weight: 700;
     letter-spacing: 0.5px;
     text-shadow: 1px 1px 5px #444;
+    margin-top: -60px;
 }
 
 .content .card .user .name span {
     font-size: 26px;
 }
 
-.content .card .local {
+.content .card .local1 {
     display: flex;
     align-items: center;
     padding: 0 0 20px 0;
 }
 
+.content .card .local1 .local-detail{
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
+    margin-left: 4px;
 
-.content .card .local i {
+}
+
+.content .card .gender .sex-container{
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
+    margin-left: 4px;
+
+}
+
+
+.content .card .gender {
+    display: flex;
+    align-items: center;
+    padding: 0 0 20px 0;
+    margin-top: -15px;
+}
+
+.content .card .gender span {
+    color: #fff;
+    padding: 0 10px;
+    text-shadow: 1px 1px 5px #444;
+}
+
+
+.content .card .local1 .local-detail i {
     margin: 5px 0;
     color: #fff;
 }
 
-.content .card .local span {
+.content .card .local1 span {
     color: #fff;
     padding: 0 10px;
     text-shadow: 1px 1px 5px #444;
+
 }
 
 .content .buttons {
@@ -220,4 +278,17 @@ body {
     box-sizing: border-box;
 }
 
+.profile .local1 .local-detail i {
+    height: 25px;
+    width: 25px;
+    background-image: url("../img/house1.png");
+}
+
+.profile .sex-container i {
+    height: 25px;
+    width: 25px;
+    margin-top: -4px;
+    margin-right: -4px;
+    background-image: url("../img/sex1.png");
+}
 
