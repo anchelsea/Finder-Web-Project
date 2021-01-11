@@ -27,6 +27,11 @@ public class UserService {
     }
 
     @Transactional
+    public User findUserById(long id) {
+        return userDao.findUserById(id);
+    }
+
+    @Transactional
     public void addAuthority(Authority authority){
         userDao.addAuthority(authority);
     }

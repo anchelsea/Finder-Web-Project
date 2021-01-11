@@ -6,10 +6,7 @@ import javax.validation.constraints.Email;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "user", uniqueConstraints = {
@@ -287,11 +284,13 @@ public class User {
 
     public int getYearBirthday(){
         Date date = this.getBirthday();
-        java.sql.Date dat = java.sql.Date.valueOf(String.valueOf(date));
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(dat);
 
+        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Europe/Paris"));
+        cal.setTime(date);
         int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+
         return year;
     }
 
@@ -300,5 +299,21 @@ public class User {
         return year;
     }
 
-
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", fristname='" + fristname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", gender='" + gender + '\'' +
+                ", photos=" + photos +
+                ", likes=" + likes +
+                ", citylive='" + citylive + '\'' +
+                ", interest=" + interest +
+                ", frist_login=" + frist_login +
+                '}';
+    }
 }

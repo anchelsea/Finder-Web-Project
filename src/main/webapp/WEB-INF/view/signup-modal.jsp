@@ -188,6 +188,7 @@
                         //everything is O.K. user logged in successfully.
                         $('.ui.modal.signup').modal('hide');
                         $('.success').fadeIn(100).show();
+                    /*    alert("Signup Succesful.");*/
                         //window.location.replace('http://localhost:8888/');
                         // window.location.reload();
                     }

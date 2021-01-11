@@ -25,14 +25,19 @@ public class UserDao {
     }
 
 
-    public User findUserById(int id) {
+    public User findUserById(long id) {
         Session session = entityManager.unwrap(Session.class);
 
         Query<User> query = session.createQuery("from User u where u.id=:id");
         query.setParameter("id", id);
 
-        User user = query.getSingleResult();
-
+        User user = new User();
+        try {
+            user = query.getSingleResult();
+        } catch (NoResultException nre) {
+//Ignore this because as per your logic this is ok!
+        }
+        System.out.println(user);
         return user;
     }
 

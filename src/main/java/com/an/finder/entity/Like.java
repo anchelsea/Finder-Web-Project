@@ -19,6 +19,7 @@ public class Like {
     private User user;
 
 
+    @JsonIgnore
     @Nullable
     private long user_liked;
 

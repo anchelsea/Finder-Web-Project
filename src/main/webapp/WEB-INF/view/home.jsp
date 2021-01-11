@@ -23,8 +23,8 @@
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
 
-<%--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"/>--%>
+    <%--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"/>--%>
 
 
     <script src="js/lib/jquery.js"></script>
@@ -43,7 +43,7 @@
             opacity: 1;
         }
 
-        .tinder_love .fa-heart{
+        .tinder_love .fa-heart {
 
             color: #11e298;;
             opacity: 0.7;
@@ -51,7 +51,7 @@
             transform: scale(1);
         }
 
-        .tinder_nope .fa-times{
+        .tinder_nope .fa-times {
             color: #fd2e79;
             opacity: 0.7;
             -webkit-transform: scale(1);
@@ -127,19 +127,23 @@
         </div>
         <div class="card1">
             <c:forEach items="${users}" varStatus="theUser">
-                <div class="user"  >
-                    <a class="carousel-control-prev" href="#${theUser.index}" role="button" data-slide="prev" >
+
+                <div class="user">
+                    <a class="carousel-control-prev" href="#${theUser.index}" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
                     </a>
-                    <a class="carousel-control-next" href="#${theUser.index}" role="button" data-slide="next" >
+                    <a class="carousel-control-next" href="#${theUser.index}" role="button" data-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
-                    <div id="${theUser.index}" class="carousel slide" data-ride="carousel" style="pointer-events: none !important;">
+                    <div id="${theUser.index}" class="carousel slide" data-ride="carousel" data-interval="10000"
+                         style="pointer-events: none !important;" >
                         <ol class="carousel-indicators" style="pointer-events: none !important;">
                             <c:forEach items="${users[theUser.index].photos}">
-                                <li style="margin-top: -535px" data-target="#${theUser.index}" data-slide-to="0" class="active"></li>
+
+                                <li style="margin-top: -535px" data-target="#${theUser.index}" data-slide-to="0"
+                                    class="active"></li>
                             </c:forEach>
                         </ol>
 
@@ -148,7 +152,7 @@
                             <c:choose>
                                 <c:when test="${users[theUser.index].photoLength<2}">
                                     <div class="carousel-item active" style="pointer-events: none !important;">
-                                        <img style="height: 565px"  src="${users[theUser.index].photos[0].link}"
+                                        <img style="height: 565px" src="${users[theUser.index].photos[0].link}"
                                              alt="First slide">
                                     </div>
                                 </c:when>
@@ -158,189 +162,232 @@
                                              alt="First slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[1].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[1].link}"
                                              alt="Second slide">
                                     </div>
                                 </c:when>
                                 <c:when test="${users[theUser.index].photoLength<4}">
                                     <div class="carousel-item active">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[0].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[0].link}"
                                              alt="First slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[1].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[1].link}"
                                              alt="Second slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[2].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[2].link}"
                                              alt="Third slide">
                                     </div>
                                 </c:when>
                                 <c:when test="${users[theUser.index].photoLength<5}">
                                     <div class="carousel-item active">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[0].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[0].link}"
                                              alt="First slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[1].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[1].link}"
                                              alt="Second slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[2].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[2].link}"
                                              alt="Third slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[3].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[3].link}"
                                              alt="Four slide">
                                     </div>
                                 </c:when>
                                 <c:when test="${users[theUser.index].photoLength<6}">
                                     <div class="carousel-item active">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[0].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[0].link}"
                                              alt="First slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[1].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[1].link}"
                                              alt="Second slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[2].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[2].link}"
                                              alt="Third slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[3].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[3].link}"
                                              alt="Four slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[4].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[4].link}"
                                              alt="Four slide">
                                     </div>
                                 </c:when>
                                 <c:when test="${users[theUser.index].photoLength<7}">
                                     <div class="carousel-item active">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[0].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[0].link}"
                                              alt="First slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[1].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[1].link}"
                                              alt="Second slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[2].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[2].link}"
                                              alt="Third slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[3].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[3].link}"
                                              alt="Four slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[4].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[4].link}"
                                              alt="Four slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[5].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[5].link}"
                                              alt="Four slide">
                                     </div>
                                 </c:when>
                                 <c:when test="${users[theUser.index].photoLength<8}">
                                     <div class="carousel-item active">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[0].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[0].link}"
                                              alt="First slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[1].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[1].link}"
                                              alt="Second slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[2].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[2].link}"
                                              alt="Third slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[3].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[3].link}"
                                              alt="Four slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[4].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[4].link}"
                                              alt="Four slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[5].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[5].link}"
                                              alt="Four slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[6].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[6].link}"
                                              alt="Four slide">
                                     </div>
                                 </c:when>
                                 <c:when test="${users[theUser.index].photoLength<9}">
                                     <div class="carousel-item active">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[0].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[0].link}"
                                              alt="First slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[1].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[1].link}"
                                              alt="Second slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[2].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[2].link}"
                                              alt="Third slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[3].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[3].link}"
                                              alt="Four slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[4].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[4].link}"
                                              alt="Four slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[5].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[5].link}"
                                              alt="Four slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[6].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[6].link}"
                                              alt="Four slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[7].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[7].link}"
                                              alt="Four slide">
                                     </div>
                                 </c:when>
                                 <c:when test="${users[theUser.index].photoLength<10}">
                                     <div class="carousel-item active">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[0].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[0].link}"
                                              alt="First slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[1].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[1].link}"
                                              alt="Second slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[2].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[2].link}"
                                              alt="Third slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[3].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[3].link}"
                                              alt="Four slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[4].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[4].link}"
                                              alt="Four slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[5].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[5].link}"
                                              alt="Four slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[6].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[6].link}"
                                              alt="Four slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[7].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[7].link}"
                                              alt="Four slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img style="height: 565px" class="d-block w-100" src="${users[theUser.index].photos[8].link}"
+                                        <img style="height: 565px" class="d-block w-100"
+                                             src="${users[theUser.index].photos[8].link}"
                                              alt="Four slide">
                                     </div>
                                 </c:when>
@@ -355,7 +402,8 @@
                     </div>
 
                     <div class="profile">
-                        <div class="name">${users[theUser.index].fristname} ${users[theUser.index].lastname} <span>${users[theUser.index].nowYear-users[theUser.index].yearBirthday}</span>
+                        <div class="name">${users[theUser.index].fristname} ${users[theUser.index].lastname}
+                            <span>${users[theUser.index].nowYear-users[theUser.index].yearBirthday}</span>
                         </div>
                         <div class="local1">
                             <div class="local-detail">
@@ -374,12 +422,15 @@
                             </button>
                         </div>
                     </div>
+                    <input type="hidden" class="getTheUserIndex" value="${users[theUser.index].id}"></input>
                 </div>
+
+
             </c:forEach>
 
         </div>
 
-        <div class="buttons" id="btn-like-nope" >
+        <div class="buttons" id="btn-like-nope">
             <button class="no" id="nope" style="border: none">
                 <i class="fas fa-times"></i>
             </button>
@@ -429,17 +480,25 @@
     $('#profile-btn-side').click(function () {
         window.location = 'http://localhost:8888/profile';
     });
+    let currentCard;
+    let idUser;
 
 
-    function swipe() {
+    async function swipe() {
 
         let tinderContainer = document.querySelector('.content1');
         let allCards = document.querySelectorAll('.user');
         let nope = document.getElementById('nope');
         let love = document.getElementById('like');
 
+
         function initCards(card, index) {
             let newCards = document.querySelectorAll('.user:not(.removed)');
+            currentCard = document.querySelector('.user:not(.removed)');
+
+            idUser = parseInt(currentCard.querySelector("input").value);
+            console.log('init:  ',idUser);
+
 
             newCards.forEach(function (card, index) {
                 card.style.zIndex = allCards.length - index;
@@ -473,65 +532,106 @@
                 event.target.style.transform = 'translate(' + event.deltaX + 'px, ' + event.deltaY + 'px) rotate(' + rotate + 'deg)';
             });
 
-                        hammertime.on('panend', function (event) {
-                            el.classList.remove('moving');
-                            tinderContainer.classList.remove('tinder_love');
-                            tinderContainer.classList.remove('tinder_nope');
+            hammertime.on('panend', async function (event) {
+                el.classList.remove('moving');
+                tinderContainer.classList.remove('tinder_love');
+                tinderContainer.classList.remove('tinder_nope');
 
-                            var moveOutWidth = document.body.clientWidth;
-                            var keep = Math.abs(event.deltaX) < 80 || Math.abs(event.velocityX) < 0.5;
+                var moveOutWidth = document.body.clientWidth;
+                var keep = Math.abs(event.deltaX) < 80 || Math.abs(event.velocityX) < 0.5;
 
-                            event.target.classList.toggle('removed', !keep);
+                event.target.classList.toggle('removed', !keep);
 
-                            if (keep) {
-                                event.target.style.transform = '';
-                            } else {
-                                var endX = Math.max(Math.abs(event.velocityX) * moveOutWidth, moveOutWidth);
-                                var toX = event.deltaX > 0 ? endX : -endX;
-                                var endY = Math.abs(event.velocityY) * moveOutWidth;
-                                var toY = event.deltaY > 0 ? endY : -endY;
-                                var xMulti = event.deltaX * 0.03;
-                                var yMulti = event.deltaY / 80;
-                                var rotate = xMulti * yMulti;
+                if (keep) {
+                    event.target.style.transform = '';
+                } else {
+                    var endX = Math.max(Math.abs(event.velocityX) * moveOutWidth, moveOutWidth);
+                    var toX = event.deltaX > 0 ? endX : -endX;
+                    var endY = Math.abs(event.velocityY) * moveOutWidth;
+                    var toY = event.deltaY > 0 ? endY : -endY;
+                    var xMulti = event.deltaX * 0.03;
+                    var yMulti = event.deltaY / 80;
+                    var rotate = xMulti * yMulti;
 
-                                event.target.style.transform = 'translate(' + toX + 'px, ' + (toY + event.deltaY) + 'px) rotate(' + rotate + 'deg)';
-                                initCards();
-                            }
-                        });
+                    console.log(event.deltaX)
+
+                    if (event.deltaX > 0) {
+                        await save();
+                    }
+
+
+                    event.target.style.transform = 'translate(' + toX + 'px, ' + (toY + event.deltaY) + 'px) rotate(' + rotate + 'deg)';
+                    console.log('init bay')
+                    initCards();
+                }
+            });
         });
 
+
         function createButtonListener(love) {
-            return function (event) {
-                var cards = document.querySelectorAll('.user:not(.removed)');
-                var moveOutWidth = document.body.clientWidth * 1.5;
-
-                if (!cards.length) return false;
-
-                var card = cards[0];
-
-                card.classList.add('removed');
-
-                if (love) {
-                    card.style.transform = 'translate(' + moveOutWidth + 'px, -100px) rotate(-30deg)';
-                } else {
-                    card.style.transform = 'translate(-' + moveOutWidth + 'px, -100px) rotate(30deg)';
-                }
-
-                initCards();
-
+            return async function (event) {
+                click(love);
                 event.preventDefault();
-            };
+
+            }
         }
 
         let nopeListener = createButtonListener(false);
         let loveListener = createButtonListener(true);
 
 
-
         nope.addEventListener('click', nopeListener);
         love.addEventListener('click', loveListener);
 
+    }
 
+    async function click(love){
+            var cards = document.querySelectorAll('.user:not(.removed)');
+            var moveOutWidth = document.body.clientWidth * 1.5;
+
+            if (!cards.length) return false;
+
+            var card = cards[0];
+
+            card.classList.add('removed');
+
+            if (love) {
+                card.style.transform = 'translate(' + moveOutWidth + 'px, -100px) rotate(-30deg)';
+            } else {
+                card.style.transform = 'translate(-' + moveOutWidth + 'px, -100px) rotate(30deg)';
+            }
+
+            console.log('1')
+            await save();
+            console.log('3')
+
+            initCards();
+
+
+    }
+
+    function save() {
+        return  new Promise((resolve ,reject)=>{
+                console.log(idUser)
+
+                var saveData = $.ajax({
+                    type: 'POST',
+                    url: "like",
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify({id: idUser}),
+
+                    success: function (resultData) {
+                      /*  alert("Save Complete")*/
+                        console.log('2')
+                        resolve(1)
+                    },
+                    error:function(e){
+                        resolve(1)
+
+                    }
+                });
+        })
     }
 
 
