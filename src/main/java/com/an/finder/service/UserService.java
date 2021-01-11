@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.swing.text.html.Option;
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -33,6 +34,11 @@ public class UserService {
     @Transactional
     public User findUserByUsername(String username){
         return userDao.findUserByUsername(username);
+    }
+
+    @Transactional
+    public List<User> getAllUser(){
+        return userDao.findAll();
     }
 /*    @Transactional
     public <*/

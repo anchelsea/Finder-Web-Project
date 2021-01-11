@@ -38,6 +38,9 @@ public class HomeController {
         }
         user=userService.findUserByEmail(user.getEmail());
 
+        int userSize=userService.getAllUser().size();
+        model.addAttribute("userSize",userSize);
+        model.addAttribute("users",userService.getAllUser());
         model.addAttribute("user",user);
 
         return "home";

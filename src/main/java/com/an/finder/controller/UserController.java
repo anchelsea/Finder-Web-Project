@@ -53,6 +53,7 @@ public class UserController {
         return "frist-login";
     }
 
+
     @PostMapping("/fristlogin")
     public String signUp(HttpServletRequest request, Model model, @ModelAttribute User user,
                          @RequestParam("photo") MultipartFile[] photoFiles,
@@ -111,4 +112,6 @@ public class UserController {
         }
         return "redirect:/home";
     }
+
+
 }

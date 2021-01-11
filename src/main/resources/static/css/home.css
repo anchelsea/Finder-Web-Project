@@ -30,11 +30,20 @@ body {
 }
 
 .content1 {
-    width: 100%;
+/*    width: 100%;
     display: flex;
     padding: 20px 0;
     align-items: center;
+    flex-direction: column;*/
+
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
     flex-direction: column;
+    position: relative;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
 }
 
 .space {
@@ -105,6 +114,7 @@ body {
 
 /*CARD*/
 .container1 .card1 {
+    /*
     margin-bottom: 250px;
     position: relative;
     height: 500px;
@@ -115,11 +125,19 @@ body {
     z-index: 1;
     justify-content: center;
     align-items: flex-end;
+    */
 
-
+    flex-grow: 1;
+    padding-top: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 1;
 }
 
 .content1 .card1 .user {
+    /*
     width: 380px;
     height: 600px;
     object-fit: cover;
@@ -135,9 +153,10 @@ body {
     transition: all 0.3s ease-in-out;
     cursor: grab;
     perspective: 1000px;
+    */
 
 
- /*   display: inline-block;
+    display: inline-block;
     width: 90vw;
     max-width: 400px;
     height: 70vh;
@@ -149,7 +168,6 @@ body {
     will-change: transform;
     transition: all 0.3s ease-in-out;
     cursor: grab;
-*/
 
 }
 
@@ -162,11 +180,11 @@ body {
 
 
 
-.user #1 img {
+.card1.user img {
     border-radius: 10px;
     box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.5);
     max-width: 100%;
-    touch-action: auto;
+    z-index: -99;
     pointer-events: none !important;
 }
 
@@ -341,3 +359,136 @@ body {
     background-image: url("../img/sex1.png");
 }
 
+/*///////////////////////////////////////////////////////////////*/
+
+
+
+.tinder {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+}
+
+.loaded.tinder {
+    opacity: 1;
+}
+
+.tinder--status {
+    position: absolute;
+    top: 50%;
+    margin-top: -30px;
+    z-index: 2;
+    width: 100%;
+    text-align: center;
+    pointer-events: none;
+}
+
+.tinder--status i {
+    font-size: 100px;
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+    transform: scale(0.3);
+    transition: all 0.2s ease-in-out;
+    position: absolute;
+    width: 100px;
+    margin-left: -50px;
+}
+
+.tinder_love .fa-heart {
+    opacity: 0.7;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.tinder_nope .fa-remove {
+    opacity: 0.7;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.tinder--cards {
+    flex-grow: 1;
+    padding-top: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 1;
+}
+
+.tinder--card {
+    display: inline-block;
+    width: 90vw;
+    max-width: 400px;
+    height: 70vh;
+    background: #FFFFFF;
+    padding-bottom: 40px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: absolute;
+    will-change: transform;
+    transition: all 0.3s ease-in-out;
+    cursor: grab;
+}
+
+.moving.tinder--card {
+    transition: none;
+    cursor: grabbing;
+}
+
+.tinder--card img {
+    max-width: 100%;
+    pointer-events: none;
+}
+
+.tinder--card h3 {
+    margin-top: 32px;
+    font-size: 32px;
+    padding: 0 16px;
+    pointer-events: none;
+}
+
+.tinder--card p {
+    margin-top: 24px;
+    font-size: 20px;
+    padding: 0 16px;
+    pointer-events: none;
+}
+
+.tinder--buttons {
+    flex: 0 0 100px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.tinder--buttons button {
+    border-radius: 50%;
+    line-height: 60px;
+    width: 60px;
+    border: 0;
+    background: #FFFFFF;
+    display: inline-block;
+    margin: 0 8px;
+}
+
+.tinder--buttons button:focus {
+    outline: 0;
+}
+
+.tinder--buttons i {
+    font-size: 32px;
+    vertical-align: middle;
+}
+
+.fa-heart {
+    color: #FFACE4;
+}
+
+.fa-remove {
+    color: #CDD6DD;
+}
