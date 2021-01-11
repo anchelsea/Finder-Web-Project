@@ -48,6 +48,7 @@ public class EditProfileController {
 
         user=userService.findUserByEmail(user.getEmail());
 
+        System.out.println(user);
 
         model.addAttribute("user",user);
         model.addAttribute("interest",interestService.findAll());
@@ -64,16 +65,18 @@ public class EditProfileController {
 
         List<String> messages = new ArrayList<>();
 
-        User currentUser= (User) session.getAttribute("user");
-        System.out.println("aaaaa");
-        System.out.println(currentUser);
-        currentUser.setAbout(user.getAbout());
-        currentUser.setWork(user.getWork());
-        currentUser.setSchool(user.getSchool());
-        currentUser.setGender(user.getGender());
-        currentUser.setCitylive(user.getCitylive());
+
 
         try {
+
+            User currentUser= (User) session.getAttribute("user");
+
+            currentUser.setAbout(user.getAbout());
+            currentUser.setWork(user.getWork());
+            currentUser.setSchool(user.getSchool());
+            currentUser.setGender(user.getGender());
+            currentUser.setCitylive(user.getCitylive());
+            System.out.println("aaa"+currentUser);
             if(!photoFiles.isEmpty()){
                 fileService.saveImage(photoFiles);
                 String photoPath = "/Upload/image/" + photoFiles.getOriginalFilename();
@@ -106,13 +109,12 @@ public class EditProfileController {
                 messages.add(e.getMessage());
             }
         }
-        return "redirect:/edit";
+        return "redirect:/profile";
 
     }
 
     @GetMapping("/{userId}/delete/{id}")
     public String deletePhoto(@PathVariable("userId") int userId,@PathVariable("id") int id){
-        System.out.println("aaa"); System.out.println(id);
         try {
             System.out.println(id);
             photoService.detele(id);
@@ -122,6 +124,6 @@ public class EditProfileController {
             System.out.println(e);
         }
 
-        return "redirect:/edit";
+        return "redirect:/profile";
     }
 }

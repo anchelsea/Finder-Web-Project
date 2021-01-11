@@ -39,7 +39,7 @@ public class User {
 
 
     @JsonIgnore
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
     private List<Authority> authorities;
 
     @Size(min=2,max=20,message = "username size must be from 2 to 20")
@@ -68,7 +68,8 @@ public class User {
 
 
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
+            CascadeType.DETACH, CascadeType.REFRESH})
     @JoinTable(
             name = "user_interest",
             joinColumns = {@JoinColumn(name = "user_id")},
@@ -306,14 +307,24 @@ public class User {
                 ", email='" + email + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", authorities=" + authorities +
                 ", fristname='" + fristname + '\'' +
                 ", lastname='" + lastname + '\'' +
+                ", birthday=" + birthday +
                 ", gender='" + gender + '\'' +
                 ", photos=" + photos +
                 ", likes=" + likes +
+                ", about='" + about + '\'' +
                 ", citylive='" + citylive + '\'' +
                 ", interest=" + interest +
+                ", work='" + work + '\'' +
+                ", school='" + school + '\'' +
+                ", location_Id='" + location_Id + '\'' +
+                ", gender_filter='" + gender_filter + '\'' +
+                ", max_distance_filter='" + max_distance_filter + '\'' +
+                ", age_range_filter='" + age_range_filter + '\'' +
                 ", frist_login=" + frist_login +
+                ", status=" + status +
                 '}';
     }
 }

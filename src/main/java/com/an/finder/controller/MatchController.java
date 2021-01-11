@@ -14,7 +14,7 @@ public class MatchController {
     @Autowired
     UserService userService;
 
-/*    @GetMapping("/match")
+    @GetMapping("/match")
     public String match(Model model, HttpSession session){
         User user= (User) session.getAttribute("user");
 
@@ -31,7 +31,7 @@ public class MatchController {
         model.addAttribute("user",user);
 
         return "match";
-    }*/
+    }
 
 
 

@@ -147,6 +147,7 @@
                         //everything is O.K. user logged in successfully.
                         $('.ui.modal.signin').modal('hide');
                         window.location.replace('http://localhost:8888/home');
+
                         // window.location.reload();
                     }
                 },

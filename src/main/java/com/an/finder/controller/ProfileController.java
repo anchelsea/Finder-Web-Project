@@ -28,6 +28,7 @@ public class ProfileController {
         user=userService.findUserByEmail(user.getEmail());
 
         model.addAttribute("user",user);
+        System.out.println(user);
 
         return "profile/profile";
     }
