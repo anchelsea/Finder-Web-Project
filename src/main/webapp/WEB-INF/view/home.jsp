@@ -127,7 +127,7 @@
         </div>
         <div class="card1">
             <c:forEach items="${users}" varStatus="theUser">
-                <div class="user" >
+                <div class="user"  >
                     <a class="carousel-control-prev" href="#${theUser.index}" role="button" data-slide="prev" >
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
@@ -379,9 +379,7 @@
 
         </div>
 
-
-
-        <div class="buttons" id="btn-like-nope">
+        <div class="buttons" id="btn-like-nope" >
             <button class="no" id="nope" style="border: none">
                 <i class="fas fa-times"></i>
             </button>
@@ -392,7 +390,10 @@
                 <i class="fas fa-heart"></i>
             </button>
         </div>
+
+
     </div>
+
 </div>
 
 <script src="https://hammerjs.github.io/dist/hammer.min.js" type="text/javascript"></script>
@@ -525,8 +526,12 @@
         let nopeListener = createButtonListener(false);
         let loveListener = createButtonListener(true);
 
+
+
         nope.addEventListener('click', nopeListener);
         love.addEventListener('click', loveListener);
+
+
     }
 
 

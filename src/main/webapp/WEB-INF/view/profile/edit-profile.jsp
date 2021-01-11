@@ -92,7 +92,7 @@
                                     </c:choose>
                                 </div>
                                 <div>
-                                    <button class="btn-add1">+</button>
+                                    <button class="btn-add1">1</button>
                                 </div>
                             </li>
                             <li class="image">
@@ -112,7 +112,7 @@
 
                                 </div>
                                 <div>
-                                    <button class="">+</button>
+                                    <button class="">2</button>
                                 </div>
                             </li>
                             <li class="image">
@@ -132,7 +132,7 @@
                                     <img src="" alt="" onerror="this.style.display='none'">
                                 </div>
                                 <div>
-                                    <button class="">+</button>
+                                    <button class="">3</button>
                                 </div>
                             </li>
                         </div>
@@ -154,7 +154,7 @@
 
                                 </div>
                                 <div>
-                                    <button class="">+</button>
+                                    <button class="">4</button>
                                 </div>
                             </li>
                             <li class="image">
@@ -171,7 +171,7 @@
                                     </c:choose>
                                 </div>
                                 <div>
-                                    <button class="">+</button>
+                                    <button class="">5</button>
                                 </div>
                             </li>
                             <li class="image">
@@ -188,7 +188,7 @@
                                     </c:choose>
                                 </div>
                                 <div>
-                                    <button class="">+</button>
+                                    <button class="">6</button>
                                 </div>
                             </li>
                         </div>
@@ -208,7 +208,7 @@
                                     </c:choose>
                                 </div>
                                 <div>
-                                    <button class="">+</button>
+                                    <button class="">7</button>
                                 </div>
                             </li>
                             <li class="image">
@@ -225,7 +225,7 @@
                                     </c:choose>
                                 </div>
                                 <div>
-                                    <button class="">+</button>
+                                    <button class="">8</button>
                                 </div>
                             </li>
                             <li class="image">
@@ -242,7 +242,7 @@
                                     </c:choose>
                                 </div>
                                 <div>
-                                    <button class="">+</button>
+                                    <button class="">9</button>
                                 </div>
                             </li>
                         </div>
@@ -250,6 +250,19 @@
                 </div>
                 <form:form action="${pageContext.request.contextPath}/edit" method="POST" enctype="multipart/form-data"
                            modelAttribute="user">
+                    <div style="font-size: 17px;font-weight:bold;margin-top: 10px;margin-bottom: 10px;margin-left: 20px">Delete picture follow number:</div>
+                    <div class="icon-delete-photo" style="display: flex;flex-direction: row;margin-left: 20px">
+
+                        <c:forEach var="photo" items="${user.photos}" varStatus="photo1">
+                            <div class="two wide column" style="display: flex;flex-direction: row;width: 10%">
+                                <a href="${pageContext.request.contextPath}/${user.id}/delete/${photo.id}" class="ui mini red right label">
+                                    <i style="font-size: 15px"  class="delete-icon">${photo1.index+1}</i>
+                                </a>
+                            </div>
+                        </c:forEach>
+                    </div>
+
+
                     <div class="add-media">
                         <input <%--multiple--%> name="photo" id="embedpollfileinput" type="file" (change)="fileEvent($event)"
                                class="inputfile" onchange="return fileValidation()" style="display: none"/>

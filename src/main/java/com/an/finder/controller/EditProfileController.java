@@ -12,10 +12,7 @@ import com.an.finder.util.SimpleException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -109,9 +106,22 @@ public class EditProfileController {
                 messages.add(e.getMessage());
             }
         }
-        return "redirect:/profile";
+        return "redirect:/edit";
 
+    }
 
+    @GetMapping("/{userId}/delete/{id}")
+    public String deletePhoto(@PathVariable("userId") int userId,@PathVariable("id") int id){
+        System.out.println("aaa"); System.out.println(id);
+        try {
+            System.out.println(id);
+            photoService.detele(id);
+            System.out.println("aaaa");
 
+        }catch (Exception e){
+            System.out.println(e);
+        }
+
+        return "redirect:/edit";
     }
 }

@@ -16,4 +16,9 @@ public class PhotoService {
     public void add(Photo photo){
         photoDao.add(photo);
     }
+
+    @Transactional
+    public void detele(int id){
+        photoDao.delete(id);
+    }
 }

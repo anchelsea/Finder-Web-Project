@@ -30,4 +30,12 @@ public class PhotoDao {
         Session session = entityManager.unwrap(Session.class);
         session.saveOrUpdate(photo);
     }
+
+    public void delete(int id){
+        Session session=entityManager.unwrap(Session.class);
+
+        Query query=session.createQuery("delete from Photo where id=:id");
+        query.setParameter("id",id);
+        query.executeUpdate();
+    }
 }

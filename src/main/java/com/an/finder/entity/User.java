@@ -42,7 +42,7 @@ public class User {
 
 
     @JsonIgnore
-    @OneToMany(mappedBy = "user",fetch = FetchType.EAGER )
+    @OneToMany(mappedBy = "user")
     private List<Authority> authorities;
 
     @Size(min=2,max=20,message = "username size must be from 2 to 20")
@@ -61,19 +61,31 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Photo> photos;
 
+    @OneToMany(mappedBy = "user")
+    private List<Like> likes;
+
     @Size(max = 500,message = "About is max size = 500 character")
     private String about;
 
     private String citylive;
 
-    @ManyToMany(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
-            CascadeType.DETACH, CascadeType.REFRESH})
+
+
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_interest",
             joinColumns = {@JoinColumn(name = "user_id")},
             inverseJoinColumns = {@JoinColumn(name = "interest_id")}
     )
     private List<Interest> interest;
+
+    public List<Like> getLikes() {
+        return likes;
+    }
+
+    public void setLikes(List<Like> likes) {
+        this.likes = likes;
+    }
 
     private String work;
 
@@ -288,30 +300,5 @@ public class User {
         return year;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", email='" + email + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", authorities=" + authorities +
-                ", fristname='" + fristname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", birthday=" + birthday +
-                ", gender='" + gender + '\'' +
-                ", photos=" + photos +
-                ", about='" + about + '\'' +
-                ", citylive='" + citylive + '\'' +
-                ", interest=" + interest +
-                ", work='" + work + '\'' +
-                ", school='" + school + '\'' +
-                ", location_Id='" + location_Id + '\'' +
-                ", gender_filter='" + gender_filter + '\'' +
-                ", max_distance_filter='" + max_distance_filter + '\'' +
-                ", age_range_filter='" + age_range_filter + '\'' +
-                ", frist_login=" + frist_login +
-                ", status=" + status +
-                '}';
-    }
+
 }

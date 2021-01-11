@@ -371,11 +371,11 @@ body {
 
 .card-edit .image-edit .image-edit-container button {
     margin-top: -20px;
-    margin-bottom: -30px;
+    margin-bottom: -33px;
     margin-left: 100px;
     position: absolute;
-    height: 28px;
-    width: 28px;
+    height: 25px;
+    width: 25px;
     border-radius: 25px;
     background-color: #fd5068;
     outline: none;

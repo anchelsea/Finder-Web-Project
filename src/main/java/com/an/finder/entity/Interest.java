@@ -15,8 +15,7 @@ public class Interest {
     private String name;
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "interest",cascade= {CascadeType.PERSIST, CascadeType.MERGE,
-            CascadeType.DETACH, CascadeType.REFRESH})
+    @ManyToMany(mappedBy = "interest",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<User> users;
 
     public Long getId() {
