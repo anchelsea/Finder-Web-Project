@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -30,55 +31,19 @@
 
         </div>
         <div class="match-container">
-            <div class="match">
-                <button class="card">
-                    <div class="user">
-                        <img class="user_" src="img/girl.jpg" alt=""/>
-                        <div class="name">Rafaela</div>
-                    </div>
-                </button>
-
-                <button class="card">
-                    <div class="user">
-                        <img class="user_1" src="img/girl1.png" alt=""/>
-                        <div class="name">Min</div>
-                    </div>
-                </button>
-
-                <button class="card">
-                    <div class="user">
-                        <img class="user_2" src="img/girl2.jpg" alt=""/>
-                        <div class="name">Pimnachok</div>
-                    </div>
-                </button>
-
-            </div>
-            <div class="match1">
-                <button class="card">
-                    <div class="user">
-                        <img class="user_" src="img/girl3.jpg" alt=""/>
-                        <div class="name">Ngoc</div>
-                    </div>
-                </button>
-
-                <button class="card">
-                    <div class="user">
-                        <img class="user_1" src="img/girl4.jpg" alt=""/>
-                        <div class="name">Tu</div>
-                    </div>
-                </button>
-
-                <button class="card">
-                    <div class="user">
-                        <img class="user_2" src="img/girl5.jpg" alt=""/>
-                        <div class="name">Hang</div>
-                    </div>
-                </button>
-
-            </div>
+            <c:forEach items="${users}" var="theUser">
+                        <div class="match" id="match-${users}">
+                            <button class="card">
+                                <div class="user">
+                                    <img class="user_1" src="${theUser.photos[0].link}" alt=""/>
+                                    <div class="name">${theUser.lastname}</div>
+                                </div>
+                            </button>
+                        </div>
+            </c:forEach>
         </div>
-    </div>
 
+    </div>
 
     <%--Mess--%>
     <div class="mess">
@@ -106,6 +71,44 @@
 
     <%--Profile--%>
     <div class="profile">
+            <div class="ui grid "  id="matchContainer">
+
+            </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(changeHomePageImg);
+
+    function changeHomePageImg() {
+
+        let imageUrl = "img/homepage1.png";
+        /*$("#homepage_img").css("background-image", "url(" + imageUrl + ")");*/
+        document.getElementById("match_img").style.backgroundColor = "#ffe0e4";
+        document.getElementById("match-btn").style.borderBottom = "4px solid #fd5068";
+    }
+
+    $('#close-match-btn').click(function () {
+        window.location = 'http://localhost:8888/home';
+    });
+
+
+    users.forEach(users => {
+
+        let gernesHtml = ''
+        for(let i = 0; i < users.length;i++){
+            if(i == users.length -1){
+                gernesHtml += '#'+users[i].id
+            }
+            else{
+                gernesHtml += '#'+users[i].id +', '
+
+            }
+        }
+
+    let htmlString = `
+                                    <div class="profile">
         <div class="profile-container">
             <div class="space"></div>
             <div class="card">
@@ -117,7 +120,7 @@
 
                 <div class="content">
                     <div class="name-profile">
-                        <h1 class="name">Pimnachok</h1>
+                        <h1 class="name">{users.lastname}</h1>
                         <span class="age">22</span>
                     </div>
                     <div class="local">
@@ -148,22 +151,17 @@
             <button class="report-btn">REPORT</button>
         </div>
     </div>
-</div>
+                    `
 
+    $(document).ready(function(){
+        $('#show').click(function() {
+            $('.menu').toggle("slide");
+        });
+    });
 
-<script type="text/javascript">
-    $(changeHomePageImg);
-
-    function changeHomePageImg() {
-
-        let imageUrl = "img/homepage1.png";
-        /*$("#homepage_img").css("background-image", "url(" + imageUrl + ")");*/
-        document.getElementById("match_img").style.backgroundColor = "#ffe0e4";
-        document.getElementById("match-btn").style.borderBottom = "4px solid #fd5068";
-    }
-
-    $('#close-match-btn').click(function() {
-        window.location='http://localhost:8888/home';
+   /* let gameContainer = document.getElementById('matchContainer');*/
+    $('#matchContainer').click(function () {
+        parent.insertAdjacentHTML('beforeend',htmlString)
     });
 
 </script>

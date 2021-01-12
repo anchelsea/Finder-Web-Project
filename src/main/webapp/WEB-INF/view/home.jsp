@@ -138,7 +138,7 @@
                         <span class="sr-only">Next</span>
                     </a>
                     <div id="${theUser.index}" class="carousel slide" data-ride="carousel" data-interval="10000"
-                         style="pointer-events: none !important;" >
+                         style="pointer-events: none !important;">
                         <ol class="carousel-indicators" style="pointer-events: none !important;">
                             <c:forEach items="${users[theUser.index].photos}">
 
@@ -390,6 +390,7 @@
                                              src="${users[theUser.index].photos[8].link}"
                                              alt="Four slide">
                                     </div>
+
                                 </c:when>
                                 <c:otherwise>
                                     <div></div>
@@ -402,24 +403,29 @@
                     </div>
 
                     <div class="profile">
-                        <div class="name">${users[theUser.index].fristname} ${users[theUser.index].lastname}
+                        <div style=" pointer-events: none !important;"
+                             class="name">${users[theUser.index].fristname} ${users[theUser.index].lastname}
                             <span>${users[theUser.index].nowYear-users[theUser.index].yearBirthday}</span>
                         </div>
-                        <div class="local1">
+                        <div class="local1" style=" pointer-events: none !important;">
                             <div class="local-detail">
                                 <i class="live-icon"></i>
                                 <span style="font-size: 17px">${users[theUser.index].citylive}</span>
                             </div>
                         </div>
-                        <div class="gender">
+                        <div class="gender" style="pointer-events: none !important;">
                             <div class="sex-container">
                                 <i class="sex-icon"></i>
                                 <span style="font-size: 17px" class="sex-name">${users[theUser.index].gender}</span>
                             </div>
                         </div>
                         <div class="info-detail">
-                            <button class="info-icon" title="More info"><img class="info-img" src="img/info.png" alt="">
+                            <button class="info-icon" id="more-info" title="More info"><img class="info-img"
+                                                                                            src="img/info.png" alt="">
                             </button>
+                        </div>
+                        <div class="more-info">
+
                         </div>
                     </div>
                     <input type="hidden" class="getTheUserIndex" value="${users[theUser.index].id}"></input>
@@ -451,6 +457,8 @@
 <script type="text/javascript">
     $(changeHomePageImg);
     $(swipe);
+    let currentCard;
+    let idUser;
 
     function changeHomePageImg() {
 
@@ -461,12 +469,82 @@
 
     }
 
+    /*    let xyz = document.getElementsByClassName('.user:not(.removed)');*/
+
+
+    let htmlString = `
+                                    <div class="school">
+                        <div class="school-container">
+                            <i class="school-icon"></i>
+                            <span class="school-name">${users[xyz].school}</span>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <div class="work-container">
+                            <i class="work-icon"></i>
+                            <span class="work-name">${users[xyz].work}</span>
+                        </div>
+                    </div>
+
+
+                    <div class="about">
+                        <div class="about-container">
+                            <span class="about-name">${users[xyz].about}</span>
+                        </div>
+                    </div>
+
+                    <div class="interest-show" id="list-interest">
+
+                        <c:choose>
+                            <c:when test="${user.interestLength == 1}">
+                                <div>${user.interest[0]}</div>
+                            </c:when>
+                            <c:when test="${user.interestLength == 2}">
+                                <div>${user.interest[0]}</div>
+                                <div>${user.interest[1]}</div>
+                            </c:when>
+                            <c:when test="${user.interestLength == 3}">
+                                <div>${user.interest[0]}</div>
+                                <div>${user.interest[1]}</div>
+                                <div>${user.interest[2]}</div>
+                            </c:when>
+                            <c:when test="${user.interestLength == 4}">
+                                <div>${user.interest[0]}</div>
+                                <div>${user.interest[1]}</div>
+                                <div>${user.interest[2]}</div>
+                                <div>${user.interest[3]}</div>
+                            </c:when>
+                            <c:when test="${user.interestLength == 5}">
+                                <div>${user.interest[0]}</div>
+                                <div>${user.interest[1]}</div>
+                                <div>${user.interest[2]}</div>
+                                <div>${user.interest[3]}</div>
+                                <div>${user.interest[4]}</div>
+                            </c:when>
+                            <c:otherwise>
+                                <div></div>
+                            </c:otherwise>
+                        </c:choose>
+
+                    </div>
+                    `
+
+    /*    const parent = document.querySelector('.more-info');
+        $('#more-info').click(function () {
+            parent.insertAdjacentHTML('beforeend',htmlString)
+        });*/
+
+
     $('#homepage-btn').click(function () {
         window.location = 'http://localhost:8888/home';
     });
 
+    /*    $('#match-btn-side').click(function () {
+            window.location = 'http://localhost:8888/match';
+        });*/
+
     $('#match-btn-side').click(function () {
-        window.location = 'http://localhost:8888/match';
+        window.location = 'http://localhost:8888/test1';
     });
 
     $('#message-btn-side').click(function () {
@@ -480,8 +558,6 @@
     $('#profile-btn-side').click(function () {
         window.location = 'http://localhost:8888/profile';
     });
-    let currentCard;
-    let idUser;
 
 
     async function swipe() {
@@ -497,7 +573,7 @@
             currentCard = document.querySelector('.user:not(.removed)');
 
             idUser = parseInt(currentCard.querySelector("input").value);
-            console.log('init:  ',idUser);
+            console.log('init:  ', idUser);
 
 
             newCards.forEach(function (card, index) {
@@ -557,6 +633,7 @@
 
                     if (event.deltaX > 0) {
                         await save();
+                        matchrest();
                     }
 
 
@@ -585,57 +662,84 @@
 
     }
 
-    async function click(love){
-            var cards = document.querySelectorAll('.user:not(.removed)');
-            var moveOutWidth = document.body.clientWidth * 1.5;
+    async function click(love) {
+        var cards = document.querySelectorAll('.user:not(.removed)');
+        var moveOutWidth = document.body.clientWidth * 1.5;
 
-            if (!cards.length) return false;
+        if (!cards.length) return false;
 
-            var card = cards[0];
+        var card = cards[0];
 
-            card.classList.add('removed');
+        card.classList.add('removed');
 
-            if (love) {
-                card.style.transform = 'translate(' + moveOutWidth + 'px, -100px) rotate(-30deg)';
-            } else {
-                card.style.transform = 'translate(-' + moveOutWidth + 'px, -100px) rotate(30deg)';
-            }
+        if (love) {
+            card.style.transform = 'translate(' + moveOutWidth + 'px, -100px) rotate(-30deg)';
+        } else {
+            card.style.transform = 'translate(-' + moveOutWidth + 'px, -100px) rotate(30deg)';
+        }
 
-            console.log('1')
-            await save();
-            console.log('3')
+        console.log('1')
+        await save();
+        await matchrest();
+        console.log('3')
 
-            initCards();
+        initCards();
 
 
     }
 
     function save() {
-        return  new Promise((resolve ,reject)=>{
-                console.log(idUser)
+        return new Promise((resolve, reject) => {
+            console.log(idUser)
 
-                var saveData = $.ajax({
-                    type: 'POST',
-                    url: "like",
-                    dataType: 'json',
-                    contentType: 'application/json',
-                    data: JSON.stringify({id: idUser}),
+            var saveData = $.ajax({
+                type: 'POST',
+                url: "like",
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify({id: idUser}),
 
-                    success: function (resultData) {
-                      /*  alert("Save Complete")*/
-                        console.log('2')
-                        resolve(1)
-                    },
-                    error:function(e){
-                        resolve(1)
+                success: function (resultData) {
+                    /*  alert("Save Complete")*/
+                    console.log('2')
+                    resolve(1)
+                },
+                error: function (e) {
+                    resolve(1)
 
-                    }
-                });
+                }
+            });
+        })
+    }
+
+    function matchrest() {
+        return new Promise((resolve, reject) => {
+            console.log(idUser)
+
+            var saveData = $.ajax({
+                type: 'POST',
+                url: "/match-modal",
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify({id: idUser}),
+
+                success: function (resultData) {
+                      alert("Save Complete")
+                    console.log('2')
+                    resolve(1)
+                },
+                error: function (e) {
+                    resolve(1)
+
+                }
+            });
         })
     }
 
 
 </script>
+
 </body>
+
 </html>
 

@@ -195,7 +195,7 @@ body {
     bottom: 0px;
     left: 25px;
     position: relative;
-    pointer-events: none;
+
 }
 
 .content1 .card1 .user .profile .info-icon {
@@ -493,4 +493,81 @@ body {
 
 .fa-remove {
     color: #CDD6DD;
+}
+
+.school .school-container {
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
+}
+
+.school .school-container .school-name {
+    margin-left: 2px;
+}
+
+.work .work-container {
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
+    margin-left: 6px;
+    border-bottom: 1px solid #bababc;
+}
+
+.work .work-container .work-name {
+    margin-left: 5px;
+}
+
+.more-info .gender span {
+    color: rgba(29, 29, 29, 0.6);
+    padding: 0 10px;
+    text-shadow: 1px 1px 1px #444;
+}
+
+.more-info .school span {
+    color: rgba(29, 29, 29, 0.6);
+    padding: 0 10px;
+    text-shadow: 1px 1px 1px #444;
+}
+
+.more-info .work span {
+    color: rgba(29, 29, 29, 0.6);
+    padding: 0 10px;
+    text-shadow: 1px 1px 1px #444;
+}
+
+.more-info .about {
+    margin: 10px 10px 10px 10px;
+    font-size: 17px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #bababc;
+}
+
+.more-info .interest-show {
+    display: flex;
+    flex-direction: row;
+}
+
+.more-info .interest-show div {
+    border: 2px solid red;
+    border-radius: 20px;
+    padding: 2px 2px;
+    margin: 3px 3px 3px 3px;
+    width: auto;
+    height: auto;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+
+}
+
+.more-info .work .work-container i {
+    height: 25px;
+    width: 25px;
+    background-image: url("../img/work.png");
+}
+
+.more-info .school .school-container i {
+    height: 34px;
+    width: 34px;
+    background-image: url("../img/school1.png");
 }

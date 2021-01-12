@@ -14,6 +14,7 @@ body {
 }
 
 .side {
+    max-width: 380px !important;
     width: 375px;
     min-width: 320px;
     background-color: #fff;
@@ -56,10 +57,18 @@ body {
     margin-left: 15px;
 }
 
+.side .match-container{
+    max-width: 400px !important;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+}
 
 .side .match-container .match {
 
     display: flex;
+    flex-direction: row;
+
 }
 
 .side .match-container .match1 {
