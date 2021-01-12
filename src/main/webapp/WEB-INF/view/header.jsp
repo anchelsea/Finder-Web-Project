@@ -32,7 +32,7 @@
 
 
         $('#match-btn').click(function() {
-            window.location='http://localhost:8888/match';
+            window.location='http://localhost:8888/match?id=0';
         });
 
         $('#message-btn').click(function() {

@@ -539,13 +539,13 @@
         window.location = 'http://localhost:8888/home';
     });
 
-    /*    $('#match-btn-side').click(function () {
-            window.location = 'http://localhost:8888/match';
-        });*/
+        $('#match-btn-side').click(function () {
+            window.location = 'http://localhost:8888/match?id=0';
+        });
 
-    $('#match-btn-side').click(function () {
+   /* $('#match-btn-side').click(function () {
         window.location = 'http://localhost:8888/test1';
-    });
+    });*/
 
     $('#message-btn-side').click(function () {
         window.location = 'http://localhost:8888/message';

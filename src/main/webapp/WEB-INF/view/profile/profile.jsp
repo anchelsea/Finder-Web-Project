@@ -89,174 +89,174 @@
                     </ol>
                     <div class="carousel-inner">
 
-                            <c:choose>
-                                <c:when test="${user.photoLength<2}">
-                                    <div class="carousel-item active">
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[0].link}"
-                                             alt="First slide">
-                                    </div>
-                                </c:when>
-                                <c:when test="${user.photoLength<3}">
-                                    <div class="carousel-item active">
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[0].link}"
-                                             alt="First slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[1].link}" alt="Second slide">
-                                    </div>
-                                </c:when>
-                                <c:when test="${user.photoLength<4}">
-                                    <div class="carousel-item active">
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[0].link}"
-                                             alt="First slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[1].link}" alt="Second slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[2].link}" alt="Third slide">
-                                    </div>
-                                </c:when>
-                                <c:when test="${user.photoLength<5}">
-                                    <div class="carousel-item active">
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[0].link}"
-                                             alt="First slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[1].link}" alt="Second slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[2].link}" alt="Third slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[3].link}" alt="Four slide">
-                                    </div>
-                                </c:when>
-                                <c:when test="${user.photoLength<6}">
-                                    <div class="carousel-item active">
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[0].link}"
-                                             alt="First slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[1].link}" alt="Second slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[2].link}" alt="Third slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[3].link}" alt="Four slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[4].link}" alt="Four slide">
-                                    </div>
-                                </c:when>
-                                <c:when test="${user.photoLength<7}">
-                                    <div class="carousel-item active">
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[0].link}"
-                                             alt="First slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[1].link}" alt="Second slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[2].link}" alt="Third slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[3].link}" alt="Four slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[4].link}" alt="Four slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[5].link}" alt="Four slide">
-                                    </div>
-                                </c:when>
-                                <c:when test="${user.photoLength<8}">
-                                    <div class="carousel-item active">
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[0].link}"
-                                             alt="First slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[1].link}" alt="Second slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[2].link}" alt="Third slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[3].link}" alt="Four slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[4].link}" alt="Four slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[5].link}" alt="Four slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[6].link}" alt="Four slide">
-                                    </div>
-                                </c:when>
-                                <c:when test="${user.photoLength<9}">
-                                    <div class="carousel-item active">
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[0].link}"
-                                             alt="First slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[1].link}" alt="Second slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[2].link}" alt="Third slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[3].link}" alt="Four slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[4].link}" alt="Four slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[5].link}" alt="Four slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[6].link}" alt="Four slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[7].link}" alt="Four slide">
-                                    </div>
-                                </c:when>
-                                <c:when test="${user.photoLength<10}">
-                                    <div class="carousel-item active">
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[0].link}"
-                                             alt="First slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[1].link}" alt="Second slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[2].link}" alt="Third slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[3].link}" alt="Four slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[4].link}" alt="Four slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[5].link}" alt="Four slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[6].link}" alt="Four slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[7].link}" alt="Four slide">
-                                    </div>
-                                    <div class="carousel-item" >
-                                        <img style="height: 470px" class="d-block w-100" src="${user.photos[8].link}" alt="Four slide">
-                                    </div>
-                                </c:when>
-                                <c:otherwise>
-                                    <div></div>
-                                </c:otherwise>
+                        <c:choose>
+                            <c:when test="${user.photoLength<2}">
+                                <div class="carousel-item active">
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[0].link}"
+                                         alt="First slide">
+                                </div>
+                            </c:when>
+                            <c:when test="${user.photoLength<3}">
+                                <div class="carousel-item active">
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[0].link}"
+                                         alt="First slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[1].link}" alt="Second slide">
+                                </div>
+                            </c:when>
+                            <c:when test="${user.photoLength<4}">
+                                <div class="carousel-item active">
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[0].link}"
+                                         alt="First slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[1].link}" alt="Second slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[2].link}" alt="Third slide">
+                                </div>
+                            </c:when>
+                            <c:when test="${user.photoLength<5}">
+                                <div class="carousel-item active">
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[0].link}"
+                                         alt="First slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[1].link}" alt="Second slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[2].link}" alt="Third slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[3].link}" alt="Four slide">
+                                </div>
+                            </c:when>
+                            <c:when test="${user.photoLength<6}">
+                                <div class="carousel-item active">
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[0].link}"
+                                         alt="First slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[1].link}" alt="Second slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[2].link}" alt="Third slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[3].link}" alt="Four slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[4].link}" alt="Four slide">
+                                </div>
+                            </c:when>
+                            <c:when test="${user.photoLength<7}">
+                                <div class="carousel-item active">
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[0].link}"
+                                         alt="First slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[1].link}" alt="Second slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[2].link}" alt="Third slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[3].link}" alt="Four slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[4].link}" alt="Four slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[5].link}" alt="Four slide">
+                                </div>
+                            </c:when>
+                            <c:when test="${user.photoLength<8}">
+                                <div class="carousel-item active">
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[0].link}"
+                                         alt="First slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[1].link}" alt="Second slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[2].link}" alt="Third slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[3].link}" alt="Four slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[4].link}" alt="Four slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[5].link}" alt="Four slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[6].link}" alt="Four slide">
+                                </div>
+                            </c:when>
+                            <c:when test="${user.photoLength<9}">
+                                <div class="carousel-item active">
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[0].link}"
+                                         alt="First slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[1].link}" alt="Second slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[2].link}" alt="Third slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[3].link}" alt="Four slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[4].link}" alt="Four slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[5].link}" alt="Four slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[6].link}" alt="Four slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[7].link}" alt="Four slide">
+                                </div>
+                            </c:when>
+                            <c:when test="${user.photoLength<10}">
+                                <div class="carousel-item active">
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[0].link}"
+                                         alt="First slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[1].link}" alt="Second slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[2].link}" alt="Third slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[3].link}" alt="Four slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[4].link}" alt="Four slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[5].link}" alt="Four slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[6].link}" alt="Four slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[7].link}" alt="Four slide">
+                                </div>
+                                <div class="carousel-item" >
+                                    <img style="height: 470px" class="d-block w-100" src="${user.photos[8].link}" alt="Four slide">
+                                </div>
+                            </c:when>
+                            <c:otherwise>
+                                <div></div>
+                            </c:otherwise>
 
-                            </c:choose>
+                        </c:choose>
 
 
                         <%--                        <div class="carousel-item active">
@@ -373,28 +373,17 @@
 
 <script type="text/javascript">
     $(changeHomePageImg);
-
-
-
-
     function changeHomePageImg() {
-
         /*$("#homepage_img").css("background-image", "url(" + imageUrl + ")");*/
         document.getElementById("profile-btn").style.backgroundColor = "#ffe0e4";
         document.getElementById("title-profile").style.backgroundColor = "#ffe0e4";
     }
-
     $('#logout-btn').click(function () {
-
         window.location = 'http://localhost:8888/logout';
     });
-
     $('#edit-profile-btn').click(function () {
         window.location = 'http://localhost:8888/edit';
     });
-
-
 </script>
 </body>
 </html>
-

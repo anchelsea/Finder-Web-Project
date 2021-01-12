@@ -6,6 +6,7 @@ import com.an.finder.entity.User;
 import com.an.finder.service.MatchService;
 import com.an.finder.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,8 +25,8 @@ public class MatchController {
     @Autowired
     MatchService matchService;
 
-    @GetMapping("/match")
-    public String match(Model model, HttpSession session){
+    @GetMapping(value = "/match",params = "id")
+    public String match(Model model, HttpSession session, @Param("id") long id){
         User user= (User) session.getAttribute("user");
 
 
@@ -38,6 +39,8 @@ public class MatchController {
         }
 
         user=userService.findUserByEmail(user.getEmail());
+        User clickMatchUser  = userService.findUserById(id);
+
         Map<Long,Boolean> userMap=new HashMap<>();
 
         List<Like> likes =matchService.findListMatch(user.getId());
@@ -67,6 +70,8 @@ public class MatchController {
         }
 
         model.addAttribute("users",resultUsers);
+
+        model.addAttribute("currentMatchUser",clickMatchUser);
 
 
 
