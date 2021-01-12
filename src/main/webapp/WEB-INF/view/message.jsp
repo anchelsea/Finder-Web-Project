@@ -39,42 +39,7 @@
                 <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing</div>
             </div>
         </div>
-        <div class="messages">
-            <div class="avatar">
-                <img src="https://randomuser.me/api/portraits/women/39.jpg" alt=""/>
-            </div>
-            <div class="message">
-                <div class="user">Caroline</div>
-                <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing</div>
-            </div>
-        </div>
-        <div class="messages">
-            <div class="avatar">
-                <img src="https://randomuser.me/api/portraits/women/40.jpg" alt=""/>
-            </div>
-            <div class="message">
-                <div class="user">Caroline</div>
-                <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing</div>
-            </div>
-        </div>
-        <div class="messages">
-            <div class="avatar">
-                <img src="https://randomuser.me/api/portraits/women/41.jpg" alt=""/>
-            </div>
-            <div class="message">
-                <div class="user">Caroline</div>
-                <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing</div>
-            </div>
-        </div>
-        <div class="messages">
-            <div class="avatar">
-                <img src="https://randomuser.me/api/portraits/women/42.jpg" alt=""/>
-            </div>
-            <div class="message">
-                <div class="user">Caroline</div>
-                <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing</div>
-            </div>
-        </div>
+
     </div>
 
 

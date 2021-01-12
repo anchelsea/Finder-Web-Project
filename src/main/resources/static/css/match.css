@@ -7,21 +7,25 @@ body {
 }
 
 
-.container {
+
+.container1 {
+    width: 100%;
     display: flex;
+    flex-direction: row;
     position: relative;
+    height: 100vh;
 
 }
 
-.side {
-    max-width: 380px !important;
-    width: 375px;
+.side1 {
+    max-width: 450px !important;
+    width: 400px!important;
     min-width: 320px;
     background-color: #fff;
     min-height: 100vh;
     border-right: 1px solid #e1e1e1;
     height: 100%;
-
+margin-right: 100px;
 
 }
 
@@ -31,7 +35,7 @@ body {
     background-color: #f5f7fa;
 }
 
-.side .header {
+.side1 .header {
     background: linear-gradient(262deg, #ff7854, #fd267d);
     width: 100%;
     height: 67px;
@@ -41,7 +45,7 @@ body {
     padding: 0 20px;
 }
 
-.side .header .avatar img {
+.side1 .header .avatar img {
     width: 50px;
     height: 50px;
     margin-left: 25px;
@@ -50,54 +54,54 @@ body {
     box-shadow: 0 1px 8px 0 rgba(0, 20, 20, 0.2);
 }
 
-.side .header .title {
+.side1 .header .title {
     padding: 0 10px;
     color: #fff;
     font-size: 23px;
     margin-left: 15px;
 }
 
-.side .match-container{
+.side1 .match-container{
     max-width: 400px !important;
     display: flex;
     position: absolute;
     flex-direction: column;
 }
 
-.side .match-container .match {
+.side1 .match-container .match {
 
     display: flex;
     flex-direction: row;
 
 }
 
-.side .match-container .match1 {
+.side1 .match-container .match1 {
     display: flex;
 }
 
 
 
-.side .match-container .match  img {
+.side1 .match-container .match  img {
     width: 105px;
     height: 120px;
     border-radius: 12px;
 }
 
-.side .match-container .match  button {
+.side1 .match-container .match  button {
     margin-top: 20px;
     margin-left: 15px;
     border: none;
 }
 
-.side .match-container .match  button:hover {
+.side1 .match-container .match  button:hover {
     transform: scale(1.15);
 }
 
-.side .match-container .match1  button:hover {
+.side1 .match-container .match1  button:hover {
     transform: scale(1.15);
 }
 
-.side .match-container .match1  button {
+.side1 .match-container .match1  button {
     margin-top: 25px;
     margin-left: 15px;
     border: none;
@@ -105,17 +109,17 @@ body {
 
 
 
-.side .match-container .match1 img {
+.side1 .match-container .match1 img {
     width: 105px;
     height: 120px;
     border-radius: 12px;
 }
 
-.side .match-container   button:focus {
+.side1 .match-container   button:focus {
     outline: none;
 }
 
-.side .match-container .user .name{
+.side1 .match-container .user .name{
 
     margin-top: -23px;
     margin-right: 34px;
@@ -154,12 +158,16 @@ body {
 }
 
 .profile {
-    width: 513px;
+    width: 100% ;
     height: 100%;
     border-right: 1px solid #e1e1e1;
+    display: flex;
+   /* padding: 20px 0;*/
+    align-items: center;
+    flex-direction: column;
 }
 
-.profile .container {
+.profile .container1 {
     width: 513px;
     height: 80%;
 }
@@ -387,4 +395,79 @@ body {
     height: 25px;
     width: 25px;
     background-image: url("../img/sex.png");
+}
+
+.work .work-container {
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
+    margin-left: 1px;
+    border-bottom: 1px solid #bababc;
+}
+
+.work .work-container .work-name {
+    margin-left: 5px;
+}
+ .work span {
+    color: rgba(29, 29, 29, 0.6);
+    padding: 0 10px;
+    text-shadow: 1px 1px 1px #444;
+     margin-left: 5px;
+}
+
+.work .work-container i {
+    height: 25px;
+    width: 25px;
+    background-image: url("../img/work.png");
+}
+
+.interest-show {
+    display: flex;
+    flex-direction: row;
+}
+
+.interest-show div {
+    border: 2px solid red;
+    border-radius: 20px;
+    padding: 2px 2px;
+    margin: 3px 3px 3px 3px;
+    width: auto;
+    height: auto;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+
+}
+
+
+.carousel-indicators li {
+    width: 90px;
+    height: 4px;
+}
+
+/*.content .card .user .carousel-inner image{
+    width: 100%;
+    height: 70% !important;
+    display: inline-block;
+
+}*/
+
+.carousel-inner > .item {
+    height: 400px;
+    width: 500px !important;
+}
+
+
+.carousel-indicators li {
+    width: 30px;
+    height: 20px;
+}
+
+.carousel-inner img{
+    height: 600px !important;
+    width: 500px !important;
+}
+
+.carousel-indicators {
+    margin-bottom: -400px;
 }
