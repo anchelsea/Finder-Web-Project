@@ -98,12 +98,6 @@ public class UserController {
 
 
         } catch (Exception e) {
-/*            if (e instanceof ConstraintViolationException) {
-                ConstraintViolationException cvE = (ConstraintViolationException) e;
-                for (var cv : cvE.getConstraintViolations()) {
-                    messages.add(cv.getMessage());
-                }
-            }*/
 
             System.out.println(e);
             if (e instanceof SimpleException) {

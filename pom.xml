@@ -76,6 +76,10 @@
             <artifactId>hibernate-core</artifactId>
             <version>5.4.25.Final</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
+        </dependency>
         <!-- spring security -->
 
         <!-- spring security -->

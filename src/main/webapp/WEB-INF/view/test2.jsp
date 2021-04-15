@@ -159,44 +159,100 @@
 
 <body>
 
-<div class="tinder">
-    <div class="tinder--status">
-        <i class="fa fa-remove"></i>
-        <i class="fa fa-heart"></i>
-    </div>
+<!-- YOUR CUSTOM MARKUP -->
 
-    <div class="tinder--cards">
-        <div class="tinder--card">
-            <img src="https://placeimg.com/600/300/people">
-            <h3>Demo card 1</h3>
-            <p>This is a demo for Tinder like swipe cards</p>
-        </div>
-        <div class="tinder--card">
-            <img src="https://placeimg.com/600/300/animals">
-            <h3>Demo card 2</h3>
-            <p>This is a demo for Tinder like swipe cards</p>
-        </div>
-        <div class="tinder--card">
-            <img src="https://placeimg.com/600/300/nature">
-            <h3>Demo card 3</h3>
-            <p>This is a demo for Tinder like swipe cards</p>
-        </div>
-        <div class="tinder--card">
-            <img src="https://placeimg.com/600/300/tech">
-            <h3>Demo card 4</h3>
-            <p>This is a demo for Tinder like swipe cards</p>
-        </div>
-        <div class="tinder--card">
-            <img src="https://placeimg.com/600/300/arch">
-            <h3>Demo card 5</h3>
-            <p>This is a demo for Tinder like swipe cards</p>
-        </div>
-    </div>
+<h1>Custom Website Overlay</h1>
+<p>This is just a demo. If you like this and use it yourself, I would appreciate if you credit me (Caleb Miller) at <a href="https://cmiller.tech">cmiller.tech</a>.</p>
+<p>Some features from the full version have been disabled, including sound effects and the menu system. Getting these to work well on a custom site involves even more work.</p>
+<p class="scroll-notice">The fireworks remain fixed as you scroll the page.</p>
 
-    <div class="tinder--buttons">
-        <button id="nope"><i class="fa fa-remove"></i></button>
-        <button id="love"><i class="fa fa-heart"></i></button>
+
+<!-- FIREWORK APP MARKUP -->
+<div class="fireworks-container">
+    <div class="loading-init">
+        <!-- 		<div class="loading-init__header">Loading</div> -->
+        <!-- 		<div class="loading-init__status">Assembling Shells</div> -->
     </div>
+    <div class="stage-container remove">
+        <div class="canvas-container">
+            <canvas id="trails-canvas"></canvas>
+            <canvas id="main-canvas"></canvas>
+        </div>
+        <div class="controls">
+            <div class="btn pause-btn">
+                <svg fill="white" width="24" height="24"><use href="#icon-pause" xlink:href="#icon-pause"></use></svg>
+            </div>
+            <div class="btn sound-btn">
+                <svg fill="white" width="24" height="24"><use href="#icon-sound-off" xlink:href="#icon-sound-off"></use></svg>
+            </div>
+            <div class="btn settings-btn">
+                <svg fill="white" width="24" height="24"><use href="#icon-settings" xlink:href="#icon-settings"></use></svg>
+            </div>
+        </div>
+        <div class="menu hide">
+            <div class="menu__inner-wrap">
+                <div class="btn btn--bright close-menu-btn">
+                    <svg fill="white" width="24" height="24"><use href="#icon-close" xlink:href="#icon-close"></use></svg>
+                </div>
+                <div class="menu__header">Settings</div>
+                <div class="menu__subheader">For more info, click any label.</div>
+                <form>
+                    <div class="form-option form-option--select">
+                        <label class="shell-type-label">Shell Type</label>
+                        <select class="shell-type"></select>
+                    </div>
+                    <div class="form-option form-option--select">
+                        <label class="shell-size-label">Shell Size</label>
+                        <select class="shell-size"></select>
+                    </div>
+                    <div class="form-option form-option--select">
+                        <label class="quality-ui-label">Quality</label>
+                        <select class="quality-ui"></select>
+                    </div>
+                    <div class="form-option form-option--select">
+                        <label class="sky-lighting-label">Sky Lighting</label>
+                        <select class="sky-lighting"></select>
+                    </div>
+                    <div class="form-option form-option--select">
+                        <label class="scaleFactor-label">Scale</label>
+                        <select class="scaleFactor"></select>
+                    </div>
+                    <div class="form-option form-option--checkbox">
+                        <label class="auto-launch-label">Auto Fire</label>
+                        <input class="auto-launch" type="checkbox" />
+                    </div>
+                    <div class="form-option form-option--checkbox form-option--finale-mode">
+                        <label class="finale-mode-label">Finale Mode</label>
+                        <input class="finale-mode" type="checkbox" />
+                    </div>
+                    <div class="form-option form-option--checkbox">
+                        <label class="hide-controls-label">Hide Controls</label>
+                        <input class="hide-controls" type="checkbox" />
+                    </div>
+                    <div class="form-option form-option--checkbox form-option--fullscreen">
+                        <label class="fullscreen-label">Fullscreen</label>
+                        <input class="fullscreen" type="checkbox" />
+                    </div>
+                    <div class="form-option form-option--checkbox">
+                        <label class="long-exposure-label">Open Shutter</label>
+                        <input class="long-exposure" type="checkbox" />
+                    </div>
+                </form>
+                <div class="credits">
+                    Passionately built by <a href="https://cmiller.tech/" target="_blank">Caleb Miller</a>.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="help-modal">
+        <div class="help-modal__overlay"></div>
+        <div class="help-modal__dialog">
+            <div class="help-modal__header"></div>
+            <div class="help-modal__body"></div>
+            <button type="button" class="help-modal__close-btn">Close</button>
+        </div>
+    </div>
+</div>
 </div>
 <script src='https://hammerjs.github.io/dist/hammer.min.js'></script>
 

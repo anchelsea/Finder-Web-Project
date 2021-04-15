@@ -71,15 +71,16 @@
         </div>
         <div class="content-mess">
 
+            <div><textarea id="textAreaMessage" rows="10" cols="50"></textarea></div>
         </div>
         <div class="input-mess">
             <button class="add-input"><img src="img/add.png" alt=""></button>
             <button class="picture-input"><img src="img/picture.png" alt=""></button>
             <button class="gif-input"><img src="img/gif.png" alt=""></button>
             <button class="music-input"><img src="img/music.png" alt=""></button>
-            <input type="text" placeholder="Type a message" class="text-input">
+            <input type="text" placeholder="Type a message" class="text-input" id="textMessage">
             <button class="smile-input"><img src="img/smile.png" alt=""></button>
-            <button class="send-input">SEND</button>
+            <button class="send-input" onclick="sendMessage()" value="Send Message">SEND</button>
         </div>
     </div>
 
@@ -374,7 +375,30 @@
         window.location = 'http://localhost:8888/home';
     });
 
-
+    var websocket = new WebSocket("http://localhost:8888/chatRoomServer");
+    websocket.onopen = function(message) {processOpen(message);};
+    websocket.onmessage = function(message) {processMessage(message);};
+    websocket.onclose = function(message) {processClose(message);};
+    websocket.onerror = function(message) {processError(message);};
+    function processOpen(message) {
+        textAreaMessage.value += "Server connect... \n";
+    }
+    function processMessage(message) {
+        console.log(message);
+        textAreaMessage.value += message.data + " \n";
+    }
+    function processClose(message) {
+        textAreaMessage.value += "Server Disconnect... \n";
+    }
+    function processError(message) {
+        textAreaMessage.value += "Error... " + message +" \n";
+    }
+    function sendMessage() {
+        if (typeof websocket != 'undefined' && websocket.readyState == WebSocket.OPEN) {
+            websocket.send(textMessage.value);
+            textMessage.value = "";
+        }
+    }
 
 </script>
 </body>

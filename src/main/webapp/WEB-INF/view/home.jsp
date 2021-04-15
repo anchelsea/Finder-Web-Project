@@ -80,6 +80,47 @@
         }
     </style>
 </head>
+<div class="ui modal match" id="myModal">
+
+    <div class="header" style="text-align: center">
+        Gender
+    </div>
+
+    <div class="content-gender" id="content-gender-man" onclick="changeInfoGenderMan()">
+        <div class="gender-name">
+            <span class="gender-span">Man</span>
+        </div>
+        <div class="img-check1" id="image-check-men" style="visibility: hidden">
+            <img src="img/check1.png" alt="">
+        </div>
+    </div>
+    <div class="content-gender" id="content-gender-woman" onclick="changeInfoGenderWoman()">
+        <div class="gender-name">
+            <span class="gender-span">Women</span>
+        </div>
+        <div class="img-check1" id="image-check-women" style="visibility: visible">
+            <img src="img/check1.png" alt="">
+        </div>
+    </div>
+    <div class="content-gender" id="content-gender-everyone" onclick="changeInfoEveryone()">
+        <div class="gender-name">
+            <span class="gender-span">Everyone</span>
+        </div>
+        <div class="img-check1" id="image-check-everyone" style="visibility: hidden">
+            <img src="img/check1.png" alt="">
+        </div>
+    </div>
+    <div class="lable-note" id="lable-note-gender">You will see only Women in discovery.</div>
+    <div class="actions">
+        <div class="ui black deny button">
+            Cancel
+        </div>
+        <div class="ui positive right labeled icon button">
+            Done
+            <i class="checkmark icon"></i>
+        </div>
+    </div>
+</div>
 <body>
 
 <jsp:include page="header.jsp"></jsp:include>
@@ -402,32 +443,36 @@
 
                     </div>
 
-                    <div class="profile">
-                        <div style=" pointer-events: none !important;"
-                             class="name">${users[theUser.index].fristname} ${users[theUser.index].lastname}
-                            <span>${users[theUser.index].nowYear-users[theUser.index].yearBirthday}</span>
-                        </div>
-                        <div class="local1" style=" pointer-events: none !important;">
-                            <div class="local-detail">
-                                <i class="live-icon"></i>
-                                <span style="font-size: 17px">${users[theUser.index].citylive}</span>
+                    <c:if test="${users[theUser.index].yearBirthday!=null}">
+                        <div class="profile">
+                            <div style=" pointer-events: none !important;"
+                                 class="name">${users[theUser.index].fristname} ${users[theUser.index].lastname}
+                                <span>${users[theUser.index].nowYear-users[theUser.index].yearBirthday}</span>
                             </div>
-                        </div>
-                        <div class="gender" style="pointer-events: none !important;">
-                            <div class="sex-container">
-                                <i class="sex-icon"></i>
-                                <span style="font-size: 17px" class="sex-name">${users[theUser.index].gender}</span>
+                            <div class="local1" style=" pointer-events: none !important;">
+                                <div class="local-detail">
+                                    <i class="live-icon"></i>
+                                    <span style="font-size: 17px">${users[theUser.index].citylive}</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="info-detail">
-                            <button class="info-icon" id="more-info" title="More info"><img class="info-img"
-                                                                                            src="img/info.png" alt="">
-                            </button>
-                        </div>
-                        <div class="more-info">
+                            <div class="gender" style="pointer-events: none !important;">
+                                <div class="sex-container">
+                                    <i class="sex-icon"></i>
+                                    <span style="font-size: 17px" class="sex-name">${users[theUser.index].gender}</span>
+                                </div>
+                            </div>
+                            <div class="info-detail">
+                                <button class="info-icon" id="more-info" title="More info"><img class="info-img"
+                                                                                                src="img/info.png"
+                                                                                                alt="">
+                                </button>
+                            </div>
+                            <div class="more-info">
 
+                            </div>
                         </div>
-                    </div>
+                    </c:if>
+
                     <input type="hidden" class="getTheUserIndex" value="${users[theUser.index].id}"></input>
                 </div>
 
@@ -435,7 +480,7 @@
             </c:forEach>
 
         </div>
-
+        <div id="p1"></div>
         <div class="buttons" id="btn-like-nope">
             <button class="no" id="nope" style="border: none">
                 <i class="fas fa-times"></i>
@@ -469,83 +514,18 @@
 
     }
 
-    /*    let xyz = document.getElementsByClassName('.user:not(.removed)');*/
-
-
-    let htmlString = `
-                                    <div class="school">
-                        <div class="school-container">
-                            <i class="school-icon"></i>
-                            <span class="school-name">${users[xyz].school}</span>
-                        </div>
-                    </div>
-                    <div class="work">
-                        <div class="work-container">
-                            <i class="work-icon"></i>
-                            <span class="work-name">${users[xyz].work}</span>
-                        </div>
-                    </div>
-
-
-                    <div class="about">
-                        <div class="about-container">
-                            <span class="about-name">${users[xyz].about}</span>
-                        </div>
-                    </div>
-
-                    <div class="interest-show" id="list-interest">
-
-                        <c:choose>
-                            <c:when test="${user.interestLength == 1}">
-                                <div>${user.interest[0]}</div>
-                            </c:when>
-                            <c:when test="${user.interestLength == 2}">
-                                <div>${user.interest[0]}</div>
-                                <div>${user.interest[1]}</div>
-                            </c:when>
-                            <c:when test="${user.interestLength == 3}">
-                                <div>${user.interest[0]}</div>
-                                <div>${user.interest[1]}</div>
-                                <div>${user.interest[2]}</div>
-                            </c:when>
-                            <c:when test="${user.interestLength == 4}">
-                                <div>${user.interest[0]}</div>
-                                <div>${user.interest[1]}</div>
-                                <div>${user.interest[2]}</div>
-                                <div>${user.interest[3]}</div>
-                            </c:when>
-                            <c:when test="${user.interestLength == 5}">
-                                <div>${user.interest[0]}</div>
-                                <div>${user.interest[1]}</div>
-                                <div>${user.interest[2]}</div>
-                                <div>${user.interest[3]}</div>
-                                <div>${user.interest[4]}</div>
-                            </c:when>
-                            <c:otherwise>
-                                <div></div>
-                            </c:otherwise>
-                        </c:choose>
-
-                    </div>
-                    `
-
-    /*    const parent = document.querySelector('.more-info');
-        $('#more-info').click(function () {
-            parent.insertAdjacentHTML('beforeend',htmlString)
-        });*/
-
 
     $('#homepage-btn').click(function () {
         window.location = 'http://localhost:8888/home';
     });
 
-        $('#match-btn-side').click(function () {
-            window.location = 'http://localhost:8888/match?id=0';
-        });
+    $('#match-btn-side').click(function () {
+        window.location = 'http://localhost:8888/match?id=0';
+    });
 
-   /* $('#match-btn-side').click(function () {
-        window.location = 'http://localhost:8888/test1';
-    });*/
+    /* $('#match-btn-side').click(function () {
+         window.location = 'http://localhost:8888/test1';
+     });*/
 
     $('#message-btn-side').click(function () {
         window.location = 'http://localhost:8888/message';
@@ -709,6 +689,7 @@
 
                 }
             });
+
         })
     }
 
@@ -723,8 +704,21 @@
                 contentType: 'application/json',
                 data: JSON.stringify({id: idUser}),
 
-                success: function (resultData) {
-                      alert("Save Complete")
+                success: function (response) {
+
+                    console.log(response)
+                    if (response.status == 'SUCCESS') {
+                        $('.ui.modal.match').modal('show');
+                        $(window).on('load', function() {
+                            $('#myModal').modal('show');
+                        });
+                        document.getElementById("p1").innerHTML = "Match ";
+                    } else if (response.status == 'FAIL') {
+
+                    }
+
+
+                    /*alert("Save Complete")*/
                     console.log('2')
                     resolve(1)
                 },
@@ -733,11 +727,37 @@
 
                 }
             });
+
+            function showFormError(errorVal) {
+
+                //show error messages that comming from backend and change border to red.
+                for (let i = 0; i < errorVal.length; i++) {
+                    if (errorVal[i].fieldName === 'email') {
+
+                        clearForm();
+                        EmailField.attr("placeholder", "Email").css("border", " 2px solid red");
+                        GeneralErrorField.css("display", "block").html(errorVal[i].message);
+                    } else if (errorVal[i].fieldName === 'password') {
+                        PasswordField.val('');
+                        PasswordField.attr("placeholder", "Password").css("border", " 2px solid red");
+                        GeneralErrorField.css("display", "block").html(errorVal[i].message);
+                    }
+                    /*             else if(errorVal[i].fieldName === 'FORM FAIL'){
+                                     clearForm();
+                                     GeneralErrorField.css("display", "block").html(errorVal[i].message);
+                                 }*/
+                    /*   else if(errorVal[i].fieldName === 'FORM FAIL'){
+                           clearForm();
+                           GeneralErrorField.css("display", "block").html(errorVal[i].message);
+                       }*/
+                }
+            }
         })
     }
 
 
 </script>
+
 
 </body>
 
