@@ -2,7 +2,7 @@
 Finder (tinder clone): Website dating and making new friends by manipulation swipe right
 
 1. git Clone link
-2.Run by IntelijIdea, Spring Boot, springboot:run
+2. Run by IntelijIdea, Spring Boot, springboot:run
 3. localhost:8888
 
 ## A fews picutre demo:
